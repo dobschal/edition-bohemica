@@ -8,8 +8,6 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build:dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-    "build:stage": "cross-env NODE_ENV=staging webpack --progress --hide-modules",
-    "build:ref": "cross-env NODE_ENV=reference webpack --progress --hide-modules",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {

@@ -11,14 +11,11 @@ let rootApi = "";
 switch (process.env.NODE_ENV) {
 
     case "production":
-        
-        // TODO: Add real paths...
-
-        rootApi = "";
+        rootApi = "https://edition-bohemica.api.dobschal.eu";
         break;
 
     case "development":
-        rootApi = "http://localhost:3001/";
+        rootApi = "http://localhost:3001";
         break;
 
     default: console.error(`Unknown environment ${process.env.NODE_ENV}!`);
