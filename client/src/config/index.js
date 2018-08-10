@@ -11,7 +11,7 @@ let rootApi = "";
 switch (process.env.NODE_ENV) {
 
     case "production":
-        rootApi = "https://edition-bohemica.api.dobschal.eu";
+        rootApi = "https://edition-bohemica-api.dobschal.eu";
         break;
 
     case "development":
