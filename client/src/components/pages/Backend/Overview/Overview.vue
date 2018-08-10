@@ -20,8 +20,18 @@
                         <span v-else  class="text-danger">{{ $t("general.no") }}</span>
                     </td>
                     <td>
-                        <div @click="publish(product)" :title="$t('general.publish')" class="action" :class="{ 'hide': product.public, 'publish': !product.public}"></div>
-                        <div @click="edit(product)" :title="$t('general.edit')" class="action edit"></div>
+                        <div 
+                            @click="publish(product)"
+                            v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')" 
+                            class="action" 
+                            :class="{ 'hide': product.public, 'publish': !product.public}" >
+                        </div>
+
+                        <div 
+                            @click="edit(product)" 
+                            v-tooltip="$t('general.edit')" 
+                            class="action edit" >
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -47,7 +57,7 @@ export default {
     },
     mounted()
     {
-        this.$emit("change-title",  this.$t("backend.overview.products") );
+        this.$emit("change-title",  this.$t("backend.overview.products") );        
     },
     created()
     {
@@ -61,7 +71,6 @@ export default {
             {
                 const response = await HTTP.get("/products");
                 this.products = response.data;
-                console.log("[Backend/Overview] Products: ", this.products);
             }
             catch(e)
             {
@@ -70,14 +79,11 @@ export default {
         },
         async publish( product )
         {
-            console.log("[Backend/Overview] Publish product: ", product);
-            product.public = true;
+            product.public = !product.public;
             const response = await HTTP.put(`/products/${product._id}`, product);
-            console.log("[Backend/Overview] Got response after publishing", response);
         },
         edit( product )
         {
-            console.log("[Backen/Overview] Edit product...", product);
             this.$router.push(`/admin/product/${product._id}`);
         }
     }

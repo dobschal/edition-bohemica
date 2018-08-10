@@ -15,6 +15,8 @@ import App from './components/App.vue';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
+import VTooltip from 'v-tooltip'
+
 import toastr from 'toastr';
 
 import dictionary from "./config/dictionary";
@@ -30,6 +32,8 @@ toastr.options.closeMethod = 'fadeOut';
 toastr.options.closeDuration = 300;
 toastr.options.hideDuration = 300;
 toastr.options.closeEasing = 'swing';
+
+Vue.use(VTooltip);
 
 //  Language switch works as follow:
 //  http://kazupon.github.io/vue-i18n/guide/locale.html

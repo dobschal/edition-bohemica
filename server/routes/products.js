@@ -11,7 +11,7 @@ module.exports = function ( io ) {
     router.put('/products/:productId', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("new_image"), function(req, res, next) {
         const { productId } = req.params;
         let updatedProduct = new Product(req.body);
-        updatedProduct.image = req.file.path? req.file.path : "uploads/" + updatedProduct.image.split("uploads/")[1];
+        updatedProduct.image = req.file ? req.file.path : "uploads/" + updatedProduct.image.split("uploads/")[1];
         Product.findByIdAndUpdate( productId, updatedProduct, { new: true }, ( err, updatedProductInDB ) => {
             if (err) return next(err);
             res.send({ success: true, product: updatedProductInDB });

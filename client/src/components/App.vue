@@ -21,6 +21,7 @@
     @import "../styles/animation.scss";
     @import "../../node_modules/toastr/build/toastr.css";
     @import "../styles/toasts.scss";
+    @import "../styles/tooltips.scss";
 
     body
     {
