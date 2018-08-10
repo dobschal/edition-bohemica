@@ -15,7 +15,7 @@ switch (process.env.NODE_ENV) {
         break;
 
     case "development":
-        rootApi = "http://localhost:3001";
+        rootApi = "http://localhost:3666";
         break;
 
     default: console.error(`Unknown environment ${process.env.NODE_ENV}!`);
