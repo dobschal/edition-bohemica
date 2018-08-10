@@ -84,7 +84,7 @@ export default {
     {
         async loadProduct()
         {
-            const response = await HTTP.get(`/products/${this.$route.params.productId}`);
+            const response = await HTTP().get(`/products/${this.$route.params.productId}`);
             const { description, title, image:imageUrl, isbn, modifiedAt, price, public:isPublic, subtitle, _id } = response.data;
 
             this.description = description;
@@ -149,7 +149,7 @@ export default {
                     this.percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
                 }
             }
-            HTTP.put(`/products/${this.id}`, formData, config).then( response => {
+            HTTP().put(`/products/${this.id}`, formData, config).then( response => {
                 console.log("[NewProduct] Response: ", response);
                 this.isSendingRequest = false;
                 toastr.success(this.$t("general.saveSuccessful"));

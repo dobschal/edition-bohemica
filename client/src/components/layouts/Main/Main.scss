@@ -10,6 +10,7 @@ body {
     -moz-transition: all 0.5s $transitionEasing2;
     -o-transition: all 0.5s $transitionEasing2;
     transition: all 0.5s $transitionEasing2;
+    background: $beige;
 }
 
 #wrapper.toggled {
@@ -25,7 +26,7 @@ body {
     margin-left: -250px;
     overflow-y: auto;
     // background-color: rgb(34, 37, 42);
-    background: $blue;
+    background: #000000;
     box-shadow: inset -16px 0px 16px -16px #000000;
     -webkit-transition: all 0.5s $transitionEasing2;
     -moz-transition: all 0.5s $transitionEasing2;

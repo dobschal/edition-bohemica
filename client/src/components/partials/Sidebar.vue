@@ -91,8 +91,10 @@ export default {
 
 .brand
 {
-    background-image: url("../../assets/brand.svg");
-    height: 40px;
+    background-image: url("../../assets/logo.jpg");
+    width: 100%;
+    height: 180px;
+    background-size: 150px auto;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
@@ -110,10 +112,28 @@ ul
             @include font1();
             text-decoration: none;           
             display: block;
-            width: 146px;
+            width: 150px;
             padding: 4px 0px 4px 0px;
             margin: 0 auto;
             transition: padding 0.5s $transitionEasing;
+            position: relative;
+            &:hover
+            {
+                &::before
+                {
+                    content: "Aktiv";
+                    position: absolute;
+                    top: 10px;
+                    left: -10px;
+                    width: 0;
+                    height: 0;
+                    border: 4px solid transparent;
+                    border-left-color: white;
+                    display: block;
+                    font-size: 0;
+                    line-height: 0;
+                }
+            }
         }
         a:hover, a:active
         {

@@ -5,7 +5,7 @@ import { HTTP } from "../util";
  *  replace the locally stored auth token.
  */
 
-HTTP.interceptors.response.use(response => {
+HTTP().interceptors.response.use(response => {
     console.log("[interceptor] Intercepted the response!");
     return response;
 }, error => {

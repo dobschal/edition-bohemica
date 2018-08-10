@@ -69,7 +69,7 @@ export default {
         {            
             try
             {
-                const response = await HTTP.get("/products");
+                const response = await HTTP().get("/products");
                 this.products = response.data;
             }
             catch(e)
@@ -80,7 +80,7 @@ export default {
         async publish( product )
         {
             product.public = !product.public;
-            const response = await HTTP.put(`/products/${product._id}`, product);
+            const response = await HTTP().put(`/products/${product._id}`, product);
         },
         edit( product )
         {

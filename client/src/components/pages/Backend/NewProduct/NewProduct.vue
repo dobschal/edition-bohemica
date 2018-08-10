@@ -110,7 +110,7 @@ export default {
                     this.percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
                 }
             }
-            HTTP.post("/products", formData, config).then( response => {
+            HTTP().post("/products", formData, config).then( response => {
                 console.log("[NewProduct] Response: ", response);
                 this.isSendingRequest = false;
                 toastr.success(this.$t("general.saveSuccessful"));

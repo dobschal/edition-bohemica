@@ -34,7 +34,7 @@ export default {
     methods: {
         login()
         {
-            HTTP.post("/login", {
+            HTTP().post("/login", {
                 username: this.username,
                 password: this.password
             }).then( response => {

@@ -24,12 +24,14 @@ export function deepCopy( obj )
  *  Export axios instance to make HTTP calls with.
  *  Auth header is set automatically.
  */
-export const HTTP = axios.create({
-    baseURL: config.ROOT_API,
-    headers: {
-        Authorization: `Bearer ${store.getters.token}`
-    }
-});
+export function HTTP() {
+    return axios.create({
+        baseURL: config.ROOT_API,
+        headers: {
+            Authorization: `Bearer ${store.getters.token}`
+        }
+    });
+}
 
 export function isMobileDevice()
 {

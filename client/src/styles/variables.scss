@@ -8,6 +8,8 @@ $transitionEasing2: cubic-bezier(.64,.41,0,1.36);
 
 //  i.e. background-color: rgba( $red1, 0.8 );
 
+$beige: #efebdc;
+
 $red1: #FA5C2E;
 $red2: #e43728;
 $red3: #CF0F1E;
@@ -27,14 +29,14 @@ $gold: #ffd700;
 
 //  i.e. div { @include fontSmall($fontSize: 20px); }
 
-@mixin font1( $lineHeight: 21px, $fontSize: 16px, $color: rgba( white, 1.0 ), $fontWeight: 400, $letterSpacing: 0.5px )
+@mixin font1( $lineHeight: 21px, $fontSize: 16px, $color: rgba( white, 1.0 ), $fontWeight: 800, $letterSpacing: 0.5px )
 {
     line-height: $lineHeight;
     font-size: $fontSize;
     color: $color;
     font-weight: $fontWeight;
     letter-spacing: $letterSpacing;
-    font-family: Montserrat, sans-serif;
+    font-family: Verdana, sans-serif;
 }
 
 
