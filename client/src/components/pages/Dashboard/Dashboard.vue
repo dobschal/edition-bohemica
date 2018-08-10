@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hello World 2
+        Hier kommt Inhalt..
     </div>
 </template>
 
