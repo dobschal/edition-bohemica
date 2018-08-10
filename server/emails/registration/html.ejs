@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="/registration/style.css" data-inline>
+</head>
+<body>
+    <div class="container">        
+        <p class="greeting-header">Hello <%= username %></p>
+        <div class="content">
+            Thank you for choosing ExampleWebApp.
+            You have successfully registered your account.
+            <div class="action-box">
+                Please validate your account and e-mail by clicking the following link:
+                <p class="validation-link">
+                    <a href="<%= validationLink %>" target="_blank"><%= validationLink %></a>
+                </p>
+            </div>
+        </div>
+        <div class="greeting-footer">
+            Thanks!<br>
+            Your ExampleWebApp Team
+        </div>
+    </div>
+    <div class="footer">
+        This is an auto generated e-mail. lLease do not answer. For questions ask the support. Thank you!
+    </div>
+</body>

@@ -1,0 +1,14 @@
+@media (min-width: 992px)
+{ 
+    .hidden-md-up
+    {
+        display: none;
+    }
+}
+@media (max-width: 991px)
+{ 
+    .hidden-sm-down
+    {
+        display: none;
+    }
+}

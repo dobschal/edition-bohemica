@@ -1,0 +1,32 @@
+#toast-container
+{        
+    &.toast-top-right
+    {
+        top: 110px;
+        right: 30px;
+    }
+    > div.toast
+    {
+        opacity: 1;
+        border-radius: 5px;
+        box-shadow: 0 6px 15px -6px rgba(0,0,0,0.3), 0 0 3px rgba(0,0,0,0.12);
+        border: none;
+        transition: background-color 0.5s $transitionEasing;
+        &.toast-success
+        {
+            background-color: rgba($success, 0.8);
+            &:hover
+            {
+                background-color: rgba($success, 1.0);
+            }
+        }   
+        &.toast-info
+        {
+            background-color: rgba($info, 0.8);
+            &:hover
+            {
+                background-color: rgba($info, 1.0);
+            }
+        }            
+    }
+}

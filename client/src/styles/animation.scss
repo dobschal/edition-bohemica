@@ -1,0 +1,123 @@
+
+@import "./variables.scss";
+
+//  Mark: Custom animations
+
+@keyframes drive_in
+{
+    from { opacity: 0.0; max-height: 0px; }
+    to { opacity: 1.0; max-height: 9999px; }
+}
+
+.animation-drive-in
+{
+    animation-name: driver_in;
+    animation-duration: 0.5s;
+    animation-timing-function: $transitionEasing;
+}
+
+@keyframes fade_in
+{
+    from { opacity: 0.0; transform: scale(0.8); }
+    to { opacity: 1.0; transform: scale(1.0); }
+}
+
+.animation-fade-in
+{
+    animation-name: fade_in;
+    animation-duration: 0.5s;
+    animation-timing-function: $transitionEasing;
+}
+
+@keyframes fade_in_no_scale
+{
+    from { opacity: 0.0; }
+    to { opacity: 1.0; }
+}
+
+.animation-fade-in-no-scale
+{
+    animation-name: fade_in_no_scale;
+    animation-duration: 0.5s;
+    animation-timing-function: $transitionEasing;
+}
+
+@keyframes pulse
+{
+    0%
+    {
+      box-shadow: 0 0 0 0 rgba(255,255,255, 1.0);
+    }
+    70%
+    {
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100%
+    {
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+}
+
+.animation-pulse
+{
+    box-shadow: 0 0 0 rgba(255, 255, 255, 1.0);
+    animation: pulse 2s infinite;
+    &:hover
+    {
+        animation: none;
+    }
+}
+
+@keyframes rotate
+{
+    0%
+    {
+        transform: rotateZ(0deg);
+    }
+    100%
+    {
+        transform: rotateZ(360deg);
+    }
+}
+
+.animation-rotate
+{    
+    animation: rotate 2s infinite;
+}
+
+//  Mark: Standard VueJS transition animations
+
+@mixin fade( $duration: 0.5s )
+{
+    &.fade-leave-active
+    {
+        transition: opacity $duration * 0.66 ease-in, transform $duration * 0.66 ease-in;
+    }
+    &.fade-enter-active
+    {
+        transition: opacity $duration $transitionEasing, transform $duration $transitionEasing;
+    }
+    &.fade-leave-to
+    {   
+        transform: scale(0.98); 
+        opacity: 0;
+    }
+    &.fade-enter
+    {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+}
+
+.faster-fade
+{
+    @include fade( 0.3s );
+}
+.fast-fade
+{
+    @include fade( 0.4s );
+}
+.slow-fade
+{
+    @include fade( 0.5s );
+}

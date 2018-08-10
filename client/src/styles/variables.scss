@@ -1,0 +1,57 @@
+
+//  Mark: Transitions
+
+$transitionEasing: cubic-bezier(.1,.5,.2,1);
+$transitionEasing2: cubic-bezier(.64,.41,0,1.36);
+
+//  Mark: Colors
+
+//  i.e. background-color: rgba( $red1, 0.8 );
+
+$red1: #FA5C2E;
+$red2: #e43728;
+$red3: #CF0F1E;
+
+$blue: #223448;
+
+$pink1: #FDF1F1;
+
+$green1: #97e72e;
+
+$gray1: #F7F7F7;
+$gray2: #D8D8D8;
+
+$gold: #ffd700;
+
+//  Mark: Fonts
+
+//  i.e. div { @include fontSmall($fontSize: 20px); }
+
+@mixin font1( $lineHeight: 21px, $fontSize: 16px, $color: rgba( white, 1.0 ), $fontWeight: 400, $letterSpacing: 0.5px )
+{
+    line-height: $lineHeight;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    font-family: Montserrat, sans-serif;
+}
+
+
+//  Mark: Boxes
+
+//  i.e. div { @include box(); }
+
+@mixin box( $border: none, $borderRadius: 5px, $boxShadow: (0 0 2px rgba(0,0,0,0.14), 0 0 11px rgba(0,0,0,0.05)))
+{
+    border: $border;
+    border-radius: $borderRadius;  
+    box-shadow: $boxShadow;  
+}
+
+@mixin overlayBox( $border: none, $borderRadius: 4px, $boxShadow: 0 10px 30px rgba(black, 0.25))
+{
+    border: $border;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+}
