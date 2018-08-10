@@ -26,6 +26,10 @@
                 </tr>
             </tbody>
         </table>
+        <router-link to="/admin/product/new" class="float-right btn btn-secondary">
+            <span class="action add"></span>
+            {{ $t("backend.overview.addProduct") }}
+        </router-link>
     </div>
 </template>
 
@@ -101,6 +105,11 @@ export default {
     &.edit
     {
         background-image: url("../../../../assets/icon-edit.svg");
+    }
+
+    &.add
+    {
+        background-image: url("../../../../assets/icon-add.svg");
     }
 
     &:hover

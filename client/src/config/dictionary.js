@@ -58,6 +58,7 @@ export default {
         backend: {
             overview:
             {
+                addProduct: "Add Product",
                 title: "Admin Area",
                 products: "Products",
                 error: {
@@ -126,6 +127,7 @@ export default {
         backend: {
             overview:
             {
+                addProduct: "Produkt hinzufügen",
                 title: "Admin-Bereich",
                 products: "Produkte",
                 error: {

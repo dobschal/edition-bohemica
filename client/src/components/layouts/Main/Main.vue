@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <transition name="fade" mode="out-in" >
-                        <router-view class="slow-fade" @change-title="changeTitle"></router-view>
+                        <router-view class="faster-fade" @change-title="changeTitle"></router-view>
                     </transition>              
                 </div>
 

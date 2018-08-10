@@ -23,7 +23,14 @@
             </div>
             <div class="form-group">
                 <label>{{ $t("general.image") }}</label>
-                <input accept="image/*" type="file" class="form-control" @change="imageChanged($event)">
+                <div class="row">
+                    <div class="col preview-image">
+                        <img :src="imageUrl">
+                    </div>
+                    <div class="col">
+                        <input accept="image/*" type="file" class="form-control" @change="imageChanged($event)">
+                    </div>
+                </div>                
             </div>
             <div class="inline-form">
                 <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
@@ -58,8 +65,11 @@ export default {
             isbn: "",
             price: 0.00,
             image: null,
+            imageUrl: "",
             isSendingRequest: false,
-            percentCompleted: 0
+            percentCompleted: 0,
+            isPublic: false,
+            id: ""
         }
     },
     created()
@@ -75,6 +85,18 @@ export default {
         async loadProduct()
         {
             const response = await HTTP.get(`/products/${this.$route.params.productId}`);
+            const { description, title, image:imageUrl, isbn, modifiedAt, price, public:isPublic, subtitle, _id } = response.data;
+
+            this.description = description;
+            this.title = title;
+            this.imageUrl = imageUrl;
+            this.isbn = isbn;
+            this.modifiedAt = modifiedAt;
+            this.price = price;
+            this.isPublic = isPublic;
+            this.subtitle = subtitle;
+            this.id = _id;
+
             console.log("[EditProduct] Got response: ", response);
         },
         imageChanged( e )
@@ -82,6 +104,12 @@ export default {
             if( e.target.files[0] )
             {
                 this.image = e.target.files[0];
+                var reader = new FileReader();
+                reader.onload = (e) =>
+                {
+                    this.imageUrl = e.target.result;
+                };
+                reader.readAsDataURL( this.image );
             }
         },
 
@@ -101,12 +129,14 @@ export default {
             
             let data = new FormData();
 
+            data.append( "_id", this.id );
             data.append( "title", this.title );
             data.append( "subtitle", this.subtitle );
             data.append( "description", this.description );
             data.append( "isbn", this.isbn );
             data.append( "price", this.price );
-            data.append( "image", this.image );
+            data.append( "image", this.imageUrl );
+            if( this.image ) data.append( "new_image", this.image );
             
             this.sendRequest( data );
         },
@@ -119,7 +149,7 @@ export default {
                     this.percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
                 }
             }
-            HTTP.post("/products", formData, config).then( response => {
+            HTTP.put(`/products/${this.id}`, formData, config).then( response => {
                 console.log("[NewProduct] Response: ", response);
                 this.isSendingRequest = false;
                 toastr.success(this.$t("general.saveSuccessful"));
@@ -136,6 +166,11 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.preview-image img
+{
+    width: 100%;
+}
 
 </style>
 
