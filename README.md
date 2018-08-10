@@ -1,3 +1,3 @@
 # edition-bohemica
 
-www.edition-bohemica.de
+>www.edition-bohemica.de
