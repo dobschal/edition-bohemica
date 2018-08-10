@@ -1,5 +1,5 @@
 const express           = require('express');
-const Product           = require("../models/product");
+const Product           = require("../models/Product");
 const security          = require("../services/security");
 const { userRoles }     = security;
 const uploader          = require("../uploadHandlers/productImage");
