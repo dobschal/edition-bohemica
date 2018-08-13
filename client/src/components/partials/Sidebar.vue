@@ -1,33 +1,38 @@
 <template>
     <div>
-        <div class="brand my-5"></div>
+        <router-link to="/" class="brand"></router-link>
         <nav>
             <ul v-if="!isAuthenticated">
-                <li>
-                    <router-link to="/">{{ $t("navigation.shop") }}</router-link>
-                </li>
-                <li>
-                    <router-link to="/news">{{ $t("navigation.news") }}</router-link>
-                </li>
                 <li>
                     <router-link to="/program">{{ $t("navigation.program") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/images">{{ $t("navigation.images") }}</router-link>
+                    <router-link to="/coming-soon">{{ $t("navigation.comingSoon") }}</router-link>
+                </li>
+                <li>
+                    <router-link to="/trader">{{ $t("navigation.trader") }}</router-link>
+                </li>
+                <li></li>
+                <li>
+                    <router-link to="/portrait">{{ $t("navigation.portrait") }}</router-link>
                 </li>
                 <li>
                     <router-link to="/travel">{{ $t("navigation.travel") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/portrait">{{ $t("navigation.portrait") }}</router-link>
+                    <router-link to="/images">{{ $t("navigation.images") }}</router-link>
+                </li>
+                <li></li>
+                <li>
+                    <router-link to="/agb">{{ $t("navigation.agb") }}</router-link>
+                </li>
+                <li>
+                    <router-link to="/data">{{ $t("navigation.data") }}</router-link>
                 </li>
                 <li>
                     <router-link to="/imprint">{{ $t("navigation.imprint") }}</router-link>
                 </li>
-                <li><hr></li>
-                <li >
-                    <router-link to="/login">{{ $t("navigation.login") }}</router-link>
-                </li>
+                
             </ul>
             <ul v-if="isAuthenticated">
                 <li>
@@ -39,19 +44,12 @@
                  <li>
                     <router-link to="/admin/content">{{ $t("navigation.contents") }}</router-link>
                 </li>
-                <li><hr></li>
                 <li>
                     <a href="#" @click.prevent="logout">{{ $t("navigation.logout") }}</a>
                 </li>
             </ul>
         </nav>
-        <!--<div class="language-switch">
-            <select class="form-control" v-model="language" @change="changeLanguage">
-                <option value="de">Deutsch</option>
-                <option value="en">English</option>
-                <option value="cs">český</option>
-            </select>
-        </div>-->
+        <div class="wappen"></div>
     </div>
 </template>
 
@@ -100,8 +98,21 @@ export default {
     background-size: 150px auto;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    margin: 40px;
+    margin: 40px 40px;
     border: solid 10px white;
+    display: block;
+}
+
+.wappen
+{
+    background-image: url("../../assets/wappen.png");
+    width: 170px;
+    height: 190px;
+    background-size: 170px auto;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin: 40px 40px;
+    display: block;
 }
 
 ul
@@ -111,6 +122,7 @@ ul
     li
     {
         list-style: none;
+        min-height: 16px;
         a:link, a:visited
         {
             @include font2();
@@ -122,6 +134,23 @@ ul
             margin: 0 auto;
             transition: padding 0.5s $transitionEasing;
             position: relative;
+            &.router-link-exact-active
+            {
+                font-weight: bold;
+                &::before
+                {
+                    content: "Aktiv";
+                    position: absolute;
+                    top: 10px;
+                    left: -10px;
+                    width: 4px;
+                    height: 4px;
+                    background: $darkBlue;
+                    display: block;
+                    font-size: 0;
+                    line-height: 0;
+                }
+            }
             &:hover
             {
                 &::before
@@ -130,10 +159,9 @@ ul
                     position: absolute;
                     top: 10px;
                     left: -10px;
-                    width: 0;
-                    height: 0;
-                    border: 4px solid transparent;
-                    border-left-color: white;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba($darkBlue, 0.2);
                     display: block;
                     font-size: 0;
                     line-height: 0;

@@ -1,49 +1,51 @@
 <template>
-    <div>
-        <form @submit.prevent="save">
-            <div class="form-group">
-                <label>{{ $t("general.title") }}</label>
-                <input type="text" placeholder="Titel des Produktes..." class="form-control" v-model="title">
-            </div>
-            <div class="form-group">
-                <label>{{ $t("general.subtitle") }}</label>
-                <input type="text" placeholder="Untertitel des Produktes..." class="form-control" v-model="subtitle">
-            </div>
-            <div class="form-group">
-                <label>ISBN</label>
-                <input type="text" placeholder="123456789" class="form-control" v-model="isbn">
-            </div>
-             <div class="form-group">
-                <label>{{ $t("general.description") }}</label>
-                <textarea class="form-control" v-model="description"></textarea>
-            </div>
-            <div class="form-group">
-                <label>{{ $t("general.price") }}</label>
-                <input type="number" placeholder="9,99" class="form-control" v-model="price">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="publicCheck1" v-model="isPublic">
-                <label class="form-check-label" for="publicCheck1">Öffentlich?</label>
-            </div>
-            <div class="form-group">
-                <label>{{ $t("general.image") }}</label>
-                <div class="row">
-                    <div class="col preview-image">
-                        <img :src="imageUrl">
-                    </div>
-                    <div class="col">
-                        <input accept="image/*" type="file" class="form-control" @change="imageChanged($event)">
-                    </div>
-                </div>                
-            </div>
-            <div class="inline-form">
-                <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
-                <router-link to="/admin" class="btn btn-secondary">{{ $t("general.cancel") }}</router-link>
-                <div class="badge badge-info float-right mt-2" v-if="isSendingRequest">
-                    {{ $t("general.upload") }} {{ percentCompleted }}%
+    <div class="row">  
+        <div class="col-12">      
+            <form @submit.prevent="save">
+                <div class="form-group">
+                    <label>{{ $t("general.title") }}</label>
+                    <input type="text" placeholder="Titel des Produktes..." class="form-control" v-model="title">
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label>{{ $t("general.subtitle") }}</label>
+                    <input type="text" placeholder="Untertitel des Produktes..." class="form-control" v-model="subtitle">
+                </div>
+                <div class="form-group">
+                    <label>ISBN</label>
+                    <input type="text" placeholder="123456789" class="form-control" v-model="isbn">
+                </div>
+                <div class="form-group">
+                    <label>{{ $t("general.description") }}</label>
+                    <textarea class="form-control" v-model="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>{{ $t("general.price") }}</label>
+                    <input type="number" placeholder="9,99" class="form-control" v-model="price">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="publicCheck1" v-model="isPublic">
+                    <label class="form-check-label" for="publicCheck1">Öffentlich?</label>
+                </div>
+                <div class="form-group">
+                    <label>{{ $t("general.image") }}</label>
+                    <div class="row">
+                        <div class="col preview-image">
+                            <img :src="imageUrl">
+                        </div>
+                        <div class="col">
+                            <input accept="image/*" type="file" class="form-control" @change="imageChanged($event)">
+                        </div>
+                    </div>                
+                </div>
+                <div class="inline-form">
+                    <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
+                    <router-link to="/admin" class="btn btn-secondary">{{ $t("general.cancel") }}</router-link>
+                    <div class="badge badge-info float-right mt-2" v-if="isSendingRequest">
+                        {{ $t("general.upload") }} {{ percentCompleted }}%
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -171,6 +173,11 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.col-12
+{
+    padding: 24px 48px;
+}
 
 .preview-image img
 {

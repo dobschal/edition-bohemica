@@ -5,7 +5,7 @@ export default {
     data() 
     {
         return {
-            sidebarToggled: true,
+            sidebarToggled: false,
             title: "",
             userAmount: this.$store.getters.userAmount
         };
@@ -19,15 +19,9 @@ export default {
     mounted()
     {
         window.onresize = () => {
-            if( window.innerWidth < 768 )
-            {
-                this.sidebarToggled = false;
-            }
-            else
-            {
-                this.sidebarToggled = true;
-            }
+            this.sidebarToggled = window.innerWidth >= 768;
         }; 
+        this.sidebarToggled = window.innerWidth >= 768;
         
         if( isMobileDevice() )
         {

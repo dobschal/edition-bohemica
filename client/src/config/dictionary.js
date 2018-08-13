@@ -53,7 +53,11 @@ export default {
             logout: "Logout",
             admin: "Produkte",
             newProduct: "New Product",
-            contents: "Contents"
+            contents: "Contents",
+            comingSoon: "Coming Soon",
+            trader: "Trader",
+            data: "Datenschutz",
+            agb: "AGB"
         },
         login: {
             title: "Login",
@@ -61,7 +65,7 @@ export default {
             error: "Username or password are wrong."
         },
         dashboard: {
-            title: "Edition Bohemica",
+            title: "edition bohemica",
             toNews: "To the news",
             productTitle: "Available Products"
         },
@@ -137,16 +141,20 @@ export default {
         navigation: {
             shop: "Laden",
             news: "Aktuelles",
-            program: "Programm",
+            program: "Verlagsprogramm",
             images: "Bilderschatztruhe",
-            travel: "Reiseweg nach Böhmen",
+            travel: "Reisewege nach Böhmen",
             portrait: "Verlagsportrait",
             imprint: "Impressum",
             login: "Anmelden",
             logout: "Abmelden",
             admin: "Produkte",
             newProduct: "Neues Produkt",
-            contents: "Inhalte"
+            contents: "Inhalte bearbeiten",
+            comingSoon: "In Vorbereitung",
+            trader: "Händler",
+            data: "Datenschutz",
+            agb: "AGB"
         },
         login: {
             title: "Anmeldung",
@@ -154,7 +162,7 @@ export default {
             error: "Benutzername oder Passwort sind leider falsch!"
         },
         dashboard: {
-            title: "Edition Bohemica",
+            title: "edition bohemica",
             toNews: "Zu Aktuelles",
             productTitle: "Lieferbare Titel"
         },
