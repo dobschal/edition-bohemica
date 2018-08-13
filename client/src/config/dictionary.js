@@ -62,7 +62,8 @@ export default {
         },
         dashboard: {
             title: "Edition Bohemica",
-            toNews: "To the news"
+            toNews: "To the news",
+            productTitle: "Available Products"
         },
         backend: {
             contents:
@@ -151,7 +152,8 @@ export default {
         },
         dashboard: {
             title: "Edition Bohemica",
-            toNews: "Zu Aktuelles"
+            toNews: "Zu Aktuelles",
+            productTitle: "Lieferbare Titel"
         },
         backend: {
             contents:

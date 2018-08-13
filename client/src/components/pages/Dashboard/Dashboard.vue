@@ -10,14 +10,15 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6 col-lg-4" v-for="product in products" :key="product._id">
+        <h2 class="product-title">{{ $t("dashboard.productTitle") }}</h2>
+        <div class="row products">
+            <div class="col-sm-6 col-md-4 col-lg-3 product d-flex" v-for="product in products" :key="product._id">
                 <div class="card">
                     <img class="card-img-top" :src="product.image" :alt="product.title">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.title }}</h5>
-                        <p class="card-text">{{ product.subtitle }}</p>
-                        <a href="#" class="btn btn-primary">Kaufen :D</a>
+                    <div class="card-body d-flex align-items-end flex-column">
+                        <h5 class="align-self-start card-title">{{ product.title }}</h5>
+                        <p class="align-self-start card-text">{{ product.subtitle }}</p>
+                        <router-link :to="'/product/' + product._id" class="mt-auto prduct-action">Zum Produkt</router-link>
                     </div>
                 </div>
             </div>
@@ -72,9 +73,54 @@ export default
 
 @import "../../../styles/variables.scss";
 
-.card
+.product-title
 {
+    @include font4();
+    margin: 0px 48px 24px 32px;
+}
 
+.products
+{
+    padding-left: 32px;
+    padding-right: 32px;
+    .product
+    {
+        padding: 0px 16px 32px 16px;
+        .card
+        {
+            background: rgba( $gray1, 0.25 );
+            border-radius: 0px;
+            border: solid 1px rgba( $darkBlue, 0.1 );        
+            .card-img-top
+            {
+                width: calc( 100% - 32px );
+                margin: 16px 16px 0px 16px;
+                border-radius: 0;
+            }
+            .card-body
+            {
+                padding: 16px;
+                h5.card-title
+                {
+                    @include font2( $fontWeight: bold );
+                    margin: 0;
+                }
+                .card-text
+                {
+                    @include font5();  
+                    margin: 0 0 16px 0;                  
+                }
+                .prduct-action
+                {
+                    background: url("../../../assets/button-product.svg");
+                    width: 24px;
+                    height: 24px;
+                    font-size: 0;
+                    line-height: 0;
+                }
+            }
+        }
+    }
 }
 
 .header-content
@@ -92,7 +138,7 @@ export default
     .content
     {
         @include font2();
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 }
 

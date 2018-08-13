@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon-Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-458.000000, -669.000000)">
+            <g id="Content" transform="translate(298.000000, 78.000000)">
+                <g id="Lieferbare-Titel" transform="translate(0.000000, 181.000000)">
+                    <g id="Produkt-1" transform="translate(0.000000, 48.000000)">
+                        <g id="Icon-Button" transform="translate(160.000000, 362.000000)">
+                            <rect id="Rectangle" fill-opacity="0.743319746" fill="#000026" x="0" y="0" width="24" height="24" rx="3.42857143"></rect>
+                            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" transform="translate(12.947679, 12.000000) scale(-1, 1) translate(-12.947679, -12.000000) " points="17.3239286 5.9025 15.9964286 4.575 8.57142857 12 15.9964286 19.425 17.3239286 18.0975 11.2264286 12"></polygon>
+                            <polygon id="Shape" points="6 3 24 3 24 21 6 21"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
