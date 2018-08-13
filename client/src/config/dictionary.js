@@ -12,6 +12,9 @@ export default {
             'dashboard-title': "Dashboard title",
             'dashboard-content': "Dashboard content"
         },
+        news: {
+            title: "News"
+        },
         general: {
             edit: "edit",
             actions: "Actions",
@@ -108,6 +111,9 @@ export default {
         {
             'dashboard-title': "Begrüßung Startseite",
             'dashboard-content': "Text Startseite"
+        },
+        news: {
+            title: "Aktuelles"
         },
         general: {
             edit: "Bearbeiten",

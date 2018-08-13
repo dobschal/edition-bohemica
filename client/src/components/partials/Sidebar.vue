@@ -50,6 +50,10 @@
             </ul>
         </nav>
         <div class="wappen"></div>
+        <div class="footer">
+            <router-link to="/login" class="cog-wheel"></router-link>
+            <div class="version-number">{{ version }}</div>
+        </div>
     </div>
 </template>
 
@@ -68,7 +72,8 @@ export default {
     data()
     {
         return {
-            language: "de"
+            language: "de",
+            version: "1.0.0 (123)"
         }
     },
     methods: {
@@ -180,6 +185,32 @@ ul
 {
     width: 146px;
     margin: 20px auto;
+}
+
+.footer
+{
+    .cog-wheel
+    {
+        background: url("../../assets/icon-wheel.svg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        margin: 16px;
+        height: 24px;
+        width: 24px;
+        display: inline-block;
+            vertical-align: bottom;
+        &:hover
+        {
+            cursor: pointer;
+        }
+    }
+
+    .version-number
+    {
+        @include font5( $color: rgba($darkBlue, 0.5) );
+        display: inline-block;
+        margin: 16px;
+    }
 }
 
 </style>

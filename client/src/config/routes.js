@@ -12,6 +12,7 @@ import MainLayout from '../components/layouts/Main/Main.vue';
 import DashboardPage from "../components/pages/Dashboard/Dashboard.vue";
 import ProductPage from "../components/pages/Product/Product.vue";
 import LoginPage from "../components/pages/Login.vue";
+import NewsPage from "../components/pages/News.vue";
 import NotFoundPage from "../components/pages/NotFound.vue";
 import BackendPage from "../components/pages/Backend/Overview/Overview.vue";
 import BackendProductNewPage from "../components/pages/Backend/NewProduct/NewProduct.vue";
@@ -51,7 +52,12 @@ export default [
         path: "/login", 
         component: MainLayout,  
         children: [{ path: "", components: { default: LoginPage } }]
-    },   
+    },
+    { 
+        path: "/news", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: NewsPage } }]        
+    }, 
     { 
         path: "/product/:productId", 
         component: MainLayout,  

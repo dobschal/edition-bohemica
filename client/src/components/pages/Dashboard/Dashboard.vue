@@ -6,7 +6,7 @@
                 <div class="content" v-html="headerContent">
                 </div>                
                 <div>
-                    <button class="btn btn-primary">{{ $t("dashboard.toNews") }}</button>
+                    <router-link to="/news" class="btn btn-primary">{{ $t("dashboard.toNews") }}</router-link>
                 </div>
             </div>
         </div>
