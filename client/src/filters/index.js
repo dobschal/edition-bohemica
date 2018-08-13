@@ -25,6 +25,13 @@ Vue.filter('numbersAfterComma', (value, numbersAfterComma) => {
     return parsedFloat.toFixed( numbersAfterComma);
 });
 
+Vue.filter('price', (value, numbersAfterComma) => {
+    if ( !value || isNaN(value) ) return "€ 0,00";
+    let parsedFloat = parseFloat( value );
+    let fixed = parsedFloat.toFixed( 2 );
+    return "€ " + fixed.replace(".", ",");
+});
+
 Vue.filter('minutesToAccurateUnit', value => {
     if ( !value || isNaN(value) ) return "0m";
     let parsedFloat = parseFloat( value );    

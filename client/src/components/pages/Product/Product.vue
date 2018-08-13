@@ -1,10 +1,25 @@
 <template>
-    <div v-if="product" class="row">
+    <div v-if="product" class="row product">
         <div class="col-sm-4">
             <img :src="product.image">
         </div>
         <div class="col-sm-8">
-            <h3>{{ product.title }}</h3>
+            <h3>{{ product.title }}<br><small>{{ product.subtitle}}</small></h3>
+            <div class="group">
+                <div class="caption">ISBN</div>
+                {{ product.isbn }}
+            </div>
+            <div class="group">
+                <div class="caption">{{ $t("general.description") }}</div>
+                {{ product.description }}
+            </div>
+            <div class="group">
+                <div class="caption">{{ $t("general.price") }}</div>
+                {{ product.price | price }}
+            </div>
+            <div class="group">
+                <button class="btn btn-primary">{{ $t("product.orderNow") }}</button>
+            </div>
         </div>
     </div>
 </template>
@@ -24,6 +39,7 @@ export default {
     created()
     {
         this.load();
+        this.$emit("change-title", "edition bohemica" );
     },
     methods:
     {
@@ -47,19 +63,64 @@ export default {
 
 <style lang="scss" scoped>
 
-.row
+@import "../../../styles/variables.scss";
+
+.row.product
 {
+    padding: 40px 48px;
     .col-sm-4
     {
+        padding: 0;
         img
         {
             width: 100%;
         }
     }
 
-    .col-sm-4
+    .col-sm-8
     {
-        padding: 4px;
+        padding: 0 0 0 40px;
+
+        h3
+        {
+            @include font4( $color: rgba($darkBlue, 0.8), $lineHeight: 24px );
+            margin: 0 0 24px 0;
+
+            small
+            {
+                @include font2( $color: rgba($darkBlue, 0.8) );
+            }
+        }
+
+        .group
+        {
+            @include font2( $color: rgba($darkBlue, 0.8) );
+            padding-bottom: 24px;
+            .caption
+            {
+                @include font5( $color: rgba($darkBlue, 0.5), $lineHeight: 12px );            
+            }
+        }
+    }
+}
+
+@media(max-width:575px) {
+    .row.product
+    {
+        padding: 40px 48px;
+        .col-sm-4
+        {
+            padding: 0;
+            img
+            {
+                width: 100%;
+            }
+        }
+
+        .col-sm-8
+        {
+            padding: 40px 0 0 0;
+        }
     }
 }
 

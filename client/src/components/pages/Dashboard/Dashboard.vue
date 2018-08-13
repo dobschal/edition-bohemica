@@ -32,13 +32,22 @@ import { HTTP } from "../../../util";
 
 export default
 {
+    computed:
+    {
+        headerTitle()
+        { 
+            return this.$store.getters.content("dashboard-title");
+        },
+        headerContent()
+        {
+            return this.$store.getters.content("dashboard-content");
+        }
+    },
     data()
     {
         return {
             products: [],
-            errors: [],
-            headerTitle: this.$store.getters.content("dashboard-title"),
-            headerContent: this.$store.getters.content("dashboard-content")
+            errors: []            
         }  
     },
     mounted()
@@ -126,9 +135,8 @@ export default
 .header-content
 {
     padding-left: 48px;
-    padding-top: 24px;
-    padding-bottom: 48px;
-
+    padding-top: 48px;
+    padding-bottom: 48px;    
     h2
     {
         @include font4();
@@ -139,6 +147,7 @@ export default
     {
         @include font2();
         margin-bottom: 16px;
+        margin-top: -1rem;
     }
 }
 

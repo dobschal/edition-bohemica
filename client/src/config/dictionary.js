@@ -65,6 +65,9 @@ export default {
             toNews: "To the news",
             productTitle: "Available Products"
         },
+        product: {
+            orderNow: "Order Now"
+        },
         backend: {
             contents:
             {
@@ -154,6 +157,9 @@ export default {
             title: "Edition Bohemica",
             toNews: "Zu Aktuelles",
             productTitle: "Lieferbare Titel"
+        },
+        product: {
+            orderNow: "Jetzt Bestellen"
         },
         backend: {
             contents:
