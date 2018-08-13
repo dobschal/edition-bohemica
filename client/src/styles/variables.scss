@@ -8,28 +8,50 @@ $transitionEasing2: cubic-bezier(.64,.41,0,1.36);
 
 //  i.e. background-color: rgba( $red1, 0.8 );
 
-$beige: #efebdc;
+$darkBlue: #000026;
 
-$red1: #FA5C2E;
-$red2: #e43728;
-$red3: #CF0F1E;
-
-$blue: #223448;
-
-$pink1: #FDF1F1;
-
-$green1: #97e72e;
-
-$gray1: #F7F7F7;
-$gray2: #D8D8D8;
-
-$gold: #ffd700;
+$gray1: #E0E1E9;
 
 //  Mark: Fonts
 
 //  i.e. div { @include fontSmall($fontSize: 20px); }
 
-@mixin font1( $lineHeight: 21px, $fontSize: 16px, $color: rgba( white, 1.0 ), $fontWeight: 800, $letterSpacing: 0.5px )
+// MAIN HEADLINE
+@mixin font1( $lineHeight: 32px, $fontSize: 22px, $color: $darkBlue, $fontWeight: bold, $letterSpacing: 0.0px, $fontStyle: italic )
+{
+    line-height: $lineHeight;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    font-family: Verdana, sans-serif;
+    font-style: $fontStyle;
+}
+
+// SECOND HEADLINE
+@mixin font4( $lineHeight: 32px, $fontSize: 18px, $color: $darkBlue, $fontWeight: bold, $letterSpacing: 0.0px )
+{
+    line-height: $lineHeight;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    font-family: Verdana, sans-serif;
+}
+
+// MAIN TEXT
+@mixin font2( $lineHeight: 24px, $fontSize: 14px, $color: $darkBlue, $fontWeight: 400, $letterSpacing: 0.0px )
+{
+    line-height: $lineHeight;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    font-family: Verdana, sans-serif;
+}
+
+// BUTTON TEXTS
+@mixin font3( $lineHeight: 28px, $fontSize: 12px, $color: white, $fontWeight: bold, $letterSpacing: 0.0px )
 {
     line-height: $lineHeight;
     font-size: $fontSize;

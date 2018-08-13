@@ -99,12 +99,12 @@
     }
     &.fade-leave-to
     {   
-        transform: scale(0.98); 
+        transform: scale(1.0); 
         opacity: 0;
     }
     &.fade-enter
     {
-        transform: scale(1.05);
+        transform: scale(0.98);
         opacity: 0;
     }
 }

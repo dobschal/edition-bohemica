@@ -21,6 +21,10 @@
                 <label>{{ $t("general.price") }}</label>
                 <input type="number" placeholder="9,99" class="form-control" v-model="price">
             </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="publicCheck1" v-model="isPublic">
+                <label class="form-check-label" for="publicCheck1">Öffentlich?</label>
+            </div>
             <div class="form-group">
                 <label>{{ $t("general.image") }}</label>
                 <div class="row">
@@ -136,6 +140,7 @@ export default {
             data.append( "isbn", this.isbn );
             data.append( "price", this.price );
             data.append( "image", this.imageUrl );
+            data.append( "public", this.isPublic );            
             if( this.image ) data.append( "new_image", this.image );
             
             this.sendRequest( data );

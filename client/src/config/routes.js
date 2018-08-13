@@ -15,10 +15,22 @@ import NotFoundPage from "../components/pages/NotFound.vue";
 import BackendPage from "../components/pages/Backend/Overview/Overview.vue";
 import BackendProductNewPage from "../components/pages/Backend/NewProduct/NewProduct.vue";
 import BackendProductEditPage from "../components/pages/Backend/EditProduct/EditProduct.vue";
+import BackendContentEditPage from "../components/pages/Backend/EditContent/EditContent.vue";
+import BackendContentsPage from "../components/pages/Backend/Contents/Contents.vue";
 
 // Partials
 
 export default [
+    { 
+        path: "/admin/content", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: BackendContentsPage }, meta: { secured: true } }]        
+    }, 
+    { 
+        path: "/admin/content/:contentId", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: BackendContentEditPage }, meta: { secured: true } }]        
+    }, 
     { 
         path: "/admin/product/new", 
         component: MainLayout,  

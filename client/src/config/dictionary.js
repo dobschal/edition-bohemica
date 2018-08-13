@@ -7,6 +7,11 @@
 
 export default {
     en: {
+        contentId:
+        {
+            'dashboard-title': "Dashboard title",
+            'dashboard-content': "Dashboard content"
+        },
         general: {
             edit: "edit",
             actions: "Actions",
@@ -32,7 +37,8 @@ export default {
                 pageNotFound: "Sorry! Page not found.",
                 unauthorized: "Sorry! Please login first!",
                 missingInput: "The input values are not valid.",
-                save: "Error while saving data."
+                save: "Error while saving data.",
+                load: "Error while loading data!"
             }
         },
         navigation: {
@@ -46,7 +52,8 @@ export default {
             login: "Login",
             logout: "Logout",
             admin: "Produkte",
-            newProduct: "New Product"
+            newProduct: "New Product",
+            contents: "Contents"
         },
         login: {
             title: "Login",
@@ -54,16 +61,28 @@ export default {
             error: "Username or password are wrong."
         },
         dashboard: {
-            title: "Edition Bohemica"
+            title: "Edition Bohemica",
+            toNews: "To the news"
         },
         backend: {
+            contents:
+            {
+                title: "Inhalte"
+            },
+            editContent:
+            {
+                title: "Texte Bearbeiten"
+            },
             overview:
             {
                 addProduct: "Add Product",
                 title: "Admin Area",
                 products: "Products",
+                sort: "Products sorted.",                
                 error: {
-                    load: "Error! Unable to load products."
+                    load: "Error! Unable to load products.",
+                    sort: "Error! Unable to sort products.",
+                    publish: "Error! Unable to publish product."
                 }
             },
             newProduct:
@@ -77,6 +96,11 @@ export default {
         }
     },
     de: {
+        contentId:
+        {
+            'dashboard-title': "Begrüßung Startseite",
+            'dashboard-content': "Text Startseite"
+        },
         general: {
             edit: "Bearbeiten",
             actions: "Aktionen",
@@ -102,7 +126,8 @@ export default {
                 pageNotFound: "Entschuldigung! Die Seite wurde nicht gefunden.",
                 unauthorized: "Entschuldigung! Bitte melden Sie sich zunächst an.",
                 missingInput: "Es sind nicht alle Felder korrekt ausgefüllt.",
-                save: "Beim Speichern ist ein Fehler aufgetreten."
+                save: "Beim Speichern ist ein Fehler aufgetreten.",
+                load: "Beim Laden der Daten ist ein Fehler aufgetreten!"
             }
         },
         navigation: {
@@ -116,7 +141,8 @@ export default {
             login: "Anmelden",
             logout: "Abmelden",
             admin: "Produkte",
-            newProduct: "Neues Produkt"
+            newProduct: "Neues Produkt",
+            contents: "Inhalte"
         },
         login: {
             title: "Anmeldung",
@@ -124,16 +150,28 @@ export default {
             error: "Benutzername oder Passwort sind leider falsch!"
         },
         dashboard: {
-            title: "Edition Bohemica"
+            title: "Edition Bohemica",
+            toNews: "Zu Aktuelles"
         },
         backend: {
+            contents:
+            {
+                title: "Inhalte"
+            },
+            editContent:
+            {
+                title: "Texte Bearbeiten"
+            },
             overview:
             {
+                sort: "Produkte wurden sortiert.",                
                 addProduct: "Produkt hinzufügen",
                 title: "Admin-Bereich",
                 products: "Produkte",
                 error: {
-                    load: "Fehler! Konnte Produkte nicht laden."
+                    load: "Fehler! Konnte Produkte nicht laden.",
+                    sort: "Fehler! Sortierung konnte nicht gespeichert werden!",
+                    publish: "Fehler! Produkt konnte nicht veröffentlicht werden!"
                 }
             },
             newProduct:

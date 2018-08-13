@@ -1,5 +1,15 @@
 <template>
-    <div class="container-fluid">
+    <div>
+        <div class="row">
+            <div class="header-content">
+                <h2 v-html="headerTitle"></h2>
+                <div class="content" v-html="headerContent">
+                </div>                
+                <div>
+                    <button class="btn btn-primary">{{ $t("dashboard.toNews") }}</button>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-6 col-lg-4" v-for="product in products" :key="product._id">
                 <div class="card">
@@ -25,7 +35,9 @@ export default
     {
         return {
             products: [],
-            errors: []
+            errors: [],
+            headerTitle: this.$store.getters.content("dashboard-title"),
+            headerContent: this.$store.getters.content("dashboard-content")
         }  
     },
     mounted()
@@ -58,9 +70,30 @@ export default
 
 <style lang="scss" scoped>
 
+@import "../../../styles/variables.scss";
+
 .card
 {
 
+}
+
+.header-content
+{
+    padding-left: 48px;
+    padding-top: 24px;
+    padding-bottom: 48px;
+
+    h2
+    {
+        @include font4();
+        margin: 0;
+    }
+
+    .content
+    {
+        @include font2();
+        margin-bottom: 24px;
+    }
 }
 
 </style>

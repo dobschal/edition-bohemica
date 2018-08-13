@@ -8,6 +8,8 @@ export default function() {
     return {
         user: {
             token: ""
-        }
+        },
+        content: {},
+        userAmount: 0
     };
 }

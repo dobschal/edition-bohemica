@@ -25,5 +25,21 @@ export default
     deleteToken( state )
     {
         state.user.token = null;
+    },
+
+    /**
+     *  We store all texts in the local storage and load them on page start.
+     *  @param {VueState} state - current stored data
+     *  @param {object} content - dictionary of contents to be stored
+     *  @returns {void}
+     */
+    storeContent( state, content )
+    {
+        state.content = content;
+    },
+
+    storeUserAmount( state, amount )
+    {
+        state.userAmount = amount;
     }
 };

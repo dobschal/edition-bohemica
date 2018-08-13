@@ -6,7 +6,8 @@ export default {
     {
         return {
             sidebarToggled: true,
-            title: ""
+            title: "",
+            userAmount: this.$store.getters.userAmount
         };
     },
     watch: {

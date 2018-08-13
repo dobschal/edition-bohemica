@@ -8,6 +8,7 @@ var productSchema = mongoose.Schema({
     price: { type: Number, required: true },
     public: { type: Boolean, required: true, default: false },
     image: { type: String, required: false, default: "" },
+    sortIndex: { type: Number, required: true, default: 0 },
     modifiedAt: { type: Date, required: true, default: new Date() }
 });
 

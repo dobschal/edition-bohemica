@@ -11,13 +11,13 @@ import 'bootstrap';
 import "./interceptors";
 import "./filters";
 
+import toastr from 'toastr';
+
 import App from './components/App.vue';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
-import VTooltip from 'v-tooltip'
-
-import toastr from 'toastr';
+import VTooltip from 'v-tooltip';
 
 import dictionary from "./config/dictionary";
 import routes from "./config/routes";

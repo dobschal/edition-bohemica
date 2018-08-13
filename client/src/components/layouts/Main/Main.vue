@@ -11,14 +11,16 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">  
-                    <div class="row topbar align-items-center mb-3 pb-3">
-                        <div class="col" @click="toggleSidebar">
-                            <div class="burger-button"></div>
+                    <div class="row topbar align-items-center">
+                        <div class="col burger-button-wrapper">
+                            <div class="burger-button" @click="toggleSidebar"></div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-8">
                             <h1>{{ title }}</h1>
                         </div>
-                        <div class="col" id="top-right-corner">
+                        <div class="col user-amount">
+                            <span class="icon-users"></span>
+                            {{ userAmount }}
                         </div>
                     </div>
                     <transition name="fade" mode="out-in" >

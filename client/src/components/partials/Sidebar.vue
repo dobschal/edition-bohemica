@@ -36,19 +36,22 @@
                 <li>
                     <router-link to="/admin/product/new">{{ $t("navigation.newProduct") }}</router-link>
                 </li>
+                 <li>
+                    <router-link to="/admin/content">{{ $t("navigation.contents") }}</router-link>
+                </li>
                 <li><hr></li>
                 <li>
                     <a href="#" @click.prevent="logout">{{ $t("navigation.logout") }}</a>
                 </li>
             </ul>
         </nav>
-        <div class="language-switch">
+        <!--<div class="language-switch">
             <select class="form-control" v-model="language" @change="changeLanguage">
                 <option value="de">Deutsch</option>
                 <option value="en">English</option>
                 <option value="cs">český</option>
             </select>
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -92,11 +95,13 @@ export default {
 .brand
 {
     background-image: url("../../assets/logo.jpg");
-    width: 100%;
-    height: 180px;
+    width: 170px;
+    height: 190px;
     background-size: 150px auto;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    margin: 40px;
+    border: solid 10px white;
 }
 
 ul
@@ -108,12 +113,12 @@ ul
         list-style: none;
         a:link, a:visited
         {
+            @include font2();
             text-decoration: none;
-            @include font1();
             text-decoration: none;           
             display: block;
             width: 150px;
-            padding: 4px 0px 4px 0px;
+            padding: 0px;
             margin: 0 auto;
             transition: padding 0.5s $transitionEasing;
             position: relative;
@@ -138,7 +143,7 @@ ul
         a:hover, a:active
         {
             text-decoration: none;
-            padding: 4px 0px 4px 10px;
+            padding-left: 10px;
         }
     }
 }

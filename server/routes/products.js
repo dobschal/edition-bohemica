@@ -8,6 +8,36 @@ const router  = express.Router();
 
 module.exports = function ( io ) {    
 
+    router.put('/products', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("new_image"), function(req, res, next) {
+        const products = req.body;
+        let countDownLatch = products.length;
+        let error = false;
+        if( countDownLatch <= 0 ) res.send({ success: false, info: "No content to update." });
+        products.forEach( product => {
+            let updatedProduct = new Product( product );
+            updatedProduct.image = "uploads/" + updatedProduct.image.split("uploads/")[1];
+            Product.findByIdAndUpdate( product._id, updatedProduct, { new: true }, ( err, updatedProductInDB ) => {
+                countDownLatch--;
+                if (err)
+                {
+                    error = err;
+                }
+                else
+                {
+                    io.emit( "ProductChanged", updatedProductInDB );
+                }                
+                if( countDownLatch <= 0 && error ) 
+                {
+                    return next(error);
+                }
+                else if(countDownLatch <= 0)
+                {
+                    return res.send({ success: true, product: updatedProductInDB });
+                }
+            });
+        });        
+    });
+
     router.put('/products/:productId', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("new_image"), function(req, res, next) {
         const { productId } = req.params;
         let updatedProduct = new Product(req.body);
@@ -31,7 +61,12 @@ module.exports = function ( io ) {
 
     router.get('/products', function(req, res, next) {
         const protocoll = req.connection.encrypted ? "https" : "http";
-        Product.find(( err, productssFromDB ) => {
+        Product.find({}, [], {
+            sort:
+            {
+                sortIndex: 1
+            }
+        }, ( err, productssFromDB ) => {
             if (err) return next( err );
             res.send( productssFromDB.map( product => {
                 if(product.image)
