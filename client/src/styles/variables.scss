@@ -40,7 +40,7 @@ $gray1: #E0E1E9;
 }
 
 // MAIN TEXT
-@mixin font2( $lineHeight: 24px, $fontSize: 14px, $color: $darkBlue, $fontWeight: 400, $letterSpacing: 0.0px )
+@mixin font2( $lineHeight: 24px, $fontSize: 13px, $color: $darkBlue, $fontWeight: 400, $letterSpacing: 0.0px )
 {
     line-height: $lineHeight;
     font-size: $fontSize;
