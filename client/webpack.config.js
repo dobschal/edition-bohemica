@@ -3,6 +3,16 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+let uglifyPlugin = new UglifyJsPlugin({
+    uglifyOptions: {
+      compress: {
+        warnings: false
+      }
+    },
+    sourceMap: true
+  });
 
 let copyWebpackPlugin = new CopyWebpackPlugin([{ from: './static', to: "./" }]);
 
@@ -113,6 +123,7 @@ module.exports = {
     devtool: '#eval-source-map',
     plugins: [
         cleanWebpackPlugin,
+        uglifyPlugin,
         htmlWebpackPlugin,
         environmentPlugin,
         copyWebpackPlugin
