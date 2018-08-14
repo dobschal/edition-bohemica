@@ -12,8 +12,18 @@ export default {
             orderNow: "Order Now",
             checkout:
             {
+                countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
                 title: "Finish order",
-                name: "Name"
+                name: "Name",
+                email: "E-Mail",
+                street: "Street",
+                houseNumber: "House number",
+                zipCode: "Postal Code",
+                city: "City",
+                country: "Country",
+                comment: "Comment",
+                submit: "Send order",
+                emailInfo: "All order information will be send to this e-mail address."
             }
         },
         contentId:
@@ -118,8 +128,18 @@ export default {
             orderNow: "Jetzt Bestellen",
             checkout:
             {
+                countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
                 title: "Bestellung abschließen",
-                name: "Name"
+                name: "Name",
+                email: "E-Mail",
+                street: "Straße",
+                houseNumber: "Hausnummer",
+                zipCode: "Postleitzahl",
+                city: "Stadt",
+                country: "Land",
+                comment: "Kommentar",
+                submit: "Bestellung abschicken",
+                emailInfo: "Alle Bestellinformationen werden an diese E-Mail gesendet."
             }
         },
         contentId:
@@ -149,7 +169,7 @@ export default {
             saveInProgress: "Inhalt wird gerade gespeichert...",
             saveSuccessful: "Speichern war erfolgreich.",
             save: "Seichern",
-            cancel: "Abbruch",
+            cancel: "Abbrechen",
             upload: "Hochladen",
             error: {
                 pageNotFound: "Entschuldigung! Die Seite wurde nicht gefunden.",

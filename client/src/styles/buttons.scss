@@ -21,4 +21,15 @@
             background-color: rgba( $darkBlue, 0.7 );
         }
     }
+
+    &.btn-secondary
+    {
+        color: $darkBlue;
+        border: none;
+        background: rgba($darkBlue, 0.1);
+        &:hover
+        {
+            background: rgba($darkBlue, 0.15);
+        }
+    }
 }

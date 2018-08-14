@@ -110,7 +110,7 @@ export default
                 padding: 16px;
                 h5.card-title
                 {
-                    @include font2( $fontWeight: bold );
+                    @include font2( $fontWeight: bold, $fontSize: 14px );
                     margin: 0;
                 }
                 .card-text
@@ -150,7 +150,7 @@ export default
 
     >>> div.content
     {
-        @include font2();
+        @include font2( $fontSize: 14px );
         margin-bottom: 16px;
 
         // https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e
