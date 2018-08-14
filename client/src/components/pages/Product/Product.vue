@@ -19,6 +19,7 @@
             </div>
             <div class="group">
                 <router-link :to="'/product/' + product._id + '/checkout'" class="btn btn-primary">{{ $t("product.orderNow") }}</router-link>
+                <button class="btn btn-secondary" @click="$router.go(-1)">{{ $t("general.back") }}</button>
             </div>
         </div>
     </div>
@@ -64,6 +65,11 @@ export default {
 <style lang="scss" scoped>
 
 @import "../../../styles/variables.scss";
+
+.btn.btn-secondary
+{
+    margin-left: 16px;
+}
 
 .row.product
 {

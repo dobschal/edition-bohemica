@@ -8,8 +8,8 @@
         <g id="Desktop-HD" transform="translate(-263.000000, -13.000000)">
             <g id="Topbar" transform="translate(249.000000, -1.000000)">
                 <g id="Icon-Button" transform="translate(14.000000, 14.000000)">
-                    <rect id="Rectangle" fill-opacity="0.743319746" fill="#000026" x="0" y="0" width="28" height="28" rx="4"></rect>
-                    <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="17.21125 6.88625 15.6625 5.3375 7 14 15.6625 22.6625 17.21125 21.11375 10.0975 14"></polygon>
+                    <rect id="Rectangle" fill-opacity="0.1" fill="#000026" x="0" y="0" width="28" height="28" rx="4"></rect>
+                    <polygon id="Shape" fill="#000026" fill-rule="nonzero" points="17.21125 6.88625 15.6625 5.3375 7 14 15.6625 22.6625 17.21125 21.11375 10.0975 14"></polygon>
                     <polygon id="Shape" points="7 3.5 28 3.5 28 24.5 7 24.5"></polygon>
                 </g>
             </g>

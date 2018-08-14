@@ -35,6 +35,7 @@ export default {
             title: "News"
         },
         general: {
+            back: "back",
             edit: "edit",
             actions: "Actions",
             publish: "publish",
@@ -151,6 +152,7 @@ export default {
             title: "Aktuelles"
         },
         general: {
+            back: "Zurück",
             edit: "Bearbeiten",
             actions: "Aktionen",
             publish: "Veröffentlichen",

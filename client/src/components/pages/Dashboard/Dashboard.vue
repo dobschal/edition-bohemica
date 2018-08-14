@@ -11,13 +11,16 @@
         </div>
         <h2 class="product-title">{{ $t("dashboard.productTitle") }}</h2>
         <div class="row products">
-            <div class="col-sm-6 col-md-4 col-lg-3 product d-flex" v-for="product in products" :key="product._id">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 product d-flex" v-for="product in products" :key="product._id">
                 <div class="card">
                     <img class="card-img-top" :src="product.image" :alt="product.title">
                     <div class="card-body d-flex align-items-end flex-column">
                         <h5 class="align-self-start card-title">{{ product.title }}</h5>
                         <p class="align-self-start card-text">{{ product.subtitle }}</p>
-                        <router-link :to="'/product/' + product._id" class="mt-auto prduct-action">Zum Produkt</router-link>
+                        <div class="mt-auto">
+                            <span class="price-info">{{ product.price | price }}</span>
+                            <router-link :to="'/product/' + product._id" class="product-action">Zum Produkt</router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,13 +121,20 @@ export default
                     @include font5();  
                     margin: 0 0 16px 0;                  
                 }
-                .prduct-action
+                .price-info
+                {
+                    @include font2( $fontWeight: bold, $fontSize: 13px );
+                    margin-right: 16px;
+                }
+                .product-action
                 {
                     background: url("../../../assets/button-product.svg");
                     width: 24px;
                     height: 24px;
                     font-size: 0;
                     line-height: 0;
+                    display: block;
+                    float: right;
                 }
             }
         }
