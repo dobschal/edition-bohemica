@@ -2,9 +2,8 @@
     <div>
         <div class="row">
             <div class="header-content">
-                <h2 v-html="headerTitle"></h2>
-                <div class="content" v-html="headerContent">
-                </div>                
+                <h2 class="header-title" v-html="headerTitle"></h2>
+                <div class="content" v-html="headerContent"></div>                
                 <div>
                     <router-link to="/news" class="btn btn-primary">{{ $t("dashboard.toNews") }}</router-link>
                 </div>
@@ -137,17 +136,28 @@ export default
     padding-left: 48px;
     padding-top: 48px;
     padding-bottom: 48px;    
-    h2
+
+    >>> h2.header-title
     {
         @include font4();
         margin: 0;
+
+        >>> p
+        {
+            margin: 0;
+        }
     }
 
-    .content
+    >>> div.content
     {
         @include font2();
         margin-bottom: 16px;
-        margin-top: -1rem;
+
+        // https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e
+        >>> p
+        {
+            margin: 0;
+        }
     }
 }
 

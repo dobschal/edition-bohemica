@@ -11,6 +11,7 @@ import MainLayout from '../components/layouts/Main/Main.vue';
 //  Pages
 import DashboardPage from "../components/pages/Dashboard/Dashboard.vue";
 import ProductPage from "../components/pages/Product/Product.vue";
+import ProductCheckoutPage from "../components/pages/Product/Checkout.vue";
 import LoginPage from "../components/pages/Login.vue";
 import NewsPage from "../components/pages/News.vue";
 import NotFoundPage from "../components/pages/NotFound.vue";
@@ -58,6 +59,11 @@ export default [
         component: MainLayout,  
         children: [{ path: "", components: { default: NewsPage } }]        
     }, 
+    { 
+        path: "/product/:productId/checkout", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: ProductCheckoutPage } }]        
+    },
     { 
         path: "/product/:productId", 
         component: MainLayout,  

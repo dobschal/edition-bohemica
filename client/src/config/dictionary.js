@@ -7,6 +7,15 @@
 
 export default {
     en: {
+        product:
+        {
+            orderNow: "Order Now",
+            checkout:
+            {
+                title: "Finish order",
+                name: "Name"
+            }
+        },
         contentId:
         {
             'dashboard-title': "Dashboard title",
@@ -72,9 +81,6 @@ export default {
             toNews: "To the news",
             productTitle: "Available Products"
         },
-        product: {
-            orderNow: "Order Now"
-        },
         backend: {
             contents:
             {
@@ -107,6 +113,15 @@ export default {
         }
     },
     de: {
+        product:
+        {
+            orderNow: "Jetzt Bestellen",
+            checkout:
+            {
+                title: "Bestellung abschließen",
+                name: "Name"
+            }
+        },
         contentId:
         {
             'dashboard-title': "Begrüßung Startseite",
@@ -171,9 +186,6 @@ export default {
             title: "edition bohemica",
             toNews: "Zu Aktuelles",
             productTitle: "Lieferbare Titel"
-        },
-        product: {
-            orderNow: "Jetzt Bestellen"
         },
         backend: {
             contents:

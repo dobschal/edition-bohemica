@@ -18,7 +18,7 @@
                 {{ product.price | price }}
             </div>
             <div class="group">
-                <button class="btn btn-primary">{{ $t("product.orderNow") }}</button>
+                <router-link :to="'/product/' + product._id + '/checkout'" class="btn btn-primary">{{ $t("product.orderNow") }}</router-link>
             </div>
         </div>
     </div>

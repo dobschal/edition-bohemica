@@ -1,7 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-12 content" v-if="content">
-            {{ content }}
+        <div class="col-12 content" v-if="content" v-html="content">
         </div>
     </div>    
 </template>

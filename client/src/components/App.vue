@@ -88,4 +88,9 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
+    p
+    {
+        margin: 0;
+    }
+
 </style>

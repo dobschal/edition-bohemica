@@ -24,11 +24,7 @@ export default {
         this.sidebarToggled = window.innerWidth >= 768;
         
         if( isMobileDevice() )
-        {
-            
-            // Uncomment this to enable text selection and swipe to toggle menu at same time.
-            // delete Hammer.defaults.cssProps.userSelect;
-    
+        {   
             var hammertime = new Hammer( document.getElementById("wrapper") );
             hammertime.get('pan').set({ threshold: 100 });
             hammertime.on('panleft', e => {

@@ -215,7 +215,6 @@ ul
 
 .footer
 {
-    background: #181823;
     .cog-wheel
     {
         background: url("../../assets/icon-wheel.svg");
@@ -226,7 +225,7 @@ ul
         width: 24px;
         display: inline-block;
         vertical-align: bottom;
-        opacity: 0.5;
+        opacity: 0.6;
         &:hover
         {
             opacity: 1.0;
@@ -236,7 +235,7 @@ ul
 
     .version-number
     {
-        @include font5( $color: rgba(white, 0.5), $fontWeight: 400, $fontSize: 10px );
+        @include font5( $color: rgba($darkBlue, 0.9), $fontWeight: 400, $fontSize: 10px );
         display: inline-block;
         margin-top: 17px;
         vertical-align: top;
