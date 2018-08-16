@@ -40,11 +40,11 @@
         <div class="row total">
             <div class="col-4 porto">
                 <div class="caption">{{ $t('general.porto') }}</div>
-                <div class="value">{{ totalPorto | price }}</div>
+                <div class="value" :class="{ 'is-loading': isCalculating }">{{ totalPorto | price }}</div>
             </div>
             <div class="col-4 total-price">
                 <div class="caption">{{ $t('general.totalPrice') }}</div>
-                <div class="value">{{ totalPrice | price }}</div>
+                <div class="value" :class="{ 'is-loading': isCalculating }">{{ totalPrice | price }}</div>
             </div>
             <div class="col-4 submit">
                 <button class="btn btn-primary">
@@ -57,19 +57,13 @@
 
 <script>
 
+import { HTTP } from "../../../util";
 import swal from "sweetalert";
+import toastr from "toastr";
 
 export default {
     computed:
-    {
-        totalPrice()
-        {
-            return 20;
-        },
-        totalPorto()
-        {
-            return 25;
-        },
+    {        
         cart()
         {
             console.log("[Cart]", this.$store.getters.cart);
@@ -77,12 +71,45 @@ export default {
             return cart;
         }
     },
+    data()
+    {
+        return {
+            totalPorto: null,
+            totalPrice: null,
+            isCalculating: false
+        };
+    },
     created()
     {
         this.$emit("change-title", this.$t("cart.title") );
+        this.calcTotalPrice();
     },
     methods:
     {
+        async calcTotalPrice()
+        {
+            this.isCalculating = true;
+            this.totalPorto = 0;   
+            this.totalPrice = 0;         
+            try
+            {
+                for( let i = 0; i < this.cart.length; i++)
+                {
+                    let product = this.cart[i];
+                    const portoResponse = await HTTP().get(`/porto/${product.weight}`);
+                    let porto = portoResponse.data;    
+                    this.totalPorto += porto.price;
+                    this.totalPrice += product.price;
+                }
+                this.totalPrice += this.totalPorto;
+            }
+            catch(e)
+            {
+                toastr.error( this.$t("cart.error.calc") );
+                console.error("[Cart] Error on calculating price: ", e);
+            }
+            this.isCalculating = false;
+        },
         async amountChanged( product )
         {
             console.log("[Cart] Amount changed...", product.amount );
@@ -158,8 +185,40 @@ export default {
             {
                 button
                 {
-                    margin-top: 24px;
+                    margin-top: 16px;
                 }
+            }
+        }
+
+        @keyframes rotate
+        {
+            from { transform: rotate(0); }
+            to { transform: rotate(360deg); }
+        }
+
+        .is-loading
+        {
+            font-size: 0;
+            line-height: 0;
+            &::after
+            {            
+                content: "x";
+                margin: 8px 0 0 0;
+                height: 16px;
+                width: 16px;
+                border: solid transparent 2px;
+                border-bottom-color: $darkBlue;
+                border-top-color: $darkBlue;
+                border-right-color: $darkBlue;
+                border-radius: 50%;
+                font-size: 0;
+                line-height: 0;
+                vertical-align: text-top;
+                display: inline-block;
+                animation-name: rotate;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
             }
         }
     }

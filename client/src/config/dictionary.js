@@ -13,7 +13,8 @@ export default {
             title: "Cart",
             error:
             {
-                empty: "You have no products in your cart."
+                empty: "You have no products in your cart.",
+                calc: "While calculating the price an error occurred!"
             }
         },
         product:
@@ -164,7 +165,8 @@ export default {
             realyDelete: "Wollen Sie den Artikel aus dem Warenkorb entfernen?",
             error:
             {
-                empty: "Sie haben aktuell keine Produkte in Ihrem Warenkorb."
+                empty: "Sie haben aktuell keine Produkte in Ihrem Warenkorb.",
+                calc: "Beim Berechnen des Preises ist ein Fehler aufgetreten!"
             }
         },
         product:
