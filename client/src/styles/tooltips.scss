@@ -1,12 +1,15 @@
+@import "./variables.scss";
+
 .tooltip {
   display: block !important;
   z-index: 10000;
  
   .tooltip-inner {
-    background: black;
+    background: rgba( $darkBlue, 0.8 );
     color: white;
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 5px 10px 4px;
+    font-size: 10px;
   }
  
   .tooltip-arrow {
@@ -15,7 +18,7 @@
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: black;
+    border-color: rgba( $darkBlue, 0.8 );
     z-index: 1;
   }
  
@@ -84,10 +87,10 @@
  
     .popover-inner {
       background: $color;
-      color: black;
+      color: rgba( $darkBlue, 0.8 );
       padding: 24px;
       border-radius: 5px;
-      box-shadow: 0 5px 30px rgba(black, .1);
+      box-shadow: 0 5px 30px rgba($darkBlue, .1);
     }
  
     .popover-arrow {

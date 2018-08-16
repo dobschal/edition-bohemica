@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="page-wrapper">
 
         <div class="product-table">
             <div class="row table-head">
@@ -130,17 +130,24 @@ export default {
 
 .add-button
 {
-    margin: 32px 48px 0px 0px;
+    margin: 32px 0 0 0;
+    .action
+    {
+        margin-left: -10px;
+        margin-top: 3px;
+        height: 20px;
+        width: 20px;
+        background-size: 20px 20px;
+    }
 }
 
 .product-table
 {
-    margin-top: 32px;
     .table-head
     {
         font-weight: bold;
         border-bottom: solid 1px rgba($darkBlue, 0.1);
-        margin: 0px 48px;
+        margin: 0;
         height: 48px;
         line-height: 48px;
     }
@@ -150,7 +157,7 @@ export default {
         height: 48px;
         line-height: 48px;
         border-bottom: solid 1px rgba($darkBlue, 0.1);
-        margin: 0px 48px;
+        margin: 0;
         &:hover
         {
             background: rgba( $darkBlue, 0.05);

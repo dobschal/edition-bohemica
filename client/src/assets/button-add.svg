@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Cart-Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-8.000000, -988.000000)">
+            <g id="Sidebar" transform="translate(-68.000000, 0.000000)">
+                <g id="Cart-Button" transform="translate(76.000000, 988.000000)">
+                    <rect id="Rectangle" fill-opacity="0.1" fill="#000026" x="0" y="0" width="28" height="28" rx="4"></rect>
+                    <g id="baseline-add-24px" transform="translate(4.000000, 4.000000)">
+                        <polygon id="Shape" fill="#000000" fill-rule="nonzero" points="15.8333333 10.8333333 10.8333333 10.8333333 10.8333333 15.8333333 9.16666667 15.8333333 9.16666667 10.8333333 4.16666667 10.8333333 4.16666667 9.16666667 9.16666667 9.16666667 9.16666667 4.16666667 10.8333333 4.16666667 10.8333333 9.16666667 15.8333333 9.16666667"></polygon>
+                        <polygon id="Shape" points="0 0 20 0 20 20 0 20"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

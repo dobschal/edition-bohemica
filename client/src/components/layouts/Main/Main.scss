@@ -68,33 +68,34 @@ body {
     .burger-button-wrapper
     {
         padding: 14px;
+        white-space: nowrap;
         .burger-button
         {
-            background-image: url("../../../assets/button-navigation.svg");
-            background-size: 28px 28px;
-            height: 28px;
-            width: 28px;
+            @include iconButton( "../../../assets/button-navigation.svg" );
             transform: rotateY(180deg);
             transition: transform 1.0s $transitionEasing2;
-            &:hover
-            {
-                cursor: pointer;
-            }
+        }
+
+        .cart-button
+        {
+            @include iconButton( "../../../assets/button-cart.svg" );          
+            margin-left: 4px;            
         }
     }
 
     .user-amount
     {
         text-align: right;
-        @include font2();
+        @include font2();        
         .icon-users
         {
-            vertical-align: text-top;
+            vertical-align: middle;
             background-image: url("../../../assets/icon-users.svg");
             width: 24px;
             height: 24px;
             display: inline-block;
             background-repeat: no-repeat;
+            background-position: 50% 50%;
         }
     }
 }

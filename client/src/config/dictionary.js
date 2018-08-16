@@ -7,11 +7,23 @@
 
 export default {
     en: {
+        cart:
+        {
+            realyDelete: "Do you want to remove the product from the cart?",
+            title: "Cart",
+            error:
+            {
+                empty: "You have no products in your cart."
+            }
+        },
         product:
         {
-            orderNow: "Order Now",
+            toDetails: "To the product details...",
+            orderNow: "Order Now",                        
             checkout:
             {
+                addedToCart: "Product is now in your cart.",
+                amountInfo: "The product is already in your cart. If you want to order more than one, you can change the amount while finishing your order.",
                 countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
                 title: "Finish order",
                 name: "Name",
@@ -29,12 +41,25 @@ export default {
         contentId:
         {
             'dashboard-title': "Dashboard title",
-            'dashboard-content': "Dashboard content"
+            'dashboard-content': "Dashboard content",
+            "news-content": "News"
         },
         news: {
             title: "News"
         },
         general: {
+            totalPrice: "Total price",
+            deleteSuccessful: "Deleted successfully",
+            delete: "Delete",
+            amount: "Anzahl",
+            porto: "Porto",
+            portoFree: "None",
+            addToCart: "Add to cart",
+            hasPorto: "Has porto costs?",
+            isPublic: "Is public?",
+            additionalInfo: "Addtional information",
+            userInfo: "Amount of page visits.",
+            weight: "Weight in gramm",
             back: "back",
             edit: "edit",
             actions: "Actions",
@@ -61,10 +86,14 @@ export default {
                 unauthorized: "Sorry! Please login first!",
                 missingInput: "The input values are not valid.",
                 save: "Error while saving data.",
-                load: "Error while loading data!"
+                delete: "Error while deleting data.",
+                load: "Error while loading data!",
+                priceFormat: "Price needs to be a number"
             }
         },
         navigation: {
+            porto: "Porto",
+            start: "Homepage",
             shop: "Shop",
             news: "News",
             program: "Program",
@@ -90,9 +119,14 @@ export default {
         dashboard: {
             title: "edition bohemica",
             toNews: "To the news",
+            toCart: "To the cart",
             productTitle: "Available Products"
         },
         backend: {
+            porto:
+            {
+                title: "Porto"
+            },
             contents:
             {
                 title: "Inhalte"
@@ -124,11 +158,23 @@ export default {
         }
     },
     de: {
+        cart:
+        {
+            title: "Warenkorb",
+            realyDelete: "Wollen Sie den Artikel aus dem Warenkorb entfernen?",
+            error:
+            {
+                empty: "Sie haben aktuell keine Produkte in Ihrem Warenkorb."
+            }
+        },
         product:
         {
-            orderNow: "Jetzt Bestellen",
+            toDetails: "Zu den Produkt-Details...",
+            orderNow: "Jetzt Bestellen",                        
             checkout:
             {
+                addedToCart: "Das Produkt wurde in Ihren Warenkorb gelegt.",
+                amountInfo: "Das Produkt befindet sich bereits in Ihrem Warenkorb. Falls Sie mehrere Exemplare bestellen wollen, können Sie dies später während der Bestellung angeben.",
                 countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
                 title: "Bestellung abschließen",
                 name: "Name",
@@ -146,12 +192,25 @@ export default {
         contentId:
         {
             'dashboard-title': "Begrüßung Startseite",
-            'dashboard-content': "Text Startseite"
+            'dashboard-content': "Text Startseite",
+            "news-content": "Aktuelles"
         },
         news: {
             title: "Aktuelles"
         },
         general: {
+            totalPrice: "Gesamtpreis",
+            deleteSuccessful: "Erfolgreich gelöscht",
+            delete: "Löschen",
+            amount: "Anzahl",
+            porto: "Versandkosten",
+            portoFree: "keine",
+            addToCart: "Zum Warenkorb hinzufügen",
+            hasPorto: "Fallen Versandkosten an?",
+            isPublic: "Ist öffentlich?",
+            additionalInfo: "Weitere Informationen",
+            userInfo: "Anzahl der Seitenaufrufe.",
+            weight: "Gewicht in Gramm",
             back: "Zurück",
             edit: "Bearbeiten",
             actions: "Aktionen",
@@ -178,10 +237,14 @@ export default {
                 unauthorized: "Entschuldigung! Bitte melden Sie sich zunächst an.",
                 missingInput: "Es sind nicht alle Felder korrekt ausgefüllt.",
                 save: "Beim Speichern ist ein Fehler aufgetreten.",
-                load: "Beim Laden der Daten ist ein Fehler aufgetreten!"
+                delete: "Beim Löschen ist ein Fehler aufgetreten.",
+                load: "Beim Laden der Daten ist ein Fehler aufgetreten!",
+                priceFormat: "Der Preis muss eine Zahl sein. Z.B. 19,50 oder 500"
             }
         },
         navigation: {
+            porto: "Versandkosten",
+            start: "Startseite",
             shop: "Laden",
             news: "Aktuelles",
             program: "Verlagsprogramm",
@@ -191,9 +254,9 @@ export default {
             imprint: "Impressum",
             login: "Anmelden",
             logout: "Abmelden",
-            admin: "Produkte",
+            admin: "Produkte verwalten",
             newProduct: "Neues Produkt",
-            contents: "Inhalte bearbeiten",
+            contents: "Inhalte verwalten",
             comingSoon: "In Vorbereitung",
             trader: "Händler",
             data: "Datenschutz",
@@ -207,9 +270,14 @@ export default {
         dashboard: {
             title: "edition bohemica",
             toNews: "Zu Aktuelles",
+            toCart: "Zum Warenkorb",
             productTitle: "Lieferbare Titel"
         },
         backend: {
+            porto:
+            {
+                title: "Versandkosten"
+            },
             contents:
             {
                 title: "Inhalte"

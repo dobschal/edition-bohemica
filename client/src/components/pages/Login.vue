@@ -1,20 +1,22 @@
 <template>
-    <div class="row content">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <form @submit.prevent="login">
-                <div class="form-group">
-                    <label>{{ $t("general.username") }}</label>
-                    <input class="form-control" type="text" placeholder="Ein Name" v-model="username">
-                </div>
-                <div class="form-group">
-                    <label>{{ $t("general.password") }}</label>
-                    <input class="form-control" type="password" placeholder="beispiel" v-model="password">
-                </div>
-                <button type="submit" class="btn btn-success">{{ $t("general.login") }}</button>
-            </form>
+    <div class="page-wrapper">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <form @submit.prevent="login">
+                    <div class="form-group">
+                        <label>{{ $t("general.username") }}</label>
+                        <input class="form-control" type="text" placeholder="Ein Name" v-model="username">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ $t("general.password") }}</label>
+                        <input class="form-control" type="password" placeholder="beispiel" v-model="password">
+                    </div>
+                    <button type="submit" class="btn btn-success">{{ $t("general.login") }}</button>
+                </form>
+            </div>
+            <div class="col-3"></div>
         </div>
-        <div class="col-3"></div>
     </div>
 </template>
 
@@ -59,9 +61,5 @@ export default {
 
 <style lang="scss" scoped>
 
-    .content
-    {
-        margin-top: 32px;
-    }
 
 </style>

@@ -19,7 +19,6 @@ function protect( allowedUserRoles )
             let authHeader = req.headers["authorization"];
             let splittedAuthHeader = authHeader.split(" "); // remove "bearer" from authorization header
             let token = splittedAuthHeader[ 1 ];
-            console.log("Auth-Header: ", authHeader);
             return jwt.verify( token, secret, (err, data) => {
                 
                 let isTokenExpired = !data.expiration || Date.now() > data.expiration;

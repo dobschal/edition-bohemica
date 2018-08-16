@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <div class="page-wrapper">
         <div class="row">
             <div class="header-content">
                 <h2 class="header-title" v-html="headerTitle"></h2>
                 <div class="content" v-html="headerContent"></div>                
                 <div>
                     <router-link to="/news" class="btn btn-primary">{{ $t("dashboard.toNews") }}</router-link>
+                    <router-link  to="/cart" class="btn btn-secondary cart-button">{{ $t("dashboard.toCart") }}</router-link>
                 </div>
             </div>
         </div>
@@ -19,7 +20,7 @@
                         <p class="align-self-start card-text">{{ product.subtitle }}</p>
                         <div class="mt-auto">
                             <span class="price-info">{{ product.price | price }}</span>
-                            <router-link :to="'/product/' + product._id" class="product-action">Zum Produkt</router-link>
+                            <router-link v-tooltip="$t('product.toDetails')" :to="'/product/' + product._id" class="product-action">Zum Produkt</router-link>
                         </div>
                     </div>
                 </div>
@@ -87,16 +88,16 @@ export default
 .product-title
 {
     @include font4();
-    margin: 0px 48px 24px 32px;
+    margin: 0px 0px 24px 0px;
 }
 
 .products
 {
-    padding-left: 32px;
-    padding-right: 32px;
+    margin-left: -15px;
+    margin-right: -15px;
     .product
     {
-        padding: 0px 16px 32px 16px;
+        margin-bottom: 32px;
         .card
         {
             background: rgba( $gray1, 0.25 );
@@ -143,8 +144,8 @@ export default
 
 .header-content
 {
-    padding-left: 48px;
-    padding-top: 48px;
+    // padding-left: 48px;
+    // padding-top: 48px;
     padding-bottom: 48px;    
 
     >>> h2.header-title
@@ -169,6 +170,11 @@ export default
             margin: 0;
         }
     }
+}
+
+.cart-button
+{
+  margin-left: 8px;  
 }
 
 </style>

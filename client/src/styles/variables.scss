@@ -12,6 +12,23 @@ $darkBlue: #000026;
 
 $gray1: #E0E1E9;
 
+//  Mark: Buttons
+
+@mixin iconButton( $icon )
+{
+    background-image: url( $icon );
+    background-size: 28px 28px;
+    min-height: 28px;
+    min-width: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
+
 //  Mark: Fonts
 
 //  i.e. div { @include fontSmall($fontSize: 20px); }

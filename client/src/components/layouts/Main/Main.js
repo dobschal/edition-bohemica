@@ -7,7 +7,7 @@ export default {
         return {
             sidebarToggled: false,
             title: "",
-            userAmount: this.$store.getters.userAmount
+            userAmount: 172133 + this.$store.getters.userAmount // old amount plus real one
         };
     },
     watch: {
@@ -26,7 +26,7 @@ export default {
         if( isMobileDevice() )
         {   
             var hammertime = new Hammer( document.getElementById("wrapper") );
-            hammertime.get('pan').set({ threshold: 100 });
+            hammertime.get('pan').set({ threshold: 150 });
             hammertime.on('panleft', e => {
                 console.log("[Main] User is swiping.", e);
                 this.sidebarToggled = false;      
@@ -46,6 +46,10 @@ export default {
         changeTitle( title )
         {
             this.title = title;
+        },
+        goToCart()
+        {
+            this.$router.push("/cart");
         }
     }
 };

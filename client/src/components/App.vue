@@ -88,6 +88,20 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
+    //  Inside the container-fluid is a default 15px padding
+    //  remove this with a page-wrapper class and add a margin
+    //  to the sidebar and the topbar
+    .page-wrapper
+    {
+        margin: 0 -15px;
+        padding: 24px 48px;
+
+        > .row
+        {
+            margin: 0;
+        }
+    }
+
     p
     {
         margin: 0;

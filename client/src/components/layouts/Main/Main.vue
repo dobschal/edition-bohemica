@@ -12,13 +12,14 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">  
                     <div class="row topbar align-items-center">
-                        <div class="col burger-button-wrapper">
+                        <div class="col-2 col-xs-2 burger-button-wrapper">
                             <div class="burger-button" @click="toggleSidebar"></div>
+                            <div v-tooltip="$t('dashboard.toCart')" class="cart-button" @click="goToCart"></div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 col-xs-8">
                             <h1>{{ title }}</h1>
                         </div>
-                        <div class="col user-amount">
+                        <div class="col-2 col-xs-2 user-amount" v-tooltip="$t('general.userInfo')">                            
                             <span class="icon-users"></span>
                             {{ userAmount }}
                         </div>

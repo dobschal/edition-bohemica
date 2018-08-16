@@ -41,5 +41,23 @@ export default
     storeUserAmount( state, amount )
     {
         state.userAmount = amount;
+    },
+
+    addToCart( state, product )
+    {
+        state.cart.push( product );
+    },
+
+    removeFromCart( state, productId )
+    {
+        state.cart = state.cart.filter( product => product._id !== productId );
+    },
+
+    setAmountInCart( state, productId, amount )
+    {
+        state.cart = state.cart.map( product => {
+            if(product._id === productId) product.amount = amount;
+            return product;
+        });
     }
 };

@@ -24,5 +24,10 @@ export default
     userAmount( state )
     {
         return state.userAmount;
+    },
+
+    cart( state )
+    {
+        return state.cart;
     }
 };

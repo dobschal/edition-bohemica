@@ -2,12 +2,9 @@
     <div>
         <router-link to="/" class="brand"></router-link>
         <nav>
-            <ul v-if="!isAuthenticated">
+            <ul>
                 <li>
-                    <router-link to="/">{{ $t("navigation.shop") }}</router-link>
-                </li>
-                <li>
-                    <router-link to="/news">{{ $t("navigation.news") }}</router-link>
+                    <router-link to="/">{{ $t("navigation.start") }}</router-link>
                 </li>
                 <li></li>
                 <li>
@@ -30,18 +27,18 @@
                     <router-link to="/images">{{ $t("navigation.images") }}</router-link>
                 </li>                
             </ul>
-            <ul v-if="isAuthenticated">
+            <ul v-if="isAuthenticated" class="admin-navigation">
                 <li>
                     <router-link to="/admin">{{ $t("navigation.admin") }}</router-link>
                 </li>
                 <li>
                     <router-link to="/admin/product/new">{{ $t("navigation.newProduct") }}</router-link>
                 </li>
-                 <li>
+                <li>
                     <router-link to="/admin/content">{{ $t("navigation.contents") }}</router-link>
                 </li>
                 <li>
-                    <a href="#" @click.prevent="logout">{{ $t("navigation.logout") }}</a>
+                    <router-link to="/admin/porto">{{ $t("navigation.porto") }}</router-link>
                 </li>
             </ul>
         </nav>
@@ -61,7 +58,8 @@
         </nav>
         <div class="banner"></div>
         <div class="footer">
-            <router-link to="/login" class="cog-wheel"></router-link>
+            <router-link to="/login" class="button-settings" v-if="!isAuthenticated"></router-link>
+            <a href="#" class="button-logout" v-if="isAuthenticated" @click.prevent="logout"></a>
             <div class="version-number">{{ version }}</div>
         </div>
     </div>
@@ -138,10 +136,10 @@ export default {
 {
     background-image: url("../../assets/banner.png");
     width: 250px;
-    height: 28.12px;
-    background-size: 250px auto;
+    height: 39px;
+    background-size: 350px auto;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: -82px 50%;
     margin: 32px 0 0 0;
     display: block;
 }
@@ -150,6 +148,18 @@ ul
 {
     margin: 0;
     padding: 0;
+
+    &.admin-navigation
+    {
+        background-color: $darkBlue;
+        margin-top: 24px;
+        padding: 8px 0px;
+        a:link, a:visited, a:hover, a:active
+        {
+            color: white;
+        }
+    }
+
     li
     {
         list-style: none;
@@ -215,30 +225,39 @@ ul
 
 .footer
 {
-    .cog-wheel
+    padding: 16px 8px;
+    .button-settings
     {
-        background: url("../../assets/icon-wheel.svg");
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        margin: 16px 0px 16px 16px;
-        height: 24px;
-        width: 24px;
+        background-image: url("../../assets/button-settings.svg");
+        background-size: 28px 28px;
+        height: 28px;
+        width: 28px;
         display: inline-block;
-        vertical-align: bottom;
-        opacity: 0.6;
+        vertical-align: middle;
         &:hover
         {
-            opacity: 1.0;
             cursor: pointer;
         }
     }
-
+    .button-logout
+    {
+        background-image: url("../../assets/button-logout.svg");
+        background-size: 28px 28px;
+        height: 28px;
+        width: 28px;
+        display: inline-block;
+        vertical-align: middle;
+        &:hover
+        {
+            cursor: pointer;
+        }
+    }  
     .version-number
     {
-        @include font5( $color: rgba($darkBlue, 0.9), $fontWeight: 400, $fontSize: 10px );
+        @include font5( $color: rgba($darkBlue, 0.9), $fontWeight: 400, $fontSize: 10px, $lineHeight: 28px );
         display: inline-block;
-        margin-top: 17px;
-        vertical-align: top;
+        margin-left: 16px;
+        vertical-align: middle;
     }
 }
 

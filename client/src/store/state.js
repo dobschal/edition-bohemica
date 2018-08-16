@@ -10,6 +10,7 @@ export default function() {
             token: ""
         },
         content: {},
-        userAmount: 0
+        userAmount: 0,
+        cart: []
     };
 }
