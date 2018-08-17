@@ -29,7 +29,7 @@ let htmlWebpackPlugin = new HtmlWebpackPlugin({
     }
 });
 
-let cleanWebpackPlugin = new CleanWebpackPlugin(["build"]);
+// let cleanWebpackPlugin = new CleanWebpackPlugin(["build"]);
 let environmentPlugin = new webpack.EnvironmentPlugin({
     "NODE_ENV": "development", 
     "npm_config_buildNumber": "9590"
@@ -122,7 +122,7 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
-        cleanWebpackPlugin,
+        // cleanWebpackPlugin,
         uglifyPlugin,
         htmlWebpackPlugin,
         environmentPlugin,
