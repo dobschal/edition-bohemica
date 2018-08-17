@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 var productSchema = mongoose.Schema({
     title: { type: String, required: true },
-    subtitle: { type: String, required: true },
-    isbn: { type: String, required: true },
-    description: { type: String, required: true },
-    additionalInfo: { type: String, required: false },
+    subtitle: { type: String, required: false, default: "" },
+    isbn: { type: String, required: false, default: "ohne" },
+    description: { type: String, required: false, default: "" },
+    additionalInfo: { type: String, required: false, default: "" },
     weight: { type: Number, required: true, default: 500 }, // in gramm
     price: { type: Number, required: true },
     public: { type: Boolean, required: true, default: false },

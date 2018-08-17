@@ -28,7 +28,7 @@ module.exports = function ( io ) {
     });
 
     router.get('/pdfpage', function(req, res, next) {
-        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
         PDFPage.find(( err, pdfPagesInDB ) => {
             if (err) return next( err );
             res.send( pdfPagesInDB.map( pdfPage => {
@@ -43,7 +43,7 @@ module.exports = function ( io ) {
 
     router.get('/pdfpage/:pdfPageId', function(req, res, next) {
         const {pdfPageId } = req.params;
-        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
         PDFPage.findById( { _id: pdfPageId }, ( err, pdfPage ) => {
             if (err) return next( err );            
             if (!pdfPage)

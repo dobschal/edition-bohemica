@@ -14,7 +14,7 @@
         <div class="row products">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 product d-flex" v-for="product in products" :key="product._id">
                 <div class="card">
-                    <img class="card-img-top" :src="product.image" :alt="product.title">
+                    <img class="card-img-top" :src="product.image || '/static/placeholder-image.jpg'" :alt="product.title">
                     <div class="card-body d-flex align-items-end flex-column">
                         <h5 class="align-self-start card-title">{{ product.title }}</h5>
                         <p class="align-self-start card-text">{{ product.subtitle }}</p>
@@ -68,7 +68,9 @@ export default
             try
             {
                 const response = await HTTP().get("/products");
-                this.products = response.data;
+                this.products = response.data.filter( product => {
+                    return product.public;
+                });
                 console.log("[Products] Response: ", this.products);
             }
             catch(e)
@@ -116,6 +118,8 @@ export default
                 {
                     @include font2( $fontWeight: bold, $fontSize: 14px );
                     margin: 0;
+                    word-wrap: break-word;
+                    width: 100%;
                 }
                 .card-text
                 {

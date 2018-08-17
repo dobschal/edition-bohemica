@@ -70,7 +70,7 @@ export default {
     {
         inputValid()
         {
-            return this.title && this.subtitle && this.description;
+            return this.title && this.price;
         }
     },
     data()

@@ -1,6 +1,6 @@
 {
-  "name": "server",
-  "description": "example-web-app",
+  "name": "edition-bohemica-server",
+  "description": "edition bohemica",
   "version": "1.0.0",
   "private": true,
   "scripts": {

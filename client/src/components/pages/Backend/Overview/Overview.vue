@@ -4,24 +4,24 @@
         <div class="product-table">
             <div class="row table-head">
                 <div class="col-1">#</div>
-                <div class="col-4">{{ $t("general.title") }}</div>
+                <div class="col-5">{{ $t("general.title") }}</div>
                 <!--<div class="col">{{ $t("general.subtitle") }}</div>-->
-                <div class="col-3">ISBN</div>
+                <!-- <div class="col-3">ISBN</div> -->
                 <div class="col-2">{{ $t("general.public") }}</div>
-                <div class="col-2">{{ $t("general.actions") }}</div>
+                <div class="col-4">{{ $t("general.actions") }}</div>
             </div>
             <draggable v-model="products" @update="sortChanged">
                 <transition-group>
                     <div class="row product" v-for="(product, index) in products" :key="product._id">
                         <div class="col-1">{{ index }}</div>
-                        <div class="col-4">{{ product.title }}</div>
+                        <div class="col-5">{{ product.title }}</div>
                         <!--<div class="col">{{ product.subtitle }}</div>-->
-                        <div class="col-3">{{ product.isbn }}</div>
+                        <!-- <div class="col-3">{{ product.isbn }}</div> -->
                         <div class="col-2">
                             <span v-if="product.public" class="text-success">{{ $t("general.yes") }}</span>
                             <span v-else  class="text-danger">{{ $t("general.no") }}</span>
                         </div>
-                        <div class="col-2">
+                        <div class="col-4">
                             <div 
                                 @click="publish(product)"
                                 v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')" 
@@ -33,6 +33,12 @@
                                 @click="edit(product)" 
                                 v-tooltip="$t('general.edit')" 
                                 class="action edit" >
+                            </div>
+
+                            <div 
+                                @click="remove(product)" 
+                                v-tooltip="$t('general.delete')" 
+                                class="action remove" >
                             </div>
                         </div>
                     </div>
@@ -116,6 +122,25 @@ export default {
                 toastr.error(this.$t("backend.overview.error.publish"));
             }
         },
+        async remove( product )
+        {
+            try
+            {
+                const response = await HTTP().delete(`/products/${product._id}`);
+                console.log("[Products] Deleted");
+                for(let i = this.products.length - 1; i >= 0; i--)
+                {
+                    if( this.products[i]._id === product._id )
+                    {
+                        this.products.splice(i, 1);
+                    }
+                }
+            }
+            catch(e)
+            {
+                toastr.error(this.$t("backend.overview.error.delete"));
+            }
+        },
         edit( product )
         {
             this.$router.push(`/admin/product/${product._id}`);
@@ -196,6 +221,10 @@ export default {
     &.add
     {
         background-image: url("../../../../assets/icon-add.svg");
+    }
+    &.remove
+    {
+        background-image: url("../../../../assets/icon-remove.svg");
     }
 
     &:hover

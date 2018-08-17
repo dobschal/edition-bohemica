@@ -15,7 +15,6 @@ import CartCheckoutPage from "../components/pages/Cart/Checkout.vue";
 import ProductPage from "../components/pages/Product/Product.vue";
 import LoginPage from "../components/pages/Login.vue";
 import NewsPage from "../components/pages/News.vue";
-import PDFPage from "../components/pages/PDFPage.vue";
 
 import NotFoundPage from "../components/pages/NotFound.vue";
 
@@ -74,12 +73,7 @@ export default [
         path: "/login", 
         component: MainLayout,  
         children: [{ path: "", components: { default: LoginPage } }]
-    },
-    { 
-        path: "/pdfpage/:id", 
-        component: MainLayout,  
-        children: [{ path: "", components: { default: PDFPage } }]        
-    }, 
+    },   
     { 
         path: "/news", 
         component: MainLayout,  

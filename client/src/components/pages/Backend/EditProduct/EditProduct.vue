@@ -70,14 +70,15 @@ import toastr from "toastr";
 import { VueEditor } from 'vue2-editor';
 
 export default {
-    components: {
+    components:
+    {
         VueEditor
     },
     computed:
     {
         inputValid()
         {
-            return this.title && this.subtitle && this.description;
+            return this.title && this.price;
         }
     },
     data()

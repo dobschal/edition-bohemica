@@ -49,9 +49,16 @@ module.exports = function ( io ) {
         });
     });
 
+    router.delete('/products/:productId', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
+        Product.find({ "_id": req.params.productId }).remove( ( err ) => {
+            if (err) return next( err );
+            res.send({ success: true, info: "Removed product from database." });
+        });
+    });
+
     router.post('/products', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("image"), function(req, res, next) {
         let product = new Product(req.body);
-        product.image = req.file.path;
+        product.image = req.file ? req.file.path : "";
         product.save((err, productInDB) => {
             if (err) return next( err );
             res.send({ success: true, info: "Saved product in database.", product: productInDB });
@@ -60,7 +67,7 @@ module.exports = function ( io ) {
     });
 
     router.get('/products', function(req, res, next) {
-        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
         Product.find({}, [], {
             sort:
             {
@@ -80,7 +87,7 @@ module.exports = function ( io ) {
 
     router.get('/products/:productId', function(req, res, next) {
         const { productId } = req.params;
-        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";
         Product.findById( productId, ( err, productFromDB ) => {
             if (err) return next( err );            
             if(productFromDB.image)

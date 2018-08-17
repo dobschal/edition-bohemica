@@ -8,7 +8,7 @@
                 </li>
                 <li></li>
                 <li>
-                    <router-link to="/pdfpage/program">{{ $t("navigation.program") }}</router-link>
+                    <a href="" @click.prevent="openPDF('program')">{{ $t("navigation.program") }}</a>
                 </li>
                 <li>
                     <router-link to="/coming-soon">{{ $t("navigation.comingSoon") }}</router-link>
@@ -69,6 +69,9 @@
 </template>
 
 <script>
+
+import { HTTP } from "../../util";
+
 export default {
     computed:
     {   
@@ -96,6 +99,13 @@ export default {
         {
             this.$store.commit("deleteToken");
             this.$router.push("/");
+        },
+        async openPDF( id )
+        {
+            const response = await HTTP().get(`/pdfpage/${id}`);
+            const pdfPage = response.data;
+            const win = window.open( pdfPage.pdf, '_blank');
+            win.focus();
         }
     }
 }

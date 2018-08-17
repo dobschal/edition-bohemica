@@ -157,7 +157,8 @@ export default {
                 error: {
                     load: "Error! Unable to load products.",
                     sort: "Error! Unable to sort products.",
-                    publish: "Error! Unable to publish product."
+                    publish: "Error! Unable to publish product.",
+                    delete: "Error! Unable to delete product."
                 }
             },
             newProduct:
@@ -321,7 +322,8 @@ export default {
                 error: {
                     load: "Fehler! Konnte Produkte nicht laden.",
                     sort: "Fehler! Sortierung konnte nicht gespeichert werden!",
-                    publish: "Fehler! Produkt konnte nicht veröffentlicht werden!"
+                    publish: "Fehler! Produkt konnte nicht veröffentlicht werden!",
+                    delete: "Fehler! Produkt konnte nicht gelöscht werden!"
                 }
             },
             newProduct:
