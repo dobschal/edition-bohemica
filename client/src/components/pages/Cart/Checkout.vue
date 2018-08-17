@@ -77,7 +77,7 @@ export default {
     {
         return {
             product: null,
-            country: "Deutschland"
+            country: "Deutschland" // lokalisiert
         };
     },
     created()
