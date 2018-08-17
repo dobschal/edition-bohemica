@@ -13,7 +13,8 @@ export default
     {
         content()
         {
-            return this.$store.getters.content("news-content");
+            let content = this.$store.getters.content("news-content");
+            return content.replace(new RegExp("---", 'g'), "<hr>");
         }
     },
     mounted()

@@ -91,11 +91,11 @@ export default {
     methods:
     {
         async calcTotalPrice()
-        {
-            if( !this.cart.length ) return;
-            this.isCalculating = true;
+        {                        
             this.totalPorto = 0;   
             this.totalPrice = 0;
+            if( !this.cart.length ) return;
+            this.isCalculating = true;
             let totalWeight = 0;
             try
             {

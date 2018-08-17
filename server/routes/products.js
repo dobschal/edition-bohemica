@@ -60,7 +60,7 @@ module.exports = function ( io ) {
     });
 
     router.get('/products', function(req, res, next) {
-        const protocoll = req.connection.encrypted ? "https" : "http";
+        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
         Product.find({}, [], {
             sort:
             {
@@ -80,7 +80,7 @@ module.exports = function ( io ) {
 
     router.get('/products/:productId', function(req, res, next) {
         const { productId } = req.params;
-        const protocoll = req.connection.encrypted ? "https" : "http";
+        const protocoll = "https";//req.connection.encrypted ? "https" : "http";
         Product.findById( productId, ( err, productFromDB ) => {
             if (err) return next( err );            
             if(productFromDB.image)
