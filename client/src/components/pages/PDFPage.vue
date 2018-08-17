@@ -21,7 +21,7 @@
 
 import { HTTP } from "../../util";
 import toastr from "toastr";
-import pdf from 'vue-pdf'
+import pdf from 'vue-pdf';
 
 export default {
     components:

@@ -6,13 +6,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let uglifyPlugin = new UglifyJsPlugin({
+    parallel: true,
     uglifyOptions: {
-      compress: {
-        warnings: false
-      }
+      compress: true
     },
-    sourceMap: true
-  });
+    sourceMap: true,
+    cache: path.join(__dirname, 'webpack-cache/uglify-cache')
+});
 
 let copyWebpackPlugin = new CopyWebpackPlugin([{ from: './static', to: "./" }]);
 
@@ -29,7 +29,8 @@ let htmlWebpackPlugin = new HtmlWebpackPlugin({
     }
 });
 
-// let cleanWebpackPlugin = new CleanWebpackPlugin(["build"]);
+let cleanWebpackPlugin = new CleanWebpackPlugin(["build"]);
+
 let environmentPlugin = new webpack.EnvironmentPlugin({
     "NODE_ENV": "development", 
     "npm_config_buildNumber": "9590"
@@ -122,8 +123,8 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
-        // cleanWebpackPlugin,
-        uglifyPlugin,
+        // new webpack.IgnorePlugin(/^\.\/pdf.worker.js$/),
+        cleanWebpackPlugin,
         htmlWebpackPlugin,
         environmentPlugin,
         copyWebpackPlugin
@@ -141,12 +142,13 @@ switch( process.env.NODE_ENV ) {
                     NODE_ENV: '"production"'
                 }
             }),
-            new webpack.optimize.UglifyJsPlugin({
-                sourceMap: true,
-                compress: {
-                    warnings: false
-                }
-            }),
+            // new webpack.optimize.UglifyJsPlugin({
+            //     sourceMap: true,
+            //     compress: {
+            //         warnings: false
+            //     }
+            // }),
+            uglifyPlugin,
             new webpack.LoaderOptionsPlugin({
                 minimize: true
             })
