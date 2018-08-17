@@ -73,6 +73,10 @@
 import { HTTP } from "../../util";
 
 export default {
+    created()
+    {
+        this.getBuildNumber();
+    },
     computed:
     {   
         /**
@@ -81,13 +85,18 @@ export default {
         isAuthenticated()
         {
             return this.$store.getters.token ? true : false;
+        },
+
+        version()
+        {
+            return `1.0.0 (${this.buildNumber})`;
         }
     },
     data()
     {
         return {
             language: "de",
-            version: "1.0.0 (123)"
+            buildNumber: 0
         }
     },
     methods: {
@@ -106,6 +115,12 @@ export default {
             const pdfPage = response.data;
             const win = window.open( pdfPage.pdf, '_blank');
             win.focus();
+        },
+        async getBuildNumber()
+        {
+            const response = await HTTP().get("https://edition-bohemica.dobschal.eu/build-number.txt");
+            console.log("[Sidebar]", response.data);
+            this.buildNumber = response.data;
         }
     }
 }
