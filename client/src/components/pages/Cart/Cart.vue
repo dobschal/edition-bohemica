@@ -15,9 +15,7 @@
                     <div class="col-2">
                         {{ $t("general.amount") }}
                     </div>
-                    <div class="col-1">
-
-                    </div>
+                    <div class="col-1"></div>
                 </div>
             </li>
             <li v-if="!cart.length" class="list-group-item list-group-item-warning">
