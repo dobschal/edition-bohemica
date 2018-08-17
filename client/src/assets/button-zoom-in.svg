@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Cart-Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-8.000000, -988.000000)">
+            <g id="Sidebar" transform="translate(-68.000000, 0.000000)">
+                <g id="Cart-Button" transform="translate(76.000000, 988.000000)">
+                    <rect id="Rectangle" fill-opacity="0.1" fill="#000026" x="0" y="0" width="28" height="28" rx="4"></rect>
+                    <g id="baseline-zoom_in-24px" transform="translate(4.000000, 4.000000)">
+                        <path d="M12.9166667,11.6666667 L12.2583333,11.6666667 L12.025,11.4416667 C12.8416667,10.4916667 13.3333333,9.25833333 13.3333333,7.91666667 C13.3333333,4.925 10.9083333,2.5 7.91666667,2.5 C4.925,2.5 2.5,4.925 2.5,7.91666667 C2.5,10.9083333 4.925,13.3333333 7.91666667,13.3333333 C9.25833333,13.3333333 10.4916667,12.8416667 11.4416667,12.025 L11.6666667,12.2583333 L11.6666667,12.9166667 L15.8333333,17.075 L17.075,15.8333333 L12.9166667,11.6666667 Z M7.91666667,11.6666667 C5.84166667,11.6666667 4.16666667,9.99166667 4.16666667,7.91666667 C4.16666667,5.84166667 5.84166667,4.16666667 7.91666667,4.16666667 C9.99166667,4.16666667 11.6666667,5.84166667 11.6666667,7.91666667 C11.6666667,9.99166667 9.99166667,11.6666667 7.91666667,11.6666667 Z" id="Shape" fill="#000026" fill-rule="nonzero"></path>
+                        <polygon id="Shape" points="0 0 20 0 20 20 0 20"></polygon>
+                        <polygon id="Shape" fill="#000026" fill-rule="nonzero" points="10 8.33333333 8.33333333 8.33333333 8.33333333 10 7.5 10 7.5 8.33333333 5.83333333 8.33333333 5.83333333 7.5 7.5 7.5 7.5 5.83333333 8.33333333 5.83333333 8.33333333 7.5 10 7.5"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

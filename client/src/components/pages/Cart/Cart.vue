@@ -6,7 +6,7 @@
                     <div class="col-4">
                         {{ $t("general.title") }}
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         ISBN
                     </div>
                     <div class="col-2">
@@ -14,6 +14,9 @@
                     </div>
                     <div class="col-2">
                         {{ $t("general.amount") }}
+                    </div>
+                    <div class="col-1">
+
                     </div>
                 </div>
             </li>
@@ -25,7 +28,7 @@
                     <div class="col-4">
                         {{ product.title }}
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         {{ product.isbn }}
                     </div>
                     <div class="col-2">
@@ -33,6 +36,9 @@
                     </div>
                     <div class="col-2">
                         <input type="number" v-model="product.amount" class="form-control" @change="amountChanged( product )">
+                    </div>
+                    <div class="col-1">
+                        <div class="button-remove" @click="remove(product)"></div>
                     </div>
                 </div>
             </li>
@@ -88,19 +94,22 @@ export default {
     {
         async calcTotalPrice()
         {
+            if( !this.cart.length ) return;
             this.isCalculating = true;
             this.totalPorto = 0;   
-            this.totalPrice = 0;         
+            this.totalPrice = 0;
+            let totalWeight = 0;
             try
             {
                 for( let i = 0; i < this.cart.length; i++)
                 {
-                    let product = this.cart[i];
-                    const portoResponse = await HTTP().get(`/porto/${product.weight}`);
-                    let porto = portoResponse.data;    
-                    this.totalPorto += porto.price;
-                    this.totalPrice += product.price;
+                    let product = this.cart[i];                    
+                    this.totalPrice += product.price * product.amount;
+                    totalWeight += product.hasPorto ? product.weight * product.amount : 0;
                 }
+                console.log("[Cart] Calculated weight for: ", totalWeight);
+                const portoResponse = await HTTP().get(`/porto/${totalWeight}`);                
+                this.totalPorto = portoResponse.data.price;
                 this.totalPrice += this.totalPorto;
             }
             catch(e)
@@ -118,8 +127,7 @@ export default {
                 let willDelete = await swal({
                     text: this.$t("cart.realyDelete"),
                     icon: "warning",
-                    buttons: [this.$t("general.cancel"), this.$t("general.delete")],
-                    dangerMode: true,
+                    buttons: [this.$t("general.cancel"), this.$t("general.delete")]
                 });
                 if( willDelete )
                 {
@@ -133,7 +141,21 @@ export default {
             }
             else if( !isNaN( product.amount ) )
             {
-                this.$store.commit( "setAmountInCart", product, parseInt(product.amount) );
+                this.$store.commit( "setAmountInCart", product, parseInt(product.amount) );                
+            }
+            this.calcTotalPrice();
+        },
+        async remove( product )
+        {
+            let willDelete = await swal({
+                text: this.$t("cart.realyDelete"),
+                icon: "warning",
+                buttons: [this.$t("general.cancel"), this.$t("general.delete")]
+            });
+            if( willDelete )
+            {
+                this.$store.commit( "removeFromCart", product._id );
+                this.calcTotalPrice();
             }
         }
     }    
@@ -166,6 +188,11 @@ export default {
                 input
                 {
                     width: 100%;
+                }
+                .button-remove
+                {
+                    @include iconButton("../../../assets/button-remove.svg");
+                    float: right;
                 }
             }
         }

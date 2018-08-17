@@ -7,6 +7,10 @@
 
 export default {
     en: {
+        program:
+        {
+            title: "Program"
+        },
         cart:
         {
             realyDelete: "Do you want to remove the product from the cart?",
@@ -49,6 +53,9 @@ export default {
             title: "News"
         },
         general: {
+            zoomIn: "Zoom in",
+            zoomOut: "Zoom out",
+            download: "Download",
             totalPrice: "Total price",
             deleteSuccessful: "Deleted successfully",
             delete: "Delete",
@@ -124,6 +131,11 @@ export default {
             productTitle: "Available Products"
         },
         backend: {
+            program:
+            {
+                title: "Program",
+                pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite öffnet."
+            },
             porto:
             {
                 title: "Porto"
@@ -159,6 +171,10 @@ export default {
         }
     },
     de: {
+        program:
+        {
+            title: "Verlagsprogramm"
+        },
         cart:
         {
             title: "Warenkorb",
@@ -201,6 +217,9 @@ export default {
             title: "Aktuelles"
         },
         general: {
+            zoomIn: "Vergrößern",
+            zoomOut: "Verkleinern",
+            download: "Herunterladen",
             totalPrice: "Gesamtpreis",
             deleteSuccessful: "Erfolgreich gelöscht",
             delete: "Löschen",
@@ -231,7 +250,7 @@ export default {
             image: "Bild",
             saveInProgress: "Inhalt wird gerade gespeichert...",
             saveSuccessful: "Speichern war erfolgreich.",
-            save: "Seichern",
+            save: "Speichern",
             cancel: "Abbrechen",
             upload: "Hochladen",
             error: {
@@ -276,6 +295,11 @@ export default {
             productTitle: "Lieferbare Titel"
         },
         backend: {
+            program:
+            {
+                title: "Verlagsprogramm",
+                pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite Verlagsprogramm öffnet."
+            },
             porto:
             {
                 title: "Versandkosten"

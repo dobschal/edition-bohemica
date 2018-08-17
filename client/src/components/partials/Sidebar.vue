@@ -8,7 +8,7 @@
                 </li>
                 <li></li>
                 <li>
-                    <router-link to="/program">{{ $t("navigation.program") }}</router-link>
+                    <router-link to="/pdfpage/program">{{ $t("navigation.program") }}</router-link>
                 </li>
                 <li>
                     <router-link to="/coming-soon">{{ $t("navigation.comingSoon") }}</router-link>
@@ -39,6 +39,9 @@
                 </li>
                 <li>
                     <router-link to="/admin/porto">{{ $t("navigation.porto") }}</router-link>
+                </li>
+                 <li>
+                    <router-link to="/admin/program">{{ $t("navigation.program") }}</router-link>
                 </li>
             </ul>
         </nav>

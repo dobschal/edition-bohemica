@@ -15,6 +15,7 @@ import CartCheckoutPage from "../components/pages/Cart/Checkout.vue";
 import ProductPage from "../components/pages/Product/Product.vue";
 import LoginPage from "../components/pages/Login.vue";
 import NewsPage from "../components/pages/News.vue";
+import PDFPage from "../components/pages/PDFPage.vue";
 
 import NotFoundPage from "../components/pages/NotFound.vue";
 
@@ -24,6 +25,7 @@ import BackendProductEditPage from "../components/pages/Backend/EditProduct/Edit
 import BackendContentEditPage from "../components/pages/Backend/EditContent/EditContent.vue";
 import BackendContentsPage from "../components/pages/Backend/Contents/Contents.vue";
 import BackendPortoPage from "../components/pages/Backend/Porto.vue";
+import BackendProgramPage from "../components/pages/Backend/Program.vue";
 
 // Partials
 
@@ -33,6 +35,11 @@ export default [
         component: MainLayout,  
         children: [{ path: "", components: { default: CartPage } }]        
     }, 
+    { 
+        path: "/admin/program", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: BackendProgramPage }, meta: { secured: true } }]        
+    },
     { 
         path: "/admin/porto", 
         component: MainLayout,  
@@ -68,6 +75,11 @@ export default [
         component: MainLayout,  
         children: [{ path: "", components: { default: LoginPage } }]
     },
+    { 
+        path: "/pdfpage/:id", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: PDFPage } }]        
+    }, 
     { 
         path: "/news", 
         component: MainLayout,  
