@@ -47,6 +47,7 @@ export default {
             {
                 const response = await HTTP().get(`/pdfpage/${this.$route.params.id}`);
                 this.entity = response.data;
+                console.log("[PDF Page] Got PDF page...", this.entity);
             }
             catch(e)
             {

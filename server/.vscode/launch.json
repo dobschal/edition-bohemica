@@ -8,6 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Programm starten",
+            "console": "integratedTerminal",
             "program": "${workspaceFolder}/app.js"
         }
     ]

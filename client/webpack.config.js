@@ -6,9 +6,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let uglifyPlugin = new UglifyJsPlugin({
-    parallel: true,
     uglifyOptions: {
-      compress: true
+      compress: {
+          warnings: false
+      }      
     },
     sourceMap: true,
     cache: path.join(__dirname, 'webpack-cache/uglify-cache')
@@ -43,7 +44,6 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './build'),
-        // publicPath: '/',
         filename: 'app.js'
     },   
     module: {
@@ -123,7 +123,6 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
-        // new webpack.IgnorePlugin(/^\.\/pdf.worker.js$/),
         cleanWebpackPlugin,
         htmlWebpackPlugin,
         environmentPlugin,
@@ -142,12 +141,6 @@ switch( process.env.NODE_ENV ) {
                     NODE_ENV: '"production"'
                 }
             }),
-            // new webpack.optimize.UglifyJsPlugin({
-            //     sourceMap: true,
-            //     compress: {
-            //         warnings: false
-            //     }
-            // }),
             uglifyPlugin,
             new webpack.LoaderOptionsPlugin({
                 minimize: true

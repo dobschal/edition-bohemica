@@ -3,3 +3,4 @@
 /client/node_modules
 server/uploads/
 /client/build
+/client/webpack-cache
