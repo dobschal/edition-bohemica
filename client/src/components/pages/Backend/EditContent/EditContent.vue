@@ -28,7 +28,8 @@ export default {
             contentItem: "",
             customToolbar: [
                 ['bold', 'italic', 'underline'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }]
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ["table"]
             ]
         };
     },

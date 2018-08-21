@@ -24,3 +24,6 @@ Changes
 - Bug on products without image
 - Placeholder image under product details
 - Porto bug on cart without any product with porto
+
+1.0.0 (47)
+

@@ -9,6 +9,7 @@ export default {
     en: {       
         cart:
         {
+            info: "After submitting the form you will get an email with the payment information.",
             realyDelete: "Do you want to remove the product from the cart?",
             title: "Cart",
             error:
@@ -174,6 +175,7 @@ export default {
     de: {
         cart:
         {
+            info: "Nach dem Absenden der Bestellung erhalten Sie eine E-Mail mit der Bestellbestätigung und den Bezahlinformationen.",
             title: "Warenkorb",
             realyDelete: "Wollen Sie den Artikel aus dem Warenkorb entfernen?",
             error:

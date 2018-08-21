@@ -59,5 +59,10 @@ export default
             if(product._id === productId) product.amount = amount;
             return product;
         });
+    },
+
+    emptyCart( state )
+    {
+        state.cart = [];
     }
 };

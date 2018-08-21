@@ -80,6 +80,11 @@ export default [
         children: [{ path: "", components: { default: SimpleContentPage } }]        
     }, 
     { 
+        path: "/cart/checkout", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: CartCheckoutPage } }]        
+    },
+    { 
         path: "/cart/checkout/:productId", 
         component: MainLayout,  
         children: [{ path: "", components: { default: CartCheckoutPage } }]        

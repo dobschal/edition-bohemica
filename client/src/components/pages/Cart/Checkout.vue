@@ -46,7 +46,24 @@
                 </form>
             </div>
             <div class="col-sm-4">
-                <div v-if="product" class="row product">
+                <ul class="list-group product-list">
+                    <li :style="{ backgroundImage: `url('${product.image}')` }" v-for="product in cart" :key="product._id" class="list-group-item list-group-item-action flex-column align-items-start product-list-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ product.title }}</h5>
+                            <!--<small>3 days ago</small>-->
+                        </div>
+                        <p class="mb-1">{{ product.subtitle }}</p>
+                        <small>
+                            <b>ISBN: </b> {{ product.isbn }}<br> 
+                            <b>{{ $t("general.amount") }}</b>: {{ product.amount }}
+                        </small>
+                    </li>
+                </ul>
+                <h4 class="total-price">{{ $t("general.totalPrice") }}<br><small>{{ totalPrice | price }}</small></h4>
+                <div class="alert alert-info">
+                    {{ $t("cart.info") }}
+                </div>
+                <!--<div v-if="product" class="row product">
                     <div class="col-sm-12 image">
                         <img :src="product.image">
                     </div>
@@ -61,7 +78,7 @@
                             {{ product.price | price }}
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -73,26 +90,57 @@ import { HTTP } from "../../../util";
 import toastr from "toastr";
 
 export default {
+    computed:
+    {
+        cart()
+        {
+            console.log("[Cart]", this.$store.getters.cart);
+            let cart = this.$store.getters.cart;            
+            return cart;
+        }
+    },
     data()
     {
         return {
-            product: null,
+            totalPrice: 0,
             country: "Deutschland" // lokalisiert
         };
     },
     created()
     {
-        this.load();
+        if(this.$route.params.productId)
+        {
+            this.makeSingleProductCart();
+        }
         this.$emit("change-title", this.$t("product.checkout.title") );
+        this.calcTotalPrice();
     },
     methods:
     {
-        async load()
-        {
+        /**
+         *  If the user clicks on "Jetzt bestellen" we remove the
+         *  current cart and add only the select product to it.
+         *  --> Instead of the cart page, the checkout page is shown.
+         */
+        async makeSingleProductCart()
+        {            
             try
             {
+                //  Empty the cart
+                this.$store.commit("emptyCart");
+
+                //  Get selected product from API
                 const response = await HTTP().get(`/products/${this.$route.params.productId}`);
-                this.product = response.data;
+                let product = response.data;
+
+                //  Set amount to one and store in local storage
+                product.amount = 1;
+                this.$store.commit("addToCart", product);
+
+                //  Show toast for customer with feedback
+                toastr.success( this.$t("product.checkout.addedToCart") );
+
+                this.calcTotalPrice();
             }
             catch(e)
             {
@@ -103,7 +151,37 @@ export default {
         async checkout()
         {
             console.log("[Product Checkout] Checkout: ", this.product);
-        }
+        },
+        async calcTotalPrice()
+        {                        
+            this.totalPorto = 0;   
+            this.totalPrice = 0;
+            if( !this.cart.length ) return;
+            this.isCalculating = true;
+            let totalWeight = 0;
+            try
+            {
+                for( let i = 0; i < this.cart.length; i++)
+                {
+                    let product = this.cart[i];                    
+                    this.totalPrice += product.price * product.amount;
+                    totalWeight += product.hasPorto ? product.weight * product.amount : 0;
+                }
+                console.log("[Cart] Calculated weight for: ", totalWeight);
+                if( totalWeight )
+                {
+                    const portoResponse = await HTTP().get(`/porto/${totalWeight}`);                
+                    this.totalPorto = portoResponse.data.price;
+                    this.totalPrice += this.totalPorto;
+                }
+            }
+            catch(e)
+            {
+                toastr.error( this.$t("cart.error.calc") );
+                console.error("[Cart] Error on calculating price: ", e);
+            }
+            this.isCalculating = false;
+        },
     }
 }
 </script>
@@ -118,6 +196,30 @@ export default {
     @include font2();
     padding: 8px 16px;
     margin-top: 16px;
+}
+
+.product-list
+{
+    margin-top: 24px;
+}
+
+.total-price
+{
+    margin-top: 24px;
+    text-align: right;
+    small
+    {
+        font-size: 70%;
+    }
+}
+
+.product-list-item
+{
+    background-size: cover;
+    background-position: 50% 0%;
+    box-shadow: inset 50px 50px 500px rgba(255,255,255,0.95);
+    color: black !important;
+    border-color: $gray1;
 }
 
 .row.product
