@@ -15,7 +15,8 @@ module.exports = function ( io ) {
         if( countDownLatch <= 0 ) res.send({ success: false, info: "No content to update." });
         products.forEach( product => {
             let updatedProduct = new Product( product );
-            updatedProduct.image = "uploads/" + updatedProduct.image.split("uploads/")[1];
+            let imageName = updatedProduct.image ? "uploads/" + updatedProduct.image.split("uploads/")[1] : "";
+            updatedProduct.image = imageName;
             Product.findByIdAndUpdate( product._id, updatedProduct, { new: true }, ( err, updatedProductInDB ) => {
                 countDownLatch--;
                 if (err)
@@ -41,7 +42,8 @@ module.exports = function ( io ) {
     router.put('/products/:productId', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("new_image"), function(req, res, next) {
         const { productId } = req.params;
         let updatedProduct = new Product(req.body);
-        updatedProduct.image = req.file ? req.file.path : "uploads/" + updatedProduct.image.split("uploads/")[1];
+        let imageName = updatedProduct.image ? "uploads/" + updatedProduct.image.split("uploads/")[1] : "";
+        updatedProduct.image = req.file ? req.file.path : imageName;
         Product.findByIdAndUpdate( productId, updatedProduct, { new: true }, ( err, updatedProductInDB ) => {
             if (err) return next(err);
             res.send({ success: true, product: updatedProductInDB });

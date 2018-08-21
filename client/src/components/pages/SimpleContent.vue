@@ -13,13 +13,20 @@ export default
     {
         content()
         {
-            let content = this.$store.getters.content("news-content");
+            let content = this.$store.getters.content( this.$route.params.contentId );
             return content.replace(new RegExp("---", 'g'), "<hr>");
+        }
+    },
+    watch:
+    {
+        "$route"( from, to )
+        {
+            this.$emit("change-title", this.$t(`contentId.${this.$route.params.contentId}`));
         }
     },
     mounted()
     {
-        this.$emit("change-title", this.$t("news.title"));
+        this.$emit("change-title", this.$t(`contentId.${this.$route.params.contentId}`));
     }
 }
 </script>

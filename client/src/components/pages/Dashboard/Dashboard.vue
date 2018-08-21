@@ -5,7 +5,7 @@
                 <h2 class="header-title" v-html="headerTitle"></h2>
                 <div class="content" v-html="headerContent"></div>                
                 <div>
-                    <router-link to="/news" class="btn btn-primary">{{ $t("dashboard.toNews") }}</router-link>
+                    <router-link to="/content/news-content" class="btn btn-primary">{{ $t("dashboard.toNews") }}</router-link>
                     <router-link  to="/cart" class="btn btn-secondary cart-button">{{ $t("dashboard.toCart") }}</router-link>
                 </div>
             </div>

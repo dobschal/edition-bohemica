@@ -14,17 +14,17 @@
                     <router-link to="/coming-soon">{{ $t("navigation.comingSoon") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/trader">{{ $t("navigation.trader") }}</router-link>
+                    <router-link to="/content/trader-content">{{ $t("navigation.trader") }}</router-link>
                 </li>
                 <li></li>
                 <li>
-                    <router-link to="/portrait">{{ $t("navigation.portrait") }}</router-link>
+                    <router-link to="/content/portrait-content">{{ $t("navigation.portrait") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/travel">{{ $t("navigation.travel") }}</router-link>
+                    <router-link to="/content/travel-content">{{ $t("navigation.travel") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/images">{{ $t("navigation.images") }}</router-link>
+                    <a href="" @click.prevent="openPDF('images')">{{ $t("navigation.images") }}</a>
                 </li>                
             </ul>
             <ul v-if="isAuthenticated" class="admin-navigation">
@@ -41,7 +41,7 @@
                     <router-link to="/admin/porto">{{ $t("navigation.porto") }}</router-link>
                 </li>
                  <li>
-                    <router-link to="/admin/program">{{ $t("navigation.program") }}</router-link>
+                    <router-link to="/admin/pdf">{{ $t("navigation.pdf") }}</router-link>
                 </li>
             </ul>
         </nav>
@@ -49,13 +49,13 @@
         <nav>
             <ul>
                 <li>
-                    <router-link to="/agb">{{ $t("navigation.agb") }}</router-link>
+                    <router-link to="/content/agb-content">{{ $t("navigation.agb") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/data">{{ $t("navigation.data") }}</router-link>
+                    <router-link to="/content/data-security-content">{{ $t("navigation.data") }}</router-link>
                 </li>
                 <li>
-                    <router-link to="/imprint">{{ $t("navigation.imprint") }}</router-link>
+                    <router-link to="/content/imprint-content">{{ $t("navigation.imprint") }}</router-link>
                 </li>
             </ul>
         </nav>

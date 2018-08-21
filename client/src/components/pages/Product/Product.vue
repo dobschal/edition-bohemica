@@ -2,7 +2,7 @@
     <div class="page-wrapper">
         <div v-if="product" class="row">
             <div class="col-sm-4">
-                <img :src="product.image">
+                <img :src="product.image || '/static/placeholder-image.jpg'">
             </div>
             <div class="col-sm-8 info-area top">
                 <h3>{{ product.title }}<br><small>{{ product.subtitle}}</small></h3>                
@@ -73,9 +73,12 @@ export default {
             {
                 const response = await HTTP().get(`/products/${this.$route.params.productId}`);
                 this.product = response.data;
-                const portoResponse = await HTTP().get(`/porto/${this.product.weight}`);
-                this.porto = portoResponse.data;
-                console.log("[Product] Got porto for product...", portoResponse);
+                if( this.product.hasPorto && this.product.weight )
+                {
+                    const portoResponse = await HTTP().get(`/porto/${this.product.weight}`);
+                    this.porto = portoResponse.data;
+                    console.log("[Product] Got porto for product...", portoResponse);
+                }
             }
             catch(e)
             {

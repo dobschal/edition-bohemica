@@ -4,18 +4,28 @@
             <div class="col-12">
                 <form @submit.prevent="save">
                     <div class="form-group">
-                        <label>{{ $t("general.title") }}</label>
-                        <input type="text" placeholder="Title" class="form-control" v-model="entity.title">
+                        <label>PDF auswählen:</label>
+                        <select v-model="pdfId" @change="load" class="form-control">
+                            <option disabled value="">Welche PDF soll geändert werden?</option>
+                            <option value="program">Verlagsprogramm</option>
+                            <option value="images">Bilderschatztruhe</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label>{{ $t("backend.program.pdfUpload") }}</label>
-                        <input type="file" class="form-control" @change="fileChanged( $event )">
-                    </div>
-                    <div class="form-group">
-                        <div class="badge badge-info float-right mt-2" v-if="isSendingRequest">
-                            {{ $t("general.upload") }} {{ percentCompleted }}%
+                    <div v-if="entity">
+                        <div class="form-group">
+                            <label>{{ $t("general.title") }}</label>
+                            <input type="text" placeholder="Title" class="form-control" v-model="entity.title">
                         </div>
-                        <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
+                        <div class="form-group">
+                            <label>{{ $t("backend.pdf.pdfUpload") }}</label>
+                            <input type="file" class="form-control" @change="fileChanged( $event )">
+                        </div>
+                        <div class="form-group">
+                            <div class="badge badge-info float-right mt-2" v-if="isSendingRequest">
+                                {{ $t("general.upload") }} {{ percentCompleted }}%
+                            </div>
+                            <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -32,6 +42,7 @@ export default {
     data()
     {
         return {
+            pdfId: "",
             entity: null,
             title: "",
             file: null,
@@ -40,9 +51,8 @@ export default {
         };
     },
     created()
-    {
-        this.load();
-        this.$emit("change-title", this.$t("backend.program.title") );
+    {        
+        this.$emit("change-title", this.$t("backend.pdf.title") );
     },
     methods:
     {
@@ -50,12 +60,12 @@ export default {
         {
             try
             {
-                const response = await HTTP().get(`/pdfpage/program`);
+                const response = await HTTP().get(`/pdfpage/${this.pdfId}`);
                 this.entity = response.data;
             }
             catch(e)
             {
-                console.error("[PDF Program] Unable to load PDF Program", e);
+                console.error("[PDF] Unable to load PDF", e);
                 toastr.error( this.$t("general.error.load") );
             }
         },
@@ -94,11 +104,10 @@ export default {
                     this.percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
                 }
             }
-            HTTP().put(`/pdfpage/program`, formData, config).then( response => {
+            HTTP().put(`/pdfpage/${this.pdfId}`, formData, config).then( response => {
                 console.log("[PDFPage] Response: ", response);
                 this.isSendingRequest = false;
                 toastr.success(this.$t("general.saveSuccessful"));
-                // this.$router.push("/admin");
             }).catch( error => {
                 console.error("[PDFPage] Error: ", error);
                 toastr.error( this.$t("general.error.save") );

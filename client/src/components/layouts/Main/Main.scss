@@ -23,6 +23,7 @@ body {
     width: 0;
     height: 100%;
     margin-left: -250px;
+    overflow-x: hidden;
     overflow-y: auto;
     // background-color: rgb(34, 37, 42);
     background: rgba( $gray1, 0.25 );

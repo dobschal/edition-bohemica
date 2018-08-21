@@ -6,11 +6,7 @@
  */
 
 export default {
-    en: {
-        program:
-        {
-            title: "Program"
-        },
+    en: {       
         cart:
         {
             realyDelete: "Do you want to remove the product from the cart?",
@@ -47,10 +43,13 @@ export default {
         {
             'dashboard-title': "Dashboard title",
             'dashboard-content': "Dashboard content",
-            "news-content": "News"
-        },
-        news: {
-            title: "News"
+            "news-content": "News",
+            "agb-content": "AGB",
+            "imprint-content": "Impressum",
+            "data-security-content": "Datenschutz",
+            "portrait-content": "Portrait",
+            "travel-content": "Travel to Bohemica",
+            "trader-content": "Trader"
         },
         general: {
             zoomIn: "Zoom in",
@@ -117,7 +116,8 @@ export default {
             comingSoon: "Coming Soon",
             trader: "Trader",
             data: "Datenschutz",
-            agb: "AGB"
+            agb: "AGB",
+            pdf: "Upload PDF"
         },
         login: {
             title: "Login",
@@ -131,9 +131,9 @@ export default {
             productTitle: "Available Products"
         },
         backend: {
-            program:
+            pdf:
             {
-                title: "Program",
+                title: "PDF Bearbeiten",                
                 pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite öffnet."
             },
             porto:
@@ -172,10 +172,6 @@ export default {
         }
     },
     de: {
-        program:
-        {
-            title: "Verlagsprogramm"
-        },
         cart:
         {
             title: "Warenkorb",
@@ -212,11 +208,14 @@ export default {
         {
             'dashboard-title': "Begrüßung Startseite",
             'dashboard-content': "Text Startseite",
-            "news-content": "Aktuelles"
-        },
-        news: {
-            title: "Aktuelles"
-        },
+            "news-content": "Aktuelles",
+            "agb-content": "AGB",
+            "imprint-content": "Impressum",
+            "data-security-content": "Datenschutz",
+            "portrait-content": "Verlagsportrait",
+            "travel-content": "Reisewege nach Böhmen",
+            "trader-content": "Händler"
+        },      
         general: {
             zoomIn: "Vergrößern",
             zoomOut: "Verkleinern",
@@ -282,7 +281,8 @@ export default {
             comingSoon: "In Vorbereitung",
             trader: "Händler",
             data: "Datenschutz",
-            agb: "AGB"
+            agb: "AGB",
+            pdf: "PDFs hochladen"
         },
         login: {
             title: "Anmeldung",
@@ -296,10 +296,10 @@ export default {
             productTitle: "Lieferbare Titel"
         },
         backend: {
-            program:
+            pdf:
             {
-                title: "Verlagsprogramm",
-                pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite Verlagsprogramm öffnet."
+                title: "PDF Bearbeiten",
+                pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite öffnet."
             },
             porto:
             {

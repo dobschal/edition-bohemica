@@ -106,9 +106,12 @@ export default {
                     totalWeight += product.hasPorto ? product.weight * product.amount : 0;
                 }
                 console.log("[Cart] Calculated weight for: ", totalWeight);
-                const portoResponse = await HTTP().get(`/porto/${totalWeight}`);                
-                this.totalPorto = portoResponse.data.price;
-                this.totalPrice += this.totalPorto;
+                if( totalWeight )
+                {
+                    const portoResponse = await HTTP().get(`/porto/${totalWeight}`);                
+                    this.totalPorto = portoResponse.data.price;
+                    this.totalPrice += this.totalPorto;
+                }
             }
             catch(e)
             {
