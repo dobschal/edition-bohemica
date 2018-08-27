@@ -27,3 +27,7 @@ Changes
 
 1.0.0 (47)
 
+- Added checkout page
+
+1.0.0 (48)
+

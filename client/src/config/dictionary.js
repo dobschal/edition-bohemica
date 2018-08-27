@@ -53,6 +53,11 @@ export default {
             "trader-content": "Trader"
         },
         general: {
+            captchaMessage: "Please check the captcha.",
+            contact: "Contact",
+            send: "Send",
+            yourMessage: "Your Message",
+            sender: "Sender (E-Mail)",
             zoomIn: "Zoom in",
             zoomOut: "Zoom out",
             download: "Download",
@@ -100,6 +105,7 @@ export default {
             }
         },
         navigation: {
+            correspondence: "Verlags-Correspondenz",
             porto: "Porto",
             start: "Homepage",
             shop: "Shop",
@@ -219,6 +225,11 @@ export default {
             "trader-content": "Händler"
         },      
         general: {
+            captchaMessage: "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
+            contact: "Kontakt",
+            send: "Abschicken",
+            yourMessage: "Ihre Nachricht",
+            sender: "Absender (E-Mail)",
             zoomIn: "Vergrößern",
             zoomOut: "Verkleinern",
             download: "Herunterladen",
@@ -266,6 +277,7 @@ export default {
             }
         },
         navigation: {
+            correspondence: "Verlags-Correspondenz",
             porto: "Versandkosten",
             start: "Startseite",
             shop: "Laden",

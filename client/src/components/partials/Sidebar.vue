@@ -15,6 +15,9 @@
                 </li>
                 <li>
                     <router-link to="/content/trader-content">{{ $t("navigation.trader") }}</router-link>
+                </li>                
+                <li>
+                     <a href="" @click.prevent="openPDF('correspondence')">{{ $t("navigation.correspondence") }}</a>
                 </li>
                 <li></li>
                 <li>
@@ -56,6 +59,9 @@
                 </li>
                 <li>
                     <router-link to="/content/imprint-content">{{ $t("navigation.imprint") }}</router-link>
+                </li>
+                 <li>
+                    <router-link to="/contact">{{ $t("general.contact") }}</router-link>
                 </li>
             </ul>
         </nav>

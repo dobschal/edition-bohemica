@@ -9,6 +9,7 @@
                             <option disabled value="">Welche PDF soll geändert werden?</option>
                             <option value="program">Verlagsprogramm</option>
                             <option value="images">Bilderschatztruhe</option>
+                            <option value="correspondence">Verlags-Correspondenz</option>
                         </select>
                     </div>
                     <div v-if="entity">

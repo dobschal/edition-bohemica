@@ -55,4 +55,23 @@ function sendRegistrationEmail( username, emailOfUser, validationLink )
     .catch( err => console.error("[Email] Unable to send registration email. ", err) );
 }
 
-module.exports = { sendRegistrationEmail };
+/**
+ *  @param {string} title - subject of the email
+ *  @param {string} message - 
+ *  @param {string} sendersEmail - senders mail
+ *  @returns {promise} sendingMail
+ */
+function sendContactEmail( title, message, sendersEmail )
+{
+    return email.send({
+        template: 'contact',
+        message: {
+            to: "info@edition-bohemica.de;sascha@dobschal.eu"
+        },
+        locals: { title, message, sendersEmail }
+    });
+    // .then( () => console.log("[Email] Sent e-mail for contact successully.") )
+    // .catch( err => console.error("[Email] Unable to send contact email. ", err) );
+}
+
+module.exports = { sendRegistrationEmail, sendContactEmail };
