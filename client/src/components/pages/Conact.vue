@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">                
-                <form @submit.prevent="send">                    
+                <form @submit.prevent="send" if="isNotSent">                    
                     <div class="form-group">
                         <label>{{ $t("general.sender") }}</label>
                         <input type="email" placeholder="ihre@email.de" class="form-control" v-model="email">
@@ -42,7 +42,8 @@ export default {
         return {
             title: "",
             message: "",
-            email: ""
+            email: "",
+            isNotSent: true
         };
     },
     methods:
@@ -57,12 +58,23 @@ export default {
             {
                 return toastr.error( this.$t("general.captchaMessage") );
             }
-            const response = await HTTP().post("/contact", {
-                title: this.title,
-                message: this.message,
-                email: this.email,
-                captcha: grecaptcha.getResponse()
-            });
+            try
+            {
+                const response = await HTTP().post("/contact", {
+                    title: this.title,
+                    message: this.message,
+                    email: this.email,
+                    captcha: grecaptcha.getResponse()
+                });
+                toastr.success( this.$t("contact.sent") );
+                this.$router.push("/");
+            }
+            catch(e)
+            {
+                console.error("[Contact] Error on sending contact email: ", e);
+                toastr.error( this.$t("contact.error.send") );
+            }
+
         }
     }
 }

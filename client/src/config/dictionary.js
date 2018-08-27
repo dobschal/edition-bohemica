@@ -6,7 +6,15 @@
  */
 
 export default {
-    en: {       
+    en: {   
+        contact:
+        {
+            sent: "Thanks for your Message!",
+            error:
+            {
+                send: "Error while sending message!"
+            }
+        },
         cart:
         {
             info: "After submitting the form you will get an email with the payment information.",
@@ -179,6 +187,14 @@ export default {
         }
     },
     de: {
+        contact:
+        {
+            sent: "Danke für Ihre Nachricht!",
+            error:
+            {
+                send: "Fehler! Nachricht konnte nicht gesendet werden!"
+            }
+        },
         cart:
         {
             info: "Nach dem Absenden der Bestellung erhalten Sie eine E-Mail mit der Bestellbestätigung und den Bezahlinformationen.",
