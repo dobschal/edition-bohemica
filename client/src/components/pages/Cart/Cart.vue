@@ -51,7 +51,7 @@
                 <div class="value" :class="{ 'is-loading': isCalculating }">{{ totalPrice | price }}</div>
             </div>
             <div class="col-4 submit">
-                <router-link to="/cart/checkout" class="btn btn-primary">
+                <router-link to="/cart/checkout" class="btn btn-primary" v-if="cart.length">
                     {{ $t("product.checkout.submit") }}
                 </router-link>
             </div>

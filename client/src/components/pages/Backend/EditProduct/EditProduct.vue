@@ -39,6 +39,10 @@
                         <input type="checkbox" class="form-check-input" id="publicCheck1" v-model="isPublic">
                         <label class="form-check-label" for="publicCheck1">Öffentlich?</label>
                     </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="isInPreparationCheck1" v-model="isInPreparation">
+                        <label class="form-check-label" for="isInPreparationCheck1">{{ $t("general.isInPreparation") }}</label>
+                    </div>
                     <div class="form-group">
                         <label>{{ $t("general.image") }}</label>
                         <div class="row">
@@ -98,6 +102,7 @@ export default {
             isSendingRequest: false,
             percentCompleted: 0,
             isPublic: false,
+            isInPreparation: true,
             id: "",
             hasPorto: false,
             additionalInfo: "",
@@ -129,7 +134,8 @@ export default {
                 _id,
                 hasPorto,
                 additionalInfo,
-                weight
+                weight,
+                isInPreparation
             } = response.data;
 
             this.description = description;
@@ -144,6 +150,7 @@ export default {
             this.hasPorto = hasPorto;
             this.additionalInfo = additionalInfo;
             this.weight = weight;
+            this.isInPreparation = isInPreparation;
 
             console.log("[EditProduct] Got product from server: ", response);
         },
@@ -193,7 +200,8 @@ export default {
             data.append( "public", this.isPublic );
             data.append( "hasPorto", this.hasPorto );
             data.append( "additionalInfo", this.additionalInfo );
-            data.append( "weight", this.weight );            
+            data.append( "weight", this.weight );      
+            data.append( "isInPreparation", this.isInPreparation );      
             if( this.image ) data.append( "new_image", this.image );
             
             this.sendRequest( data );

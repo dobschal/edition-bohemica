@@ -45,7 +45,8 @@ export default {
                 country: "Country",
                 comment: "Comment",
                 submit: "Send order",
-                emailInfo: "All order information will be send to this e-mail address."
+                emailInfo: "All order information will be send to this e-mail address.",
+                submitError: "Error while sending order. Please try again later."
             }
         },
         contentId:
@@ -61,6 +62,7 @@ export default {
             "trader-content": "Trader"
         },
         general: {
+            isInPreparation: "Is in preparation?",
             captchaMessage: "Please check the captcha.",
             contact: "Contact",
             send: "Send",
@@ -134,6 +136,10 @@ export default {
             agb: "AGB",
             pdf: "Upload PDF"
         },
+        comingSoon:
+        {
+            info: "Have a view on our upcoming titles..."
+        },
         login: {
             title: "Login",
             success: "You are now authenticated.",
@@ -168,7 +174,9 @@ export default {
                 addProduct: "Add Product",
                 title: "Admin Area",
                 products: "Products",
-                sort: "Products sorted.",                
+                sort: "Products sorted.",  
+                productsInPreparation: "Products in preparation",
+                publicProducts: "Products in store",
                 error: {
                     load: "Error! Unable to load products.",
                     sort: "Error! Unable to sort products.",
@@ -225,7 +233,8 @@ export default {
                 country: "Land",
                 comment: "Kommentar",
                 submit: "Bestellung abschicken",
-                emailInfo: "Alle Bestellinformationen werden an diese E-Mail gesendet."
+                emailInfo: "Alle Bestellinformationen werden an diese E-Mail gesendet.",
+                submitError: "Beim Senden der Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
             }
         },
         contentId:
@@ -241,6 +250,7 @@ export default {
             "trader-content": "Händler"
         },      
         general: {
+            isInPreparation: "Ist in Vorbereitung?",
             captchaMessage: "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
             contact: "Kontakt",
             send: "Abschicken",
@@ -314,6 +324,10 @@ export default {
             agb: "AGB",
             pdf: "PDFs hochladen"
         },
+        comingSoon:
+        {
+            info: "Anbei finden Sie Titel, die sich aktuell in der Vorbereitung befinden."
+        },
         login: {
             title: "Anmeldung",
             success: "Sie sind nun angemeldet.",
@@ -349,6 +363,8 @@ export default {
                 addProduct: "Produkt hinzufügen",
                 title: "Admin-Bereich",
                 products: "Produkte",
+                productsInPreparation: "Produkte in Vorbereitung",
+                publicProducts: "Produkte im Laden",
                 error: {
                     load: "Fehler! Konnte Produkte nicht laden.",
                     sort: "Fehler! Sortierung konnte nicht gespeichert werden!",

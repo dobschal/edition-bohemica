@@ -69,7 +69,7 @@ export default
             {
                 const response = await HTTP().get("/products");
                 this.products = response.data.filter( product => {
-                    return product.public;
+                    return product.public && !product.isInPreparation;
                 });
                 console.log("[Products] Response: ", this.products);
             }

@@ -5,34 +5,34 @@
                 <form @submit.prevent="checkout">
                     <div class="form-group">
                         <label>{{ $t("product.checkout.name") }}</label>
-                        <input class="form-control" type="text" placeholder="Name">
+                        <input class="form-control" type="text" placeholder="Name" v-model="name">
                     </div>
                     <div class="form-group">
                         <label>{{ $t("product.checkout.email") }}</label>
-                        <input class="form-control" type="email" placeholder="jemand@irgendwo.de">
+                        <input class="form-control" type="email" placeholder="jemand@irgendwo.de" v-model="email">
                         <div class="alert alert-info">{{ $t("product.checkout.emailInfo") }}</div>
                     </div>
                     <div class="row">                                                
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <label>{{ $t("product.checkout.street") }}</label>
-                                <input class="form-control" type="text" placeholder="Hauptstraße">
+                                <input class="form-control" type="text" placeholder="Hauptstraße" v-model="street">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>{{ $t("product.checkout.houseNumber") }}</label>
-                                <input class="form-control" type="text" placeholder="17">
+                                <input class="form-control" type="text" placeholder="17" v-model="houseNumber">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>{{ $t("product.checkout.zipCode") }}</label>
-                        <input class="form-control" type="text" placeholder="01234">
+                        <input class="form-control" type="text" placeholder="01234" v-model="zipCode">
                     </div>
                     <div class="form-group">
                         <label>{{ $t("product.checkout.city") }}</label>
-                        <input class="form-control" type="text" placeholder="Beispielhaußen">
+                        <input class="form-control" type="text" placeholder="Beispielhaußen" v-model="city">
                     </div>
                     <div class="form-group">
                         <label>{{ $t("product.checkout.country") }}</label>
@@ -47,7 +47,16 @@
             </div>
             <div class="col-sm-4">
                 <ul class="list-group product-list">
-                    <li :style="{ backgroundImage: `url('${product.image}')` }" v-for="product in cart" :key="product._id" class="list-group-item list-group-item-action flex-column align-items-start product-list-item">
+                    <!-- <li 
+                        :style="{ backgroundImage: `url('${product.image}')` }" 
+                        v-for="product in cart" 
+                        :key="product._id" 
+                        class="list-group-item list-group-item-action flex-column align-items-start product-list-item" > -->
+                    <li 
+                        v-for="product in cart" 
+                        :key="product._id" 
+                        class="list-group-item list-group-item-action flex-column align-items-start product-list-item" >
+
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{ product.title }}</h5>
                             <!--<small>3 days ago</small>-->
@@ -103,7 +112,14 @@ export default {
     {
         return {
             totalPrice: 0,
-            country: "Deutschland" // lokalisiert
+            totalPorto: 0,
+            country: "Deutschland", // lokalisiert
+            name: "",
+            city: "",
+            street: "",
+            houseNumber: "",
+            zipCode: "",
+            email: ""
         };
     },
     created()
@@ -150,7 +166,30 @@ export default {
         },
         async checkout()
         {
-            console.log("[Product Checkout] Checkout: ", this.product);
+            if( !this.email || !this.name || !this.zipCode )
+            {
+                return toastr.error( $t("general.missingInput") );
+            }
+            try
+            {
+                const response = await HTTP().post("/cart/submit", {
+                    cart: this.cart,
+                    totalPrice: this.totalPrice,
+                    totalPorto: this.totalPorto,
+                    country: this.country,
+                    name: this.name,
+                    city: this.city,
+                    street: this.street,
+                    houseNumber: this.houseNumber,
+                    zipCode: this.zipCode,
+                    email: this.email
+                });
+                console.log("[Checkout] Response: ", response);
+            } catch(e)
+            {
+                console.error("[Checkout] Error on checkout: ", e);
+                toastr.error( this.$t("product.checkout.submitError") );
+            }
         },
         async calcTotalPrice()
         {                        

@@ -43,6 +43,10 @@
                         <input type="checkbox" class="form-check-input" id="publicCheck1" v-model="isPublic">
                         <label class="form-check-label" for="publicCheck1">{{ $t("general.isPublic") }}</label>
                     </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="isInPreparationCheck1" v-model="isInPreparation">
+                        <label class="form-check-label" for="isInPreparationCheck1">{{ $t("general.isInPreparation") }}</label>
+                    </div>
                     <div class="inline-form">
                         <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
                         <router-link to="/admin" class="btn btn-secondary">{{ $t("general.cancel") }}</router-link>
@@ -89,6 +93,7 @@ export default {
             isSendingRequest: false,
             percentCompleted: 0,
             isPublic: false,
+            isInPreparation: true,
             hasPorto: false,
             additionalInfo: "",
             weight: 0,
@@ -137,6 +142,7 @@ export default {
             data.append( "price", this.price );
             data.append( "image", this.image );
             data.append( "public", this.isPublic );
+            data.append( "isInPreparation", this.isInPreparation );
             data.append( "hasPorto", this.hasPorto );
             data.append( "additionalInfo", this.additionalInfo );
             data.append( "weight", this.weight );

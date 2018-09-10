@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" href="/orderForProducer/style.css" data-inline>
+</head>
+<body>
+    <div class="container">
+        <h1>edition bohemica</h1>
+        <p><b>Hallo Andreas!</b></p>
+        <p>Du hast eine neue Bestellung über deinen <b>Netzladen</b> erhalten:</p>
+
+        <h2>Bestellung</h2>
+        <div class="row">
+            <div class="col-50">Bestellnummer</div>
+            <div class="col-50"><%= orderId %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Gesamtpreis <small>(inkl. Porto)</small></div>
+            <div class="col-50"><%= totalPrice %> €</div>
+        </div>
+        <div class="row">
+            <div class="col-50">Porto</div>
+            <div class="col-50"><%= totalPorto %> €</div>
+        </div>
+
+        <h2>Titel</h2>
+        <% products.forEach(function(product){ %>
+            <div class="row">
+                <div class="col-50">                    
+                    <%= product.title %><br>
+                </div>
+                <div class="col-50">
+                    <b>ISBN:</b> <%= product.isbn %><br>
+                    <b>Menge:</b> <%= product.amount %>
+                </div>
+            </div>            
+        <% }) %>
+
+        <h2>Kunde</h2>
+        <div class="row">
+            <div class="col-50">Name</div>
+            <div class="col-50"><%= recipientName %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Adresse</div>
+            <div class="col-50"><%= recipientStreet %> <%= recipientHouseNumber %>, <br><%= recipientZipCode %> <%= recipientCity %><br><%= recipientCountry %></div>
+        </div>    
+        
+        
+        
+        <p class="footer">
+            Liebe Grüße von deiner Netzseite und deinem lieben Programmierer Sascha ;)            
+        </p>
+    </div>
+</body>

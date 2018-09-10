@@ -17,7 +17,8 @@
                         <textarea class="form-control" rows="7" v-model="message"></textarea>
                     </div>
                     <div class="form-group mt-4">
-                        <vue-recaptcha sitekey="6LfMimwUAAAAAFHmKMcJ3ezGvMaG9uq6kLliVhaX"></vue-recaptcha>
+                        <vue-recaptcha sitekey="6LfMimwUAAAAAFHmKMcJ3ezGvMaG9uq6kLliVhaX">                            
+                        </vue-recaptcha>                        
                         <button type="submit" class="btn btn-primary mt-4">
                             {{ $t("general.send") }}
                         </button>
@@ -49,17 +50,17 @@ export default {
     methods:
     {
         async send()
-        {            
-            if( !this.title || !this.email )
-            {
-                return toastr.error( this.$t("general.error.missingInput") );
-            }
-            if( !grecaptcha.getResponse() )
-            {
-                return toastr.error( this.$t("general.captchaMessage") );
-            }
+        {
             try
             {
+                if( !this.title || !this.email )
+                {
+                    return toastr.error( this.$t("general.error.missingInput") );
+                }
+                if( !grecaptcha.getResponse() )
+                {
+                    return toastr.error( this.$t("general.captchaMessage") );
+                }
                 const response = await HTTP().post("/contact", {
                     title: this.title,
                     message: this.message,

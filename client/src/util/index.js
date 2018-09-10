@@ -9,6 +9,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import config from '../config';
 import store from '../store';
+import { success, error } from "../interceptors";
 
 /**
  *  Get a real copy of an object.
@@ -23,14 +24,18 @@ export function deepCopy( obj )
 /**
  *  Export axios instance to make HTTP calls with.
  *  Auth header is set automatically.
+ *  @returns {AxiosInstance} -
  */
 export function HTTP() {
-    return axios.create({
+    let instance = axios.create({
         baseURL: config.ROOT_API,
+        crossdomain: true,
         headers: {
             Authorization: `Bearer ${store.getters.token}`
         }
     });
+    instance.interceptors.response.use( success, error );
+    return instance;
 }
 
 export function isMobileDevice()

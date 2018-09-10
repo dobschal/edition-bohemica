@@ -10,6 +10,7 @@ import MainLayout from '../components/layouts/Main/Main.vue';
 
 //  Pages
 import DashboardPage from "../components/pages/Dashboard/Dashboard.vue";
+import InPreparationPage from "../components/pages/InPreparation.vue";
 import CartPage from "../components/pages/Cart/Cart.vue";
 import CartCheckoutPage from "../components/pages/Cart/Checkout.vue";
 import ProductPage from "../components/pages/Product/Product.vue";
@@ -19,7 +20,7 @@ import ContactPage from "../components/pages/Conact.vue";
 
 import NotFoundPage from "../components/pages/NotFound.vue";
 
-import BackendPage from "../components/pages/Backend/Overview/Overview.vue";
+import BackendProductsPage from "../components/pages/Backend/Products/Products.vue";
 import BackendProductNewPage from "../components/pages/Backend/NewProduct/NewProduct.vue";
 import BackendProductEditPage from "../components/pages/Backend/EditProduct/EditProduct.vue";
 import BackendContentEditPage from "../components/pages/Backend/EditContent/EditContent.vue";
@@ -73,7 +74,7 @@ export default [
     { 
         path: "/admin", 
         component: MainLayout,  
-        children: [{ path: "", components: { default: BackendPage }, meta: { secured: true } }]
+        children: [{ path: "", components: { default: BackendProductsPage }, meta: { secured: true } }]
     },   
     { 
         path: "/login", 
@@ -99,6 +100,11 @@ export default [
         path: "/product/:productId", 
         component: MainLayout,  
         children: [{ path: "", components: { default: ProductPage } }]        
+    },   
+    { 
+        path: "/inpreparation", 
+        component: MainLayout,  
+        children: [{ path: "", components: { default: InPreparationPage } }]        
     },   
     { 
         path: "/", 

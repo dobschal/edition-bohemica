@@ -51,8 +51,9 @@ export default {
                 toastr.success( this.$t("login.success") );
                 this.$router.push("/admin");
             }).catch( error => {
+                toastr.error( this.$t("login.error") );
                 console.warn("[Login] Error: ", error );
-                this.errors.push( this.$t("login.error") );
+                // this.errors.push( this.$t("login.error") );
             });
         }
     }

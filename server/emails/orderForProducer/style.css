@@ -1,0 +1,83 @@
+body
+{
+    background-color: rgb(247, 247, 249);    
+    margin: 0;
+}
+.container
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #212529; font-size: 14px;
+    line-height: 20px;
+    width: 80%;
+    margin: 0 auto; 
+    border-left: solid 1px rgba(0,0,0,0.1); 
+    border-right: solid 1px rgba(0,0,0,0.1);
+    padding: 50px;
+    background-color: white;
+    min-height: 100%;
+    min-height: 100vh;
+    font-size: 14px;
+}
+h1
+{
+    font-style: italic;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+p
+{
+    margin: 0 0 10px 0;
+}
+pre
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #2c2c33;
+    color: white;
+    font-style: italic;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.footer
+{
+    font-size: 90%;
+    opacity: 0.9;
+    margin-top: 50px;
+    font-style: italic;
+}
+
+.row
+{
+    font-size: 0;
+    line-height: 0;
+    
+}
+
+.col-50
+{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 22px;
+    vertical-align: top;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #efefef;
+    margin: 0.25%;
+    width: 49.5% !important;
+    color: #3b3b3b;
+}
+.col-50:first-child
+{
+    font-weight: bold;
+}
+
+h2
+{
+    font-size: 18px;
+    margin: 30px 0 10px 0;
+    display: block;
+}

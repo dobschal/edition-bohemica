@@ -11,7 +11,7 @@
                     <a href="" @click.prevent="openPDF('program')">{{ $t("navigation.program") }}</a>
                 </li>
                 <li>
-                    <router-link to="/coming-soon">{{ $t("navigation.comingSoon") }}</router-link>
+                    <router-link to="/inpreparation">{{ $t("navigation.comingSoon") }}</router-link>
                 </li>
                 <li>
                     <router-link to="/content/trader-content">{{ $t("navigation.trader") }}</router-link>

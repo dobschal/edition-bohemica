@@ -74,4 +74,38 @@ function sendContactEmail( title, message, sendersEmail )
     // .catch( err => console.error("[Email] Unable to send contact email. ", err) );
 }
 
-module.exports = { sendRegistrationEmail, sendContactEmail };
+/**
+ *  @param {object} data - data for the template
+ *  @returns {promise} sendingMail
+ */
+function  sendOrderEmailToProducer( data )
+{
+    data = JSON.parse( JSON.stringify(data) );
+    data.totalPrice = parseFloat( data.totalPrice ).toFixed(2).replace(".", ",");
+    data.totalPorto = parseFloat( data.totalPorto ).toFixed(2).replace(".", ",");
+    data.title = `Neue Bestellung, ${data.orderId}, edition bohemica`;
+    return email.send({
+        template: 'orderForProducer',
+        message: {
+            to: "sascha@dobschal.eu"
+        },
+        locals: data
+    });
+}
+
+/**
+ *  @param {object} data - data for the template
+ *  @returns {promise} sendingMail
+ */
+function sendOrderEmailToCustomer( customersEmail, data )
+{
+    return email.send({
+        template: 'orderForCustomer',
+        message: {
+            to: customersEmail + ";sascha@dobschal.eu"
+        },
+        locals: data
+    });
+}
+
+module.exports = { sendRegistrationEmail, sendContactEmail, sendOrderEmailToCustomer, sendOrderEmailToProducer };

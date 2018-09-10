@@ -1,22 +1,60 @@
 <template>
     <div class="page-wrapper">
-
+        <h2>{{ $t("backend.overview.publicProducts") }}</h2>
         <div class="product-table">
             <div class="row table-head">
                 <div class="col-1">#</div>
                 <div class="col-5">{{ $t("general.title") }}</div>
-                <!--<div class="col">{{ $t("general.subtitle") }}</div>-->
-                <!-- <div class="col-3">ISBN</div> -->
                 <div class="col-2">{{ $t("general.public") }}</div>
                 <div class="col-4">{{ $t("general.actions") }}</div>
             </div>
             <draggable v-model="products" @update="sortChanged">
                 <transition-group>
-                    <div class="row product" v-for="(product, index) in products" :key="product._id">
+                    <div class="row product" v-for="(product, index) in products" :key="product._id" v-show="!product.isInPreparation">
                         <div class="col-1">{{ index }}</div>
                         <div class="col-5">{{ product.title }}</div>
-                        <!--<div class="col">{{ product.subtitle }}</div>-->
-                        <!-- <div class="col-3">{{ product.isbn }}</div> -->
+                        <div class="col-2">
+                            <span v-if="product.public" class="text-success">{{ $t("general.yes") }}</span>
+                            <span v-else  class="text-danger">{{ $t("general.no") }}</span>
+                        </div>
+                        <div class="col-4">
+                            <div 
+                                @click="publish(product)"
+                                v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')" 
+                                class="action" 
+                                :class="{ 'hide': product.public, 'publish': !product.public}" >
+                            </div>
+
+                            <div 
+                                @click="edit(product)" 
+                                v-tooltip="$t('general.edit')" 
+                                class="action edit" >
+                            </div>
+
+                            <div 
+                                @click="remove(product)" 
+                                v-tooltip="$t('general.delete')" 
+                                class="action remove" >
+                            </div>
+                        </div>
+                    </div>
+                </transition-group>
+            </draggable>
+        </div>
+
+        <h2 class="mt-4">{{ $t("backend.overview.productsInPreparation") }}</h2>
+        <div class="product-table">
+            <div class="row table-head">
+                <div class="col-1">#</div>
+                <div class="col-5">{{ $t("general.title") }}</div>
+                <div class="col-2">{{ $t("general.public") }}</div>
+                <div class="col-4">{{ $t("general.actions") }}</div>
+            </div>
+            <draggable v-model="products" @update="sortChanged">
+                <transition-group>
+                    <div class="row product" v-for="(product, index) in products" :key="product._id" v-show="product.isInPreparation">
+                        <div class="col-1">{{ index }}</div>
+                        <div class="col-5">{{ product.title }}</div>
                         <div class="col-2">
                             <span v-if="product.public" class="text-success">{{ $t("general.yes") }}</span>
                             <span v-else  class="text-danger">{{ $t("general.no") }}</span>
@@ -153,6 +191,11 @@ export default {
 
 @import "../../../../styles/variables.scss";
 
+h2
+{
+    @include font4();
+}
+
 .add-button
 {
     margin: 32px 0 0 0;
@@ -170,6 +213,7 @@ export default {
 {
     .table-head
     {
+        @include font2();
         font-weight: bold;
         border-bottom: solid 1px rgba($darkBlue, 0.1);
         margin: 0;
@@ -179,6 +223,7 @@ export default {
 
     .row.product
     {
+        @include font2();
         height: 48px;
         line-height: 48px;
         border-bottom: solid 1px rgba($darkBlue, 0.1);

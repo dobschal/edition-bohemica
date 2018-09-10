@@ -8,7 +8,6 @@
 import 'jquery';
 import 'babel-polyfill';
 import 'bootstrap';
-import "./interceptors";
 import "./filters";
 
 import toastr from 'toastr';

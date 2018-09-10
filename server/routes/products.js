@@ -8,6 +8,7 @@ const router  = express.Router();
 
 module.exports = function ( io ) {    
 
+    // Update all products
     router.put('/products', security.protect([  userRoles.USER, userRoles.ADMIN ]), uploader.single("new_image"), function(req, res, next) {
         const products = req.body;
         let countDownLatch = products.length;
