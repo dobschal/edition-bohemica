@@ -87,7 +87,7 @@ function  sendOrderEmailToProducer( data )
     return email.send({
         template: 'orderForProducer',
         message: {
-            to: "sascha@dobschal.eu"
+            to: "info@edition-bohemica.de;sascha@dobschal.eu"
         },
         locals: data
     });
