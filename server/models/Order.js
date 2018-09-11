@@ -35,7 +35,7 @@ function getRandomInt(min, max)
 function getOrderId()
 {
     let date = new Date();
-    return `${date.getFullYear().toString().substr(-2)}${formatNumber2(date.getMonth() + 1)}${formatNumber2(date.getDate())}-${getRandomInt(100000,999999)}`;
+    return `${date.getFullYear().toString().substr(-2)}${formatNumber2(date.getMonth() + 1)}${formatNumber2(date.getDate())}-${getRandomInt(100000,999999)}`;    
 }
 
 function formatNumber2( number )
@@ -47,4 +47,5 @@ function formatNumber2( number )
     return number;
 }
 
-module.exports = mongoose.model('Order', orderSchema);
+let model = mongoose.model('Order', orderSchema);
+module.exports = model;

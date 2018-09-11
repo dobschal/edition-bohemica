@@ -1,6 +1,6 @@
 <template>
     <div class="page-wrapper">
-        <div class="row">
+        <div class="row" v-if="!submitted">
             <div class="col-sm-8">
                 <form @submit.prevent="checkout">
                     <div class="form-group">
@@ -90,6 +90,14 @@
                 </div>-->
             </div>
         </div>
+        <div class="row" v-if="submitted">
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    {{ $t("product.checkout.submitMessage") }}<br>
+                    <b>{{ orderNumber }}</b>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -111,6 +119,7 @@ export default {
     data()
     {
         return {
+            orderNumber: "",
             totalPrice: 0,
             totalPorto: 0,
             country: "Deutschland", // lokalisiert
@@ -119,7 +128,8 @@ export default {
             street: "",
             houseNumber: "",
             zipCode: "",
-            email: ""
+            email: "",
+            submitted: false
         };
     },
     created()
@@ -185,6 +195,9 @@ export default {
                     email: this.email
                 });
                 console.log("[Checkout] Response: ", response);
+                this.orderNumber = response.data.orderId;
+                this.$store.commit("emptyCart");
+                this.submitted = true;
             } catch(e)
             {
                 console.error("[Checkout] Error on checkout: ", e);

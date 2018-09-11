@@ -1,17 +1,62 @@
 <head>
-    <link rel="stylesheet" href="/contact/style.css" data-inline>
+    <link rel="stylesheet" href="/orderForCustomer/style.css" data-inline>
 </head>
 <body>
     <div class="container">
         <h1>edition bohemica</h1>
-        <p><b>Hallo Andreas!</b></p>
-        <p>Du hast eine neue Nachricht über dein Kontaktformular erhalten:</p>
-        <pre><%= message %></pre>
-        <p>
-            <b>Absender:</b> <%= sendersEmail %>
-        </p>
+        <img src="https://edition-bohemica.dobschal.eu/logo.jpg" class="logo">
+        <p><b>Sehr geehrte(r) <%= recipientName %></b></p>
+        <p>Danke für Ihre Bestellung bei <i><b>edition bohemica</b></i>. Anbei finden Sie noch einmal alle Informationen zu Ihrer Bestellung, sowie die Zahlungsinformation.</p>       
+
+        <h2>Ihre Bestellung</h2>
+        <% products.forEach(function(product){ %>
+            <div class="row">
+                <div class="col-50">                    
+                    <%= product.title %><br>
+                </div>
+                <div class="col-50">
+                    <b>ISBN:</b> <%= product.isbn %><br>
+                    <b>Menge:</b> <%= product.amount %>
+                </div>
+            </div>            
+        <% }) %>
+
+        <h2>Informationen</h2>
+        <div class="row">
+            <div class="col-50">Empfängeradresse</div>
+            <div class="col-50"><%= recipientName %><br><%= recipientStreet %> <%= recipientHouseNumber %>, <br><%= recipientZipCode %> <%= recipientCity %><br><%= recipientCountry %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Bestellnummer</div>
+            <div class="col-50"><%= orderId %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Gesamtpreis <br><small>(inkl. Porto und Mwst.)</small></div>
+            <div class="col-50"><%= totalPrice %> €</div>
+        </div>
+        <h2>Bezahlung</h2>
+        <p>Bitte überweisen Sie den oben genannten Betrag <u>unter Angabe der Bestellnummer</u> innerhalb von 2 Wochen auf folgendes Konto:</p>
+        <div class="row">
+            <div class="col-50">Kontoinhaber</div>
+            <div class="col-50">edition bohemica</div>
+        </div>
+        <div class="row">
+            <div class="col-50">Bankinstitut</div>
+            <div class="col-50">tba</div>
+        </div>
+        <div class="row">
+            <div class="col-50">IBAN</div>
+            <div class="col-50">tba</div>
+        </div>
+        
         <p class="footer">
-            Liebe Grüße von deiner Internetseite und Sascha ;)            
+            <b>Dies ist eine automatisch erstellte E-Mail: </b><br>
+            Bei Fragen oder Änderungswünschen schicken Sie bitte eine E-Mail an info@edition-bohemica.de oder melden Sie sich telefonisch unter 0049 (0) 160 290 4288.
+            <br><br>
+        </p>
+        <p>
+            <b>Mit freundlichen Grüßen</b><br>
+            Andreas Petrak
         </p>
     </div>
 </body>

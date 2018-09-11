@@ -46,7 +46,8 @@ export default {
                 comment: "Comment",
                 submit: "Send order",
                 emailInfo: "All order information will be send to this e-mail address.",
-                submitError: "Error while sending order. Please try again later."
+                submitError: "Error while sending order. Please try again later.",
+                submitMessage: "Thank you for your order. You will receive an e-mail with all further information. Your order number is: "
             }
         },
         contentId:
@@ -234,7 +235,8 @@ export default {
                 comment: "Kommentar",
                 submit: "Bestellung abschicken",
                 emailInfo: "Alle Bestellinformationen werden an diese E-Mail gesendet.",
-                submitError: "Beim Senden der Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+                submitError: "Beim Senden der Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+                submitMessage: "Vielen Dank für Ihre Bestellung! Sie erhalten in wenigen Momenten eine E-Mail mit den Bezahlinformationen. Ihre Bestellnummer lautet: "
             }
         },
         contentId:

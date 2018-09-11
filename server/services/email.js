@@ -99,6 +99,10 @@ function  sendOrderEmailToProducer( data )
  */
 function sendOrderEmailToCustomer( customersEmail, data )
 {
+    data = JSON.parse( JSON.stringify(data) );
+    data.totalPrice = parseFloat( data.totalPrice ).toFixed(2).replace(".", ",");
+    data.totalPorto = parseFloat( data.totalPorto ).toFixed(2).replace(".", ",");
+    data.title = `Ihre Bestellung bei edition bohemica, ${data.orderId}`;
     return email.send({
         template: 'orderForCustomer',
         message: {

@@ -29,9 +29,15 @@ Changes
 
 - Added checkout page
 
-1.0.0 (50)
+1.0.0 (51)
 
 - Error messages in login are shown
 - In preparation page and backend added
 - Cart submit button is hidden when cart empty
 - email to customer on order submit
+
+1.0.0 (52)
+
+- e-mail to customer on submit
+- submit message for customer
+- new order ids

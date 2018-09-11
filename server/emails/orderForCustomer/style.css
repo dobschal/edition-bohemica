@@ -3,6 +3,16 @@ body
     background-color: rgb(247, 247, 249);    
     margin: 0;
 }
+.logo
+{
+    width: 100px;
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border: solid 8px white;
+    box-shadow: 0px 10px 15px -10px rgba(0, 0, 38, 0.15);
+}
 .container
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,6 +26,7 @@ body
     background-color: white;
     min-height: 100%;
     min-height: 100vh;
+    font-size: 14px;
 }
 h1
 {
@@ -47,4 +58,36 @@ pre
     opacity: 0.9;
     margin-top: 50px;
     font-style: italic;
+}
+
+.row
+{
+    font-size: 0;
+    line-height: 0;
+    
+}
+
+.col-50
+{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 22px;
+    vertical-align: top;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #efefef;
+    margin: 0.25%;
+    width: 49.5% !important;
+    color: #3b3b3b;
+}
+.col-50:first-child
+{
+    font-weight: bold;
+}
+
+h2
+{
+    font-size: 18px;
+    margin: 30px 0 10px 0;
+    display: block;
 }
