@@ -124,7 +124,7 @@ export default {
         },
         async getBuildNumber()
         {
-            const response = await HTTP().get("https://edition-bohemica.dobschal.eu/build-number.txt");
+            const response = await HTTP().get("/build-number");
             console.log("[Sidebar]", response.data);
             this.buildNumber = response.data;
         }

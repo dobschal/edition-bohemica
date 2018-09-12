@@ -14,7 +14,13 @@
                     <div class="row topbar align-items-center">
                         <div class="col-2 col-xs-2 burger-button-wrapper">
                             <div class="burger-button" @click="toggleSidebar"></div>
-                            <div v-tooltip="$t('dashboard.toCart')" class="cart-button" @click="goToCart"></div>
+                            <div 
+                                v-tooltip="$t('dashboard.toCart')" 
+                                class="cart-button"
+                                :class="{ 'animation-pulse': cartNotEmpty }"  
+                                @click="goToCart" >
+                            
+                            </div>
                         </div>
                         <div class="col-8 col-xs-8">
                             <h1>{{ title }}</h1>

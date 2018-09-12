@@ -2,6 +2,13 @@ import Hammer from "hammerjs";
 import { isMobileDevice } from "../../../util";
 
 export default {
+    computed:
+    {
+        cartNotEmpty()
+        {
+            return this.$store.getters.cart.length ? true : false;
+        }
+    },
     data() 
     {
         return {

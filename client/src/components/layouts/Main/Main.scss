@@ -80,7 +80,8 @@ body {
         .cart-button
         {
             @include iconButton( "../../../assets/button-cart.svg" );          
-            margin-left: 4px;            
+            margin-left: 4px;        
+            border-radius: 4px;    
         }
     }
 
