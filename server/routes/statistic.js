@@ -3,10 +3,18 @@ const Statistic         = require("../models/Statistic");
 const security          = require("../services/security");
 const uaParser          = require('ua-parser-js');
 const { userRoles }     = security;
+const fs                = require("fs");
+const path              = require("path");
 
 const router  = express.Router();
 
 module.exports = function ( io ) {    
+
+    router.get('/build-number', function(req, res, next) {
+        let filePath = path.join(__dirname, "../../client/build/build-number.txt");
+        const content = fs.readFileSync(filePath);
+        res.send( content);
+    });
 
     router.post('/statistic', function(req, res, next) {        
         let statistic = new Statistic(req.body);
