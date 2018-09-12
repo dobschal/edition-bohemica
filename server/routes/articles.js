@@ -68,7 +68,7 @@ module.exports = function ( io ) {
     });
 
     router.get('/articles', function(req, res, next) {
-        const protocoll = "https"; // req.connection.encrypted ? "https" : "http";
+        const protocoll = "http"; // req.connection.encrypted ? "https" : "http";
         Article.find(( err, articlesFromDB ) => {
             if (err) return next( err );            
             let articles = articlesFromDB.map( article => {
@@ -85,7 +85,7 @@ module.exports = function ( io ) {
                  ** /uploads/filename.jpg --> http://yourdomain.de/uploads/filename.jpg
                  */
                 article.images = article.images.map( imageFromDB => {
-                    if( !imageFromDB.file.includes("http://") && !imageFromDB.file.includes("https://") )
+                    if( !imageFromDB.file.includes("http://") && !imageFromDB.file.includes("://") )
                     {
                         imageFromDB.file =  protocoll + "://" + req.headers.host + "/" + imageFromDB.file;
                     }
@@ -107,7 +107,7 @@ module.exports = function ( io ) {
 
     router.get('/articles/:id', function(req, res, next) {
         const articleId = req.params.id;
-        const protocoll = "https"; // req.connection.encrypted ? "https" : "http";
+        const protocoll = "http"; // req.connection.encrypted ? "https" : "http";
         Article.findById( articleId, ( err, article ) => {
             if (err) return next( err );
             if( !article )
@@ -122,7 +122,7 @@ module.exports = function ( io ) {
              ** /uploads/filename.jpg --> http://yourdomain.de/uploads/filename.jpg
              */
             article.images = article.images.map( image => {
-                if( !image.file.includes("http://") && !image.file.includes("https://") )
+                if( !image.file.includes("http://") && !image.file.includes("http://") )
                 {
                     image.file = protocoll + "://" + req.headers.host + "/" + image.file;
                 }
@@ -168,7 +168,7 @@ module.exports = function ( io ) {
                 break;
                 case "wanttodelete":
                     let path = file.replace(protocoll + "://" + req.headers.host + "/", "");
-                    if( path.includes("http://") || path.includes("https://") )
+                    if( path.includes("http://") || path.includes("http://") )
                     {
                         return console.log("[Article] Unable to load delete external image.");
                     }
