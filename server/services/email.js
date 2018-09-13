@@ -66,7 +66,7 @@ function sendContactEmail( title, message, sendersEmail )
     return email.send({
         template: 'contact',
         message: {
-            to: "info@edition-bohemica.de;sascha@dobschal.eu"
+            to: process.env.ADMIN_EMAIL + ";" + process.env.MODERATOR_EMAIL
         },
         locals: { title, message, sendersEmail }
     });
@@ -87,7 +87,7 @@ function  sendOrderEmailToProducer( data )
     return email.send({
         template: 'orderForProducer',
         message: {
-            to: "info@edition-bohemica.de;sascha@dobschal.eu"
+            to: process.env.ADMIN_EMAIL + ";" + process.env.MODERATOR_EMAIL
         },
         locals: data
     });
@@ -106,7 +106,7 @@ function sendOrderEmailToCustomer( customersEmail, data )
     return email.send({
         template: 'orderForCustomer',
         message: {
-            to: customersEmail + ";sascha@dobschal.eu"
+            to: customersEmail + ";" + process.env.ADMIN_EMAIL
         },
         locals: data
     });

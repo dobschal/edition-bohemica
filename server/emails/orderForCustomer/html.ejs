@@ -4,9 +4,9 @@
 <body>
     <div class="container">
         <h1>edition bohemica</h1>
-        <img src="http://edition-bohemica.dobschal.eu/logo.jpg" class="logo">
+        <img src="https://edition-bohemica.de/logo.jpg" class="logo">
         <p><b>Sehr geehrte(r) <%= recipientName %></b></p>
-        <p>Danke für Ihre Bestellung bei <i><b>edition bohemica</b></i>. Anbei finden Sie noch einmal alle Informationen zu Ihrer Bestellung, sowie die Zahlungsinformation.</p>       
+        <p>Danke für Ihre Bestellung bei <i><b>edition bohemica</b></i>. Anbei finden Sie noch einmal alle Informationen zu Ihrer Bestellung. <br>Sie erhalten in Kürze eine weitere E-Mail mit der Rechnung und den Bezahlinformationen.</p>       
 
         <h2>Ihre Bestellung</h2>
         <% products.forEach(function(product){ %>
@@ -34,7 +34,8 @@
             <div class="col-50">Gesamtpreis <br><small>(inkl. Porto und Mwst.)</small></div>
             <div class="col-50"><%= totalPrice %> €</div>
         </div>
-        <h2>Bezahlung</h2>
+
+        <!--<h2>Bezahlung</h2>
         <p>Bitte überweisen Sie den oben genannten Betrag <u>unter Angabe der Bestellnummer</u> innerhalb von 2 Wochen auf folgendes Konto:</p>
         <div class="row">
             <div class="col-50">Kontoinhaber</div>
@@ -47,7 +48,7 @@
         <div class="row">
             <div class="col-50">IBAN</div>
             <div class="col-50">tba</div>
-        </div>
+        </div>-->
         
         <p class="footer">
             <b>Dies ist eine automatisch erstellte E-Mail: </b><br>
