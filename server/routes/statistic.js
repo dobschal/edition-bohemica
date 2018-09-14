@@ -16,7 +16,8 @@ module.exports = function ( io ) {
         try
         { 
             let filePath = path.join(__dirname, "../../client/build/build-number.txt");            
-            buildNumber = fs.readFileSync(filePath);
+            let content = fs.readFileSync(filePath, "utf8");
+            buildNumber = content.toString();
         }
         catch(e)
         {
