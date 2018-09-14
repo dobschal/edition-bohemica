@@ -41,17 +41,13 @@
                             {{ $t("product.checkout.countryInfo") }}
                         </div>
                     </div>
-                    <button class="btn btn-primary">{{ $t("product.checkout.submit") }}</button>
+                    <!-- <button class="btn btn-primary">{{ $t("product.checkout.submit") }}</button> -->
+                    <tds-button type="submit" :is-loading="isSendingCheckout" button-style="primary" :text="$t('product.checkout.submit')"></tds-button>
                     <button class="btn btn-secondary" @click="$router.go(-1)">{{ $t("general.cancel") }}</button>
                 </form>
             </div>
             <div class="col-sm-4">
-                <ul class="list-group product-list">
-                    <!-- <li 
-                        :style="{ backgroundImage: `url('${product.image}')` }" 
-                        v-for="product in cart" 
-                        :key="product._id" 
-                        class="list-group-item list-group-item-action flex-column align-items-start product-list-item" > -->
+                <ul class="list-group product-list">              
                     <li 
                         v-for="product in cart" 
                         :key="product._id" 
@@ -72,28 +68,12 @@
                 <div class="alert alert-info">
                     {{ $t("cart.info") }}
                 </div>
-                <!--<div v-if="product" class="row product">
-                    <div class="col-sm-12 image">
-                        <img :src="product.image">
-                    </div>
-                    <div class="col-sm-12 product-content">
-                        <h3>{{ product.title }}<br><small>{{ product.subtitle}}</small></h3>
-                        <div class="group">
-                            <div class="caption">ISBN</div>
-                            {{ product.isbn }}
-                        </div>
-                        <div class="group">
-                            <div class="caption">{{ $t("general.price") }}</div>
-                            {{ product.price | price }}
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
         <div class="row" v-if="submitted">
             <div class="col-sm-12">
-                <div class="alert alert-success">
-                    {{ $t("product.checkout.submitMessage") }}<br>
+                <div class="alert alert-success" >
+                    <span v-html="$t('product.checkout.submitMessage')"></span>
                     <b>{{ orderNumber }}</b>
                 </div>
             </div>
@@ -129,7 +109,8 @@ export default {
             houseNumber: "",
             zipCode: "",
             email: "",
-            submitted: false
+            submitted: false,
+            isSendingCheckout: false
         };
     },
     created()
@@ -178,8 +159,13 @@ export default {
         {
             if( !this.email || !this.name || !this.zipCode )
             {
-                return toastr.error( $t("general.missingInput") );
+                return toastr.error( this.$t("general.missingInput") );
             }
+            if( this.isSendingCheckout )
+            {
+                return toastr.info( this.$t("product.checkout.waitInfo") );
+            }
+            this.isSendingCheckout = true;
             try
             {
                 const response = await HTTP().post("/cart/submit", {
@@ -203,6 +189,7 @@ export default {
                 console.error("[Checkout] Error on checkout: ", e);
                 toastr.error( this.$t("product.checkout.submitError") );
             }
+            this.isSendingCheckout = false;
         },
         async calcTotalPrice()
         {                        

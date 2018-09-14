@@ -32,6 +32,7 @@ export default {
             orderNow: "Order Now",                        
             checkout:
             {
+                waitInfo: "Please wait. Your is being processed...",
                 addedToCart: "Product is now in your cart.",
                 amountInfo: "The product is already in your cart. If you want to order more than one, you can change the amount while finishing your order.",
                 countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
@@ -221,6 +222,7 @@ export default {
             orderNow: "Jetzt Bestellen",                        
             checkout:
             {
+                waitInfo: "Bitte warten. Ihre Bestellung wird gesendet.",
                 addedToCart: "Das Produkt wurde in Ihren Warenkorb gelegt.",
                 amountInfo: "Das Produkt befindet sich bereits in Ihrem Warenkorb. Falls Sie mehrere Exemplare bestellen wollen, können Sie dies später während der Bestellung angeben.",
                 countryInfo: "Die Versandkosten für eine Zustellung außerhalb Deutschlands werden separat berechnet. Sie erhalten nach Abschluss des Bestellvorgangs eine E-Mail mit allen Informationen.",
@@ -236,7 +238,7 @@ export default {
                 submit: "Bestellung abschicken",
                 emailInfo: "Alle Bestellinformationen werden an diese E-Mail gesendet.",
                 submitError: "Beim Senden der Bestellung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
-                submitMessage: "Vielen Dank für Ihre Bestellung! Sie erhalten in wenigen Momenten eine E-Mail mit den Bezahlinformationen. Ihre Bestellnummer lautet: "
+                submitMessage: "Vielen Dank für Ihre Bestellung! Sie erhalten in wenigen Momenten eine E-Mail mit ihrer Bestellbestätigung. <br><br>Ihre Bestellnummer lautet: "
             }
         },
         contentId:
