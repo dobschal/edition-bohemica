@@ -5,10 +5,29 @@ const uaParser          = require('ua-parser-js');
 const { userRoles }     = security;
 const fs                = require("fs");
 const path              = require("path");
+const pjson             = require('../package.json');
 
 const router  = express.Router();
 
 module.exports = function ( io ) {    
+
+    router.get('/version', function(req, res, next) {       
+        let buildNumber = "No information";
+        try
+        { 
+            let filePath = path.join(__dirname, "../../client/build/build-number.txt");            
+            buildNumber = fs.readFileSync(filePath);
+        }
+        catch(e)
+        {
+            console.error("[Statistic] No build number text file in client build folder!");
+        }
+        res.send({
+            version: pjson.version,
+            author: pjson.author,
+            buildNumber: buildNumber
+        });
+    });
 
     router.get('/build-number', function(req, res, next) {
         let filePath = path.join(__dirname, "../../client/build/build-number.txt");

@@ -2,7 +2,7 @@ import toastr from "toastr";
 
 export function success( response )
 {
-    console.log( "[interceptor] Success: ", response );
+    // console.log( "[interceptor] Success: ", response );
     return response;
 }
 

@@ -14,7 +14,7 @@ export default {
         return {
             sidebarToggled: false,
             title: "",
-            userAmount: 172133 + this.$store.getters.userAmount // old amount plus real one
+            userAmount: 173000 + this.$store.getters.userAmount // old amount plus real one
         };
     },
     watch: {

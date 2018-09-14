@@ -17,14 +17,14 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
 import VTooltip from 'v-tooltip';
+import AsyncComputed from "vue-async-computed";
 
 import dictionary from "./config/dictionary";
 import routes from "./config/routes";
 import store from "./store";
-import config from './config';
 import { addComponents } from "./config/components";
 
-console.log(`\n[Main] Application started.\n               API: ${config.ROOT_API}\n               Version: ${config.VERSION}\n               Build number: ${config.BUILD_NUMBER}\n\n`);
+console.log(`\n[Main] Application started.`);
 
 toastr.options.closeButton = true;
 toastr.options.closeMethod = 'fadeOut';
@@ -33,6 +33,7 @@ toastr.options.hideDuration = 300;
 toastr.options.closeEasing = 'swing';
 
 Vue.use(VTooltip);
+Vue.use(AsyncComputed);
 
 //  Language switch works as follow:
 //  http://kazupon.github.io/vue-i18n/guide/locale.html

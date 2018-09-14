@@ -1,7 +1,7 @@
 {
   "name": "edition-bohemica-client",
   "description": "A Vue.js project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Sascha Dobschal <s.dobschal@tdsoftware.de>",
   "license": "MIT",
   "private": true,
@@ -25,6 +25,7 @@
     "topojson": "^3.0.2",
     "v-tooltip": "^2.0.0-rc.33",
     "vue": "^2.5.11",
+    "vue-async-computed": "^3.4.1",
     "vue-i18n": "^8.0.0",
     "vue-pdf": "^3.3.1",
     "vue-recaptcha": "^1.1.1",

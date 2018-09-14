@@ -14,7 +14,6 @@
     export default {
         created()
         {
-            console.log("[App] App created...");
             this.loadContent();
             this.sendStats();
             this.getStats();
