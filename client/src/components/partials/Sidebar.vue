@@ -7,7 +7,7 @@
                     <router-link to="/">{{ $t("navigation.start") }}</router-link>
                 </li>
                 <li></li>
-                <li>
+                <li v-if="pdfLinks && pdfLinks.program">
                     <a :href="pdfLinks.program" target="_blank">{{ $t("navigation.program") }}</a>
                 </li>
                 <li>
@@ -16,7 +16,7 @@
                 <li>
                     <router-link to="/content/trader-content">{{ $t("navigation.trader") }}</router-link>
                 </li>                
-                <li>
+                <li v-if="pdfLinks && pdfLinks.correspondence">
                      <a :href="pdfLinks.correspondence" target="_blank">{{ $t("navigation.correspondence") }}</a>
                 </li>
                 <li></li>
@@ -26,7 +26,7 @@
                 <li>
                     <router-link to="/content/travel-content">{{ $t("navigation.travel") }}</router-link>
                 </li>
-                <li>
+                <li v-if="pdfLinks && pdfLinks.images">
                     <a :href="pdfLinks.images" target="_blank">{{ $t("navigation.images") }}</a>
                 </li>                
             </ul>
@@ -106,7 +106,11 @@ export default {
             language: "de",
             buildNumber: "?",
             version: "?",
-            pdfLinks: {}
+            pdfLinks: {
+                images: "",
+                correspondence: "",
+                program: ""
+            }
         }
     },
     methods: {
@@ -119,15 +123,16 @@ export default {
             this.$store.commit("deleteToken");
             this.$router.push("/");
         },        
-        getPDFLinks( ids )
+        async getPDFLinks( ids )
         {
-            ids.forEach( id => {
-                this.pdfLinks[id] = "";
-                HTTP().get(`/pdfpage/${id}`).then(response => {
-                    this.pdfLinks[id] = response.data.pdf;
-                }).catch(error => {
+            ids.forEach( async id => {
+                try
+                {
+                    const response = await HTTP().get(`/pdfpage/${id}`);
+                    this.$set(this.pdfLinks, id, response.data.pdf);
+                } catch(error) {
                     console.error("[Sidebar] Unable to load pdf link.", error);
-                });
+                };
             });
         },
         async getVersionInfo()
