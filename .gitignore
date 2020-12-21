@@ -6,3 +6,4 @@ server/uploads/
 /client/webpack-cache
 /client/static/build-number.txt
 /client/.idea
+/server/.idea
