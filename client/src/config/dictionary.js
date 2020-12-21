@@ -6,7 +6,7 @@
  */
 
 export default {
-    en: {   
+    en: {
         contact:
         {
             sent: "Thanks for your Message!",
@@ -29,7 +29,7 @@ export default {
         product:
         {
             toDetails: "To the product details...",
-            orderNow: "Order Now",                        
+            orderNow: "Order Now",
             checkout:
             {
                 waitInfo: "Please wait. Your is being processed...",
@@ -119,7 +119,7 @@ export default {
         navigation: {
             correspondence: "Verlags-Correspondenz",
             porto: "Porto",
-            start: "Homepage",
+            start: "The Shop",
             shop: "Shop",
             news: "News",
             program: "Program",
@@ -156,7 +156,7 @@ export default {
         backend: {
             pdf:
             {
-                title: "PDF Bearbeiten",                
+                title: "PDF Bearbeiten",
                 pdfUpload: "PDF die angezeigt werden soll, wenn der Nutzer die Seite öffnet."
             },
             porto:
@@ -176,7 +176,7 @@ export default {
                 addProduct: "Add Product",
                 title: "Admin Area",
                 products: "Products",
-                sort: "Products sorted.",  
+                sort: "Products sorted.",
                 productsInPreparation: "Products in preparation",
                 publicProducts: "Products in store",
                 error: {
@@ -188,11 +188,11 @@ export default {
             },
             newProduct:
             {
-                title: "New Product"                
+                title: "New Product"
             },
             editProduct:
             {
-                title: "Change Product"                
+                title: "Change Product"
             }
         }
     },
@@ -219,7 +219,7 @@ export default {
         product:
         {
             toDetails: "Zu den Produkt-Details...",
-            orderNow: "Jetzt Bestellen",                        
+            orderNow: "Jetzt Bestellen",
             checkout:
             {
                 waitInfo: "Bitte warten. Ihre Bestellung wird gesendet.",
@@ -252,7 +252,7 @@ export default {
             "portrait-content": "Verlagsportrait",
             "travel-content": "Reisewege nach Böhmen",
             "trader-content": "Händler"
-        },      
+        },
         general: {
             isInPreparation: "Ist in Vorbereitung?",
             captchaMessage: "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
@@ -309,7 +309,7 @@ export default {
         navigation: {
             correspondence: "Verlags-Correspondenz",
             porto: "Versandkosten",
-            start: "Startseite",
+            start: "Der Laden",
             shop: "Laden",
             news: "Aktuelles",
             program: "Verlagsprogramm",
@@ -363,7 +363,7 @@ export default {
             },
             overview:
             {
-                sort: "Produkte wurden sortiert.",                
+                sort: "Produkte wurden sortiert.",
                 addProduct: "Produkt hinzufügen",
                 title: "Admin-Bereich",
                 products: "Produkte",
@@ -378,15 +378,15 @@ export default {
             },
             newProduct:
             {
-                title: "Neues Produkt"                
+                title: "Neues Produkt"
             },
             editProduct:
             {
-                title: "Produkt bearbeiten"                
+                title: "Produkt bearbeiten"
             }
         }
     },
     cs: {
-        
+
     }
 };

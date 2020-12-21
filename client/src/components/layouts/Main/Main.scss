@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+
 body {
     overflow-x: hidden;
 }
@@ -26,14 +27,20 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    // background-color: rgb(34, 37, 42);
-    background: rgba( $gray1, 0.25 );
-    border-right: solid 1px rgba( $darkBlue, 0.1 );
-    // box-shadow: inset -16px 0px 16px -16px #000000;
+    background-color: rgba($gray1, 0.25);
+    background-image: linear-gradient(160deg, rgba(0,123,60,0.2) 0%, rgba(0,0,38,0.2) 100%);
+    border-right: solid 1px rgba($darkBlue, 0.1);
     -webkit-transition: all 0.5s $transitionEasing2;
     -moz-transition: all 0.5s $transitionEasing2;
     -o-transition: all 0.5s $transitionEasing2;
     transition: all 0.5s $transitionEasing2;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -44,6 +51,7 @@ body {
     width: 100%;
     position: absolute;
     padding: 0px;
+    max-width: 1240px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -51,47 +59,58 @@ body {
     margin-right: -250px;
 }
 
-.topbar
-{
+.topbar {
     height: 56px;
-    h1
-    {
+    padding-right: 16px;
+
+    h1 {
         @include font1();
-        text-align: center;        
+        text-align: center;
         margin: 12px;
-        span
-        {
+
+        span {
             animation: page_title;
             animation-duration: 2.0s;
             animation-timing-function: ease-in-out;
         }
     }
 
-    .burger-button-wrapper
-    {
+    .burger-button-wrapper {
         padding: 14px;
         white-space: nowrap;
-        .burger-button
-        {
-            @include iconButton( "../../../assets/button-navigation.svg" );
+        flex-direction: row;
+        display: flex;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .burger-button {
+            @include iconButton("../../../assets/button-navigation.svg");
             transform: rotateY(180deg);
             transition: transform 1.0s $transitionEasing2;
         }
 
-        .cart-button
-        {
-            @include iconButton( "../../../assets/button-cart.svg" );          
-            margin-left: 4px;        
-            border-radius: 4px;    
+        .cart-button-wrapper {
+            @include font2();
+
+            .cart-button {
+                @include iconButton("../../../assets/button-cart.svg");
+                margin-left: 4px;
+                border-radius: 4px;
+            }
+
+            span {
+                padding-left: 4px;
+            }
         }
     }
 
-    .user-amount
-    {
+    .user-amount {
         text-align: right;
-        @include font2();        
-        .icon-users
-        {
+        @include font2();
+
+        .icon-users {
             vertical-align: middle;
             background-image: url("../../../assets/icon-users.svg");
             width: 24px;
@@ -103,18 +122,15 @@ body {
     }
 }
 
-#wrapper.toggled 
-{
-    .topbar
-    {
-        .burger-button
-        {
+#wrapper.toggled {
+    .topbar {
+        .burger-button {
             transform: rotateY(0deg);
         }
     }
 }
 
-@media(min-width:768px) {
+@media(min-width: 768px) {
     #wrapper {
         padding-left: 0;
     }

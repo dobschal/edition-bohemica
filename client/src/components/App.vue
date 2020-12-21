@@ -106,4 +106,12 @@
         margin: 0;
     }
 
+    .alert {
+        border-radius: 0;
+
+        &.alert-info {
+            background-color: #c1e7da;
+        }
+    }
+
 </style>

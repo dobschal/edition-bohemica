@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
-        <div class="row">  
-            <div class="col-12">      
+        <div class="row">
+            <div class="col-12">
                 <form @submit.prevent="save">
                     <div class="form-group">
                         <label>{{ $t("general.title") }}</label>
@@ -28,8 +28,8 @@
                         <input type="text" placeholder="1500" class="form-control" v-model="weight">
                     </div>
                     <div class="form-group">
-                        <label>{{ $t("general.price") }}</label>
-                        <input type="number" placeholder="9,99" class="form-control" v-model="price">
+                        <label>{{ $t("general.price") }} <small>(Punkt statt Komma verwenden: Z.B. 9.99)</small></label>
+                        <input type="number" step="0.01" placeholder="9,99" class="form-control" v-model="price">
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="portoCheck" v-model="hasPorto">
@@ -52,7 +52,7 @@
                             <div class="col">
                                 <input accept="image/*" type="file" class="form-control" @change="imageChanged($event)">
                             </div>
-                        </div>                
+                        </div>
                     </div>
                     <div class="inline-form">
                         <tds-button type="submit" :is-loading="isSendingRequest" button-style="success" :text="$t('general.save')"></tds-button>
@@ -122,15 +122,15 @@ export default {
         async loadProduct()
         {
             const response = await HTTP().get(`/products/${this.$route.params.productId}`);
-            const { 
-                description, 
-                title, 
-                image:imageUrl, 
-                isbn, 
-                modifiedAt, 
-                price, 
-                public:isPublic, 
-                subtitle, 
+            const {
+                description,
+                title,
+                image:imageUrl,
+                isbn,
+                modifiedAt,
+                price,
+                public:isPublic,
+                subtitle,
                 _id,
                 hasPorto,
                 additionalInfo,
@@ -173,10 +173,10 @@ export default {
             this.price = parseFloat( (this.price + "").replace(",", ".") );
             if( isNaN(this.price) )
             {
-                toastr.error( this.$t("general.error.priceFormat") );   
+                toastr.error( this.$t("general.error.priceFormat") );
                 return;
             }
-            if( this.isSendingRequest ) 
+            if( this.isSendingRequest )
             {
                 toastr.info( this.$t("general.saveInProgress") );
                 return;
@@ -184,10 +184,10 @@ export default {
 
             if(!this.inputValid)
             {
-                toastr.error( this.$t("general.error.missingInput") );                
+                toastr.error( this.$t("general.error.missingInput") );
                 return;
             }
-            
+
             let data = new FormData();
 
             data.append( "_id", this.id );
@@ -200,10 +200,10 @@ export default {
             data.append( "public", this.isPublic );
             data.append( "hasPorto", this.hasPorto );
             data.append( "additionalInfo", this.additionalInfo );
-            data.append( "weight", this.weight );      
-            data.append( "isInPreparation", this.isInPreparation );      
+            data.append( "weight", this.weight );
+            data.append( "isInPreparation", this.isInPreparation );
             if( this.image ) data.append( "new_image", this.image );
-            
+
             this.sendRequest( data );
         },
 
@@ -224,7 +224,7 @@ export default {
                 console.error("[NewProduct] Error: ", error);
                 toastr.error( this.$t("general.error.save") );
                 this.isSendingRequest = false;
-            });            
+            });
         }
     }
 }

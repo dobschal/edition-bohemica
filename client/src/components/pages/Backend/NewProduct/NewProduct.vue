@@ -28,8 +28,8 @@
                         <input type="text" placeholder="1500" class="form-control" v-model="weight">
                     </div>
                     <div class="form-group">
-                        <label>{{ $t("general.price") }}</label>
-                        <input type="text" placeholder="9,99" class="form-control" v-model="price">
+                        <label>{{ $t("general.price") }} <small>(Punkt statt Komma verwenden: Z.B. 9.99)</small></label>
+                        <input type="number" step="0.01" placeholder="9.99" class="form-control" v-model="price">
                     </div>
                     <div class="form-group">
                         <label>{{ $t("general.image") }}</label>
@@ -86,7 +86,7 @@ export default {
             ],
             title: "",
             subtitle: "",
-            description: "",            
+            description: "",
             isbn: "",
             price: "",
             image: null,
@@ -118,10 +118,10 @@ export default {
             this.price = parseFloat( (this.price + "").replace(",", ".") );
             if( isNaN(this.price) )
             {
-                toastr.error( this.$t("general.error.priceFormat") );   
+                toastr.error( this.$t("general.error.priceFormat") );
                 return;
             }
-            if( this.isSendingRequest ) 
+            if( this.isSendingRequest )
             {
                 toastr.info( this.$t("general.saveInProgress") );
                 return;
@@ -129,10 +129,10 @@ export default {
 
             if(!this.inputValid)
             {
-                toastr.error( this.$t("general.error.missingInput") );                
+                toastr.error( this.$t("general.error.missingInput") );
                 return;
             }
-            
+
             let data = new FormData();
 
             data.append( "title", this.title );
@@ -146,7 +146,7 @@ export default {
             data.append( "hasPorto", this.hasPorto );
             data.append( "additionalInfo", this.additionalInfo );
             data.append( "weight", this.weight );
-            
+
             this.sendRequest( data );
         },
 
@@ -167,7 +167,7 @@ export default {
                 console.error("[NewProduct] Error: ", error);
                 toastr.error( this.$t("general.error.save") );
                 this.isSendingRequest = false;
-            });            
+            });
         }
     }
 }
