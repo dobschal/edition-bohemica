@@ -14,7 +14,7 @@
         <small class="subtitle" v-if="products.length > 0">Aktuell sind {{
             products.length }} Titel erhältlich...</small>
         <div class="row products">
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 product d-flex"
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 product d-flex"
                  @click="$router.push('/product/' + product._id)"
                  v-for="product in products" :key="product._id">
                 <div class="card">
@@ -42,7 +42,7 @@
             sind {{ productsInPreparation.length }} Titel in Vorbereitung
             erhältlich...</small>
         <div class="row products" v-if="productsInPreparation.length > 0">
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 product d-flex"
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 product d-flex"
                  @click="$router.push('/product/' + product._id)"
                  v-for="product in productsInPreparation" :key="product._id">
                 <div class="card">

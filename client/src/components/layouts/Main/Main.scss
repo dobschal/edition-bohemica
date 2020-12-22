@@ -51,7 +51,7 @@ body {
     width: 100%;
     position: absolute;
     padding: 0px;
-    max-width: 1240px;
+    max-width: 1670px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -60,7 +60,7 @@ body {
 }
 
 .topbar {
-    height: 56px;
+    min-height: 56px;
     padding-right: 16px;
 
     h1 {
@@ -86,7 +86,7 @@ body {
         }
 
         .burger-button {
-            @include iconButton("../../../assets/button-navigation.svg");
+            @include iconButton("../../../assets/icon-navigation.svg");
             transform: rotateY(180deg);
             transition: transform 1.0s $transitionEasing2;
         }
@@ -109,6 +109,7 @@ body {
     .user-amount {
         text-align: right;
         @include font2();
+        padding: 0;
 
         .icon-users {
             vertical-align: middle;
@@ -150,5 +151,17 @@ body {
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
+    }
+
+    #wrapper {
+        .topbar {
+            .user-amount {
+                padding: 14px;
+            }
+
+            .burger-button-wrapper {
+                padding: 14px 0 14px 44px;
+            }
+        }
     }
 }

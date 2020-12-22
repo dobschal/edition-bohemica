@@ -188,7 +188,7 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
         margin: 32px 50px 32px 50px;
-        border: solid 10px white;
+        //border: solid 10px white;
         display: block;
         box-shadow: 0 10px 50px -10px rgba(0, 0, 0, .3);
     }
@@ -203,8 +203,8 @@
         margin: 32px 50px;
         display: block;
         box-shadow: 0 10px 50px -10px rgba(0, 0, 0, .3);
-        background-color: white;
-        border: solid 10px white;
+        //background-color: white;
+        //border: solid 10px white;
     }
 
     .banner {

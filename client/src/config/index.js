@@ -1,10 +1,10 @@
 
 /**
  *  @author Sascha Dobschal @ TDSoftware
- *  @description Specify configuration variables based on the environment. 
+ *  @description Specify configuration variables based on the environment.
  */
 
-import { version } from "../../package.json";
+import {version} from "../../package.json";
 
 let rootApi = "";
 
@@ -21,9 +21,9 @@ switch (process.env.NODE_ENV) {
     default: console.error(`Unknown environment ${process.env.NODE_ENV}!`);
 }
 
-export default {      
+export default {
     BUILD_NUMBER: process.env.npm_config_buildNumber || "",
     ENVIRONMENT: process.env.NODE_ENV || "",
-    ROOT_API: rootApi,    
+    ROOT_API: rootApi,
     VERSION: version
 };

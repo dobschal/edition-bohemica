@@ -3,19 +3,19 @@
         <ul class="list-group cart-list">
             <li class="list-group-item header">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6 col-md-4">
                         {{ $t("general.title") }}
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 d-none d-md-block">
                         ISBN
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 d-none d-sm-block">
                         {{ $t("general.price") }}
                     </div>
-                    <div class="col-2">
+                    <div class="col-3 col-sm-2">
                         {{ $t("general.amount") }}
                     </div>
-                    <div class="col-1"></div>
+                    <div class="col-2 col-sm-1"></div>
                 </div>
             </li>
             <li v-if="!cart.length"
@@ -25,21 +25,21 @@
             <li class="list-group-item" v-for="product in cart"
                 :key="product._id">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6 col-md-4">
                         {{ product.title }}
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 d-none d-md-block">
                         {{ product.isbn }}
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 d-none d-sm-block">
                         {{ product.price | price }}
                     </div>
-                    <div class="col-2">
+                    <div class="col-3 col-sm-2">
                         <input type="number" v-model="product.amount"
                                class="form-control"
                                @change="amountChanged( product )">
                     </div>
-                    <div class="col-1">
+                    <div class="col-2 col-sm-1">
                         <div class="button-remove"
                              @click="remove(product)"></div>
                     </div>
@@ -47,19 +47,19 @@
             </li>
         </ul>
         <div class="row total">
-            <div class="col-4 porto">
+            <div class="col-md-4  col-xs-6 porto">
                 <div class="caption">{{ $t('general.porto') }}</div>
                 <div class="value" :class="{ 'is-loading': isCalculating }">{{
                     totalPorto | price }}
                 </div>
             </div>
-            <div class="col-4 total-price">
+            <div class="col-md-4  col-xs-6 total-price">
                 <div class="caption">{{ $t('general.totalPrice') }}</div>
                 <div class="value" :class="{ 'is-loading': isCalculating }">{{
                     totalPrice | price }}
                 </div>
             </div>
-            <div class="col-4 submit">
+            <div class="col-md-4 col-xs-6 mt-2 submit">
                 <router-link to="/cart/checkout" class="btn btn-primary"
                              v-if="cart.length">
                     {{ $t("product.checkout.submit") }}
@@ -88,12 +88,19 @@
             return {
                 totalPorto: null,
                 totalPrice: null,
-                isCalculating: false
+                isCalculating: false,
+                isSmallScreen: false
             };
         },
         created() {
             this.$emit("change-title", this.$t("cart.title"));
             this.calcTotalPrice();
+        },
+        mounted() {
+            window.onresize = () => {
+                this.isSmallScreen = window.innerWidth < 768;
+            };
+            this.isSmallScreen = window.innerWidth < 768;
         },
         methods:
             {
@@ -160,6 +167,8 @@
     @import "../../../styles/variables.scss";
 
     .page-wrapper {
+        padding: 24px 0;
+
         ul.list-group.cart-list {
             li.list-group-item {
                 border-radius: 0;
@@ -241,6 +250,12 @@
                     animation-iteration-count: infinite;
                 }
             }
+        }
+    }
+
+    @media(min-width: 768px) {
+        .page-wrapper {
+            padding: 48px;
         }
     }
 

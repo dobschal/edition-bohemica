@@ -12,7 +12,7 @@
                         <input class="form-control" type="email" placeholder="jemand@irgendwo.de" v-model="email">
                         <div class="alert alert-info">{{ $t("product.checkout.emailInfo") }}</div>
                     </div>
-                    <div class="row">                                                
+                    <div class="row">
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <label>{{ $t("product.checkout.street") }}</label>
@@ -47,19 +47,20 @@
                 </form>
             </div>
             <div class="col-sm-4">
-                <ul class="list-group product-list">              
-                    <li 
-                        v-for="product in cart" 
-                        :key="product._id" 
+                <h4 class="mt-4">Ihre Bestellung</h4>
+                <ul class="list-group product-list">
+                    <li
+                        v-for="product in cart"
+                        :key="product._id"
                         class="list-group-item list-group-item-action flex-column align-items-start product-list-item" >
 
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{ product.title }}</h5>
                             <!--<small>3 days ago</small>-->
                         </div>
-                        <p class="mb-1">{{ product.subtitle }}</p>
+                        <p class="mb-1"><small><i>{{ product.subtitle }}</i></small></p>
                         <small>
-                            <b>ISBN: </b> {{ product.isbn }}<br> 
+                            <b>ISBN: </b> {{ product.isbn }}<br>
                             <b>{{ $t("general.amount") }}</b>: {{ product.amount }}
                         </small>
                     </li>
@@ -92,7 +93,7 @@ export default {
         cart()
         {
             console.log("[Cart]", this.$store.getters.cart);
-            let cart = this.$store.getters.cart;            
+            let cart = this.$store.getters.cart;
             return cart;
         }
     },
@@ -130,7 +131,7 @@ export default {
          *  --> Instead of the cart page, the checkout page is shown.
          */
         async makeSingleProductCart()
-        {            
+        {
             try
             {
                 //  Empty the cart
@@ -192,8 +193,8 @@ export default {
             this.isSendingCheckout = false;
         },
         async calcTotalPrice()
-        {                        
-            this.totalPorto = 0;   
+        {
+            this.totalPorto = 0;
             this.totalPrice = 0;
             if( !this.cart.length ) return;
             this.isCalculating = true;
@@ -202,14 +203,14 @@ export default {
             {
                 for( let i = 0; i < this.cart.length; i++)
                 {
-                    let product = this.cart[i];                    
+                    let product = this.cart[i];
                     this.totalPrice += product.price * product.amount;
                     totalWeight += product.hasPorto ? product.weight * product.amount : 0;
                 }
                 console.log("[Cart] Calculated weight for: ", totalWeight);
                 if( totalWeight )
                 {
-                    const portoResponse = await HTTP().get(`/porto/${totalWeight}`);                
+                    const portoResponse = await HTTP().get(`/porto/${totalWeight}`);
                     this.totalPorto = portoResponse.data.price;
                     this.totalPrice += this.totalPorto;
                 }
@@ -230,6 +231,10 @@ export default {
 
 @import "../../../styles/variables.scss";
 
+.page-wrapper {
+    padding: 48px 14px;
+}
+
 .alert
 {
     @include font2();
@@ -240,6 +245,12 @@ export default {
 .product-list
 {
     margin-top: 24px;
+
+    .list-group-item {
+        border-radius: 0;
+        margin-bottom: 16px;
+        box-shadow: 0 10px 50px -10px rgba(0, 0, 0, .1);
+    }
 }
 
 .total-price
@@ -294,9 +305,15 @@ export default {
             padding-bottom: 24px;
             .caption
             {
-                @include font5( $color: rgba($darkBlue, 0.5), $lineHeight: 12px );            
+                @include font5( $color: rgba($darkBlue, 0.5), $lineHeight: 12px );
             }
         }
+    }
+}
+
+@media(min-width: 768px) {
+    .page-wrapper {
+        padding: 48px;
     }
 }
 

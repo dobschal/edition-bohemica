@@ -2,7 +2,7 @@
     <div class="page-wrapper">
         <div class="content" v-if="content" v-html="content">
         </div>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default
     @include font2();
     margin-bottom: 16px;
     margin-top: -1rem;
-    padding: 48px;
+    padding: 24px 0;
 }
 
 
