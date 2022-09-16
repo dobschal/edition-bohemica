@@ -14,7 +14,7 @@
     "debug": "~2.6.3",
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
-    "email-templates": "^4.0.1",
+    "email-templates": "^10.0.1",
     "express": "~4.15.2",
     "gulp": "^3.9.1",
     "js-sha512": "^0.7.1",
