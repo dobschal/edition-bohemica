@@ -1,29 +1,14 @@
 
 /**
- *  @author Sascha Dobschal @ TDSoftware
+ *  @author Sascha Dobschal
  *  @description Specify configuration variables based on the environment.
  */
 
-import {version} from "../../package.json";
-
-let rootApi = "";
-
-switch (process.env.NODE_ENV) {
-
-    case "production":
-        rootApi = "https://edition-bohemica.eu";
-        break;
-
-    case "development":
-        rootApi = "http://localhost:3666";
-        break;
-
-    default: console.error(`Unknown environment ${process.env.NODE_ENV}!`);
-}
+import { version } from "../../package.json";
 
 export default {
     BUILD_NUMBER: process.env.npm_config_buildNumber || "",
     ENVIRONMENT: process.env.NODE_ENV || "",
-    ROOT_API: rootApi,
+    ROOT_API: "https://api.editionbohemica.de",
     VERSION: version
 };
