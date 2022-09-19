@@ -16,13 +16,13 @@
                         <label>{{ $t("general.yourMessage") }}</label>
                         <textarea class="form-control" rows="7" v-model="message"></textarea>
                     </div>
-                    <!-- <div class="form-group mt-4">
-                        <vue-recaptcha sitekey="6LfMimwUAAAAAFHmKMcJ3ezGvMaG9uq6kLliVhaX">                            
-                        </vue-recaptcha>                        
+                    <div class="form-group mt-4">
+                        <!-- <vue-recaptcha sitekey="6LfMimwUAAAAAFHmKMcJ3ezGvMaG9uq6kLliVhaX">                            
+                        </vue-recaptcha>                         -->
                         <button type="submit" class="btn btn-primary mt-4">
                             {{ $t("general.send") }}
                         </button>
-                    </div> -->
+                    </div>
                 </form>
             </div>
             <div class="col-2"></div>
