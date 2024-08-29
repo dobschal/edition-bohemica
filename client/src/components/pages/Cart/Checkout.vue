@@ -60,12 +60,12 @@
                         </div>
                         <p class="mb-1"><small><i>{{ product.subtitle }}</i></small></p>
                         <small>
-                            <b>ISBN: </b> {{ product.isbn }}<br>
+                            <b>ISBN: </b> {{ product.isbn }}<br>
                             <b>{{ $t("general.amount") }}</b>: {{ product.amount }}
                         </small>
                     </li>
                 </ul>
-                <h4 class="total-price">{{ $t("general.totalPrice") }}<br><small>{{ totalPrice | price }}</small></h4>
+                <h4 class="total-price">{{ $t("general.totalPrice") }}<br><small>{{ totalPrice | price }}</small></h4>
                 <div class="alert alert-info">
                     {{ $t("cart.info") }}
                 </div>

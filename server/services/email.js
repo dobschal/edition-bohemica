@@ -78,7 +78,7 @@ function sendContactEmail( title, message, sendersEmail )
  *  @param {object} data - data for the template
  *  @returns {promise} sendingMail
  */
-function  sendOrderEmailToProducer( data )
+function  sendOrderEmailToProducer( data )
 {
     data = JSON.parse( JSON.stringify(data) );
     data.totalPrice = parseFloat( data.totalPrice ).toFixed(2).replace(".", ",");

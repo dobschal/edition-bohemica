@@ -2,7 +2,7 @@ const express           = require('express');
 const Article           = require("../models/Article");
 const ArticleComment    = require("../models/ArticleComment");
 const security          = require("../services/security");
-const { userRoles }     = security;
+const { userRoles }     = security;
 const uploader          = require("../uploadHandlers/articleImage");
 const fs                = require("fs");
 
@@ -18,7 +18,7 @@ module.exports = function ( io ) {
         });
     });
 
-    router.post('/articles/:articleId/comment', security.protect([  userRoles.USER ]), function(req, res, next) {
+    router.post('/articles/:articleId/comment', security.protect([  userRoles.USER ]), function(req, res, next) {
         const { content } = req.body;
         const { articleId } = req.params;
         const { username } = req.tokenData;
@@ -168,7 +168,7 @@ module.exports = function ( io ) {
                 break;
                 case "wanttodelete":
                     let path = file.replace(protocoll + "://" + req.headers.host + "/", "");
-                    if( path.includes("http://") || path.includes("http://") )
+                    if( path.includes("http://") || path.includes("http://") )
                     {
                         return console.log("[Article] Unable to load delete external image.");
                     }

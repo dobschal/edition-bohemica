@@ -1,13 +1,13 @@
 const express           = require('express');
 const Porto           = require("../models/Porto");
 const security          = require("../services/security");
-const { userRoles }     = security;
+const { userRoles }     = security;
 
 const router  = express.Router();
 
 module.exports = function ( io ) {    
 
-    router.post('/porto', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
+    router.post('/porto', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
         let porto = new Porto(req.body);
         porto.save((err, portoInDB) => {
             if (err) return next( err );
@@ -15,7 +15,7 @@ module.exports = function ( io ) {
         });
     });
 
-    router.delete('/porto/:id', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
+    router.delete('/porto/:id', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
         Porto.find({ "_id": req.params.id }).remove( ( err ) => {
             if (err) return next( err );
             res.send({ success: true, info: "Remvoed porto from database." });

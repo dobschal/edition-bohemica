@@ -4,9 +4,9 @@
             <div class="col-12">
                 <form @submit.prevent="save" class="mt-4">
                     <vue-editor :editorToolbar="customToolbar" v-model="contentItem.text"></vue-editor>
-                    <button type="submit" class="btn btn-primary mt-4">{{ $t("general.save") }}</button>
-                    <router-link to="/admin/content" class="btn btn-secondary mt-4">{{ $t("general.cancel") }}</router-link>
-                </form>        
+                    <button type="submit" class="btn btn-primary mt-4">{{ $t("general.save") }}</button>
+                    <router-link to="/admin/content" class="btn btn-secondary mt-4">{{ $t("general.cancel") }}</router-link>
+                </form>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@ export default {
             }
             catch(e)
             {
-                console.error("[EditContent] Unable to save content.", e);   
+                console.error("[EditContent] Unable to save content.", e);
                 toastr.error( this.$t("general.error.save") );
             }
         },

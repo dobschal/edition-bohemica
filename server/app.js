@@ -14,21 +14,22 @@ const mm            = require("mongodb-migrations");
 //  Get database connection and execute db migration scripts
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Database connection error: '));
-db.once('open', () => { 
+db.once('open', () => {
     console.log("[app.js] Successfully connected to database.");
-    var migrator = new mm.Migrator({ url: process.env.DB_Path || "mongodb://localhost/edition-bohemica" });
+    var migrator = new mm.Migrator({ url: process.env.DB_Path || "mongodb://mongodb/edition-bohemica" });
     migrator.runFromDir(path.join(__dirname, "dbMigration"), (err, result) => {
         if (err) throw new Error("[app.js] Error while database migration: " + err.message);
     });
 });
 
-mongoose.connect( process.env.DB_Path || "mongodb://localhost/edition-bohemica" );
+mongoose.connect( process.env.DB_Path || "mongodb://mongodb/edition-bohemica" );
 
 //  Configure express app
 var app = express();
     app.use(cors());
     app.use(logger('dev'));
-    app.use("/client", express.static( __dirname + "/../client/build" ));
+    app.use("/", express.static( __dirname + "/../client/build" ));
+    app.use("/uploads", express.static( __dirname + "/uploads" ));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cookieParser());
@@ -39,7 +40,7 @@ const io            = require('socket.io')(http);
 //  Get all route handlers
 fs.readdirSync( __dirname + "/routes" ).forEach( filename => {
     const routeHandler = require( __dirname + "/routes/" + filename );
-    app.use("/", routeHandler( io ));
+    app.use("/api", routeHandler( io ));
 });
 
 // Catch 404 and forward to error handler
@@ -69,8 +70,8 @@ fs.readdirSync( __dirname + "/socketListeners" ).forEach( filename => {
 //  On new connection from client, attach listeners
 io.on('connection', function( connection ) {
     socketListeners.forEach( socketListener => {
-        connection.on( 
-            socketListener.name, 
+        connection.on(
+            socketListener.name,
             socketListener.listener.bind({
                 io, connection
             })
@@ -79,7 +80,7 @@ io.on('connection', function( connection ) {
 });
 
 // TODO: put port into environment variables
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 http.listen( port, () => {
   console.log('[App] Listen to port ' + port);
 });

@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-xs-6">
-                            <h1>{{ title }}</h1>
+                            <h1>{{ title }}</h1>
                         </div>
                         <div class="col-3 col-xs-3 user-amount"
                              v-tooltip="$t('general.userInfo')">

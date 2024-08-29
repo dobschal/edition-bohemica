@@ -19,7 +19,7 @@
                  v-for="product in products" :key="product._id">
                 <div class="card">
                     <img class="card-img-top"
-                         :src="product.image || '/static/placeholder-image.jpg'"
+                         :src="product.image || '/static/placeholder-image.jpg'"
                          :alt="product.title">
                     <div class="card-body d-flex align-items-end flex-column">
                         <h5 class="align-self-start card-title">{{ product.title
@@ -27,7 +27,7 @@
                         <p class="align-self-start card-text">{{
                             product.subtitle }}</p>
                         <div class="mt-auto">
-                            <span class="price-info">{{ product.price | price }}</span>
+                            <span class="price-info">{{ product.price | price }}</span>
                             <router-link v-tooltip="$t('product.toDetails')"
                                          :to="'/product/' + product._id"
                                          class="product-action">Zum Produkt
@@ -47,7 +47,7 @@
                  v-for="product in productsInPreparation" :key="product._id">
                 <div class="card">
                     <img class="card-img-top"
-                         :src="product.image || '/static/placeholder-image.jpg'"
+                         :src="product.image || '/static/placeholder-image.jpg'"
                          :alt="product.title">
                     <div class="card-body d-flex align-items-end flex-column">
                         <h5 class="align-self-start card-title">{{ product.title
@@ -55,7 +55,7 @@
                         <p class="align-self-start card-text">{{
                             product.subtitle }}</p>
                         <div class="mt-auto">
-                            <span class="price-info">{{ product.price | price }}</span>
+                            <span class="price-info">{{ product.price | price }}</span>
                             <router-link v-tooltip="$t('product.toDetails')"
                                          :to="'/product/' + product._id"
                                          class="product-action">Zum Produkt

@@ -2,10 +2,10 @@
     <div class="page-wrapper">
         <div v-if="product" class="row">
             <div class="col-sm-4">
-                <img :src="product.image || '/static/placeholder-image.jpg'">
+                <img :src="product.image || '/static/placeholder-image.jpg'">
             </div>
             <div class="col-sm-8 info-area top">
-                <h3>{{ product.title }}<br><small>{{ product.subtitle}}</small></h3>                
+                <h3>{{ product.title }}<br><small>{{ product.subtitle}}</small></h3>
                 <div class="group">
                     <div class="caption">{{ $t("general.price") }}</div>
                     {{ product.price | price }}
@@ -40,7 +40,7 @@
                     <div v-html="product.additionalInfo"></div>
                 </div>
                 <!--<div class="group">
-                    <button class="btn btn-secondary" @click="$router.go(-1)">{{ $t("general.back") }}</button>                    
+                    <button class="btn btn-secondary" @click="$router.go(-1)">{{ $t("general.back") }}</button>
                 </div>-->
             </div>
         </div>
@@ -119,7 +119,7 @@ export default {
     //padding-bottom: 16px;
     .col-sm-4
     {
-        padding: 0 0 24px 0;        
+        padding: 0 0 24px 0;
         img
         {
             width: 100%;
@@ -147,7 +147,7 @@ export default {
             padding-bottom: 24px;
             .caption
             {
-                @include font5( $color: rgba($darkBlue, 0.5), $lineHeight: 12px );            
+                @include font5( $color: rgba($darkBlue, 0.5), $lineHeight: 12px );
             }
         }
 

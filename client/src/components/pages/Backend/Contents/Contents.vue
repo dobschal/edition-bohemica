@@ -15,7 +15,7 @@
 
 <script>
 
-import { HTTP } from "../../../../util";
+import { HTTP } from "../../../../util";
 import toastr from "toastr";
 
 export default {
@@ -28,16 +28,16 @@ export default {
     },
     mounted()
     {
-        this.$emit("change-title",  this.$t("backend.contents.title") );        
+        this.$emit("change-title",  this.$t("backend.contents.title") );
     },
     created()
     {
         this.loadContents()
     },
     methods:
-    {        
+    {
         async loadContents()
-        {            
+        {
             try
             {
                 const response = await HTTP().get("/content");

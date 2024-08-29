@@ -2,6 +2,54 @@
 
 > [Edition Bohemica](https://edition-bohemica.de)
 
+## Hosting
+
+There is a Hetzner VM running with Docker and Ubuntu.
+
+## Deployment via Docker
+
+First create a volume to have the MongoDB and uploads persisted:
+```bash
+docker volume create db-volume
+docker volume create uploads-volume
+```
+
+Create the docker network:
+```bash
+docker network create edition-bohemica
+```
+
+Then start the MongoDB containers via docker compose:
+```bash
+docker compose up -d
+```
+
+Inside the docker compose file, there is a path to an old backup of the mongodb. That is copied as a volume into the container. 
+Open a shell in the container and restore the backup:
+```bash
+docker exec -it mongodb sh
+mongorestore --verbose --db edition-bohemica /dump
+```
+
+## Nginx
+
+???
+
+## SSL Certificates
+
+???
+
+## CI/CD Pipeline
+
+???
+
+---
+OLD stuff below...
+
+
+
+
+
 ## Deployment
 
 Just log into server via SSH and fetch/pull the latest changes to `/root/NodeJS/edition-bohemica`.

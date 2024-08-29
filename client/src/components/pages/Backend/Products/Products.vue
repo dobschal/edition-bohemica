@@ -6,7 +6,7 @@
                 <div class="col-1">#</div>
                 <div class="col-5">{{ $t("general.title") }}</div>
                 <div class="col-2">{{ $t("general.public") }}</div>
-                <div class="col-4">{{ $t("general.actions") }}</div>
+                <div class="col-4">{{ $t("general.actions") }}</div>
             </div>
             <draggable v-model="products" @update="sortChanged">
                 <transition-group>
@@ -18,22 +18,22 @@
                             <span v-else  class="text-danger">{{ $t("general.no") }}</span>
                         </div>
                         <div class="col-4">
-                            <div 
+                            <div
                                 @click="publish(product)"
-                                v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')" 
-                                class="action" 
+                                v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')"
+                                class="action"
                                 :class="{ 'hide': product.public, 'publish': !product.public}" >
                             </div>
 
-                            <div 
-                                @click="edit(product)" 
-                                v-tooltip="$t('general.edit')" 
+                            <div
+                                @click="edit(product)"
+                                v-tooltip="$t('general.edit')"
                                 class="action edit" >
                             </div>
 
-                            <div 
-                                @click="remove(product)" 
-                                v-tooltip="$t('general.delete')" 
+                            <div
+                                @click="remove(product)"
+                                v-tooltip="$t('general.delete')"
                                 class="action remove" >
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                 <div class="col-1">#</div>
                 <div class="col-5">{{ $t("general.title") }}</div>
                 <div class="col-2">{{ $t("general.public") }}</div>
-                <div class="col-4">{{ $t("general.actions") }}</div>
+                <div class="col-4">{{ $t("general.actions") }}</div>
             </div>
             <draggable v-model="products" @update="sortChanged">
                 <transition-group>
@@ -60,22 +60,22 @@
                             <span v-else  class="text-danger">{{ $t("general.no") }}</span>
                         </div>
                         <div class="col-4">
-                            <div 
+                            <div
                                 @click="publish(product)"
-                                v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')" 
-                                class="action" 
+                                v-tooltip="product.public ? $t('general.unpublish') : $t('general.publish')"
+                                class="action"
                                 :class="{ 'hide': product.public, 'publish': !product.public}" >
                             </div>
 
-                            <div 
-                                @click="edit(product)" 
-                                v-tooltip="$t('general.edit')" 
+                            <div
+                                @click="edit(product)"
+                                v-tooltip="$t('general.edit')"
                                 class="action edit" >
                             </div>
 
-                            <div 
-                                @click="remove(product)" 
-                                v-tooltip="$t('general.delete')" 
+                            <div
+                                @click="remove(product)"
+                                v-tooltip="$t('general.delete')"
                                 class="action remove" >
                             </div>
                         </div>
@@ -94,7 +94,7 @@
 
 <script>
 
-import { HTTP } from "../../../../util";
+import { HTTP } from "../../../../util";
 import draggable from 'vuedraggable';
 import toastr from "toastr";
 
@@ -112,7 +112,7 @@ export default {
     },
     mounted()
     {
-        this.$emit("change-title",  this.$t("backend.overview.products") );        
+        this.$emit("change-title",  this.$t("backend.overview.products") );
     },
     created()
     {
@@ -121,7 +121,7 @@ export default {
     methods:
     {
         async sortChanged(event)
-        {         
+        {
             try
             {
                 this.products = this.products.map( (product, index) => {
@@ -137,7 +137,7 @@ export default {
             }
         },
         async loadProducts()
-        {            
+        {
             try
             {
                 const response = await HTTP().get("/products");

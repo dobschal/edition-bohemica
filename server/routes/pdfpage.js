@@ -1,7 +1,7 @@
 const express           = require('express');
 const PDFPage           = require("../models/PDFPage");
 const security          = require("../services/security");
-const { userRoles }     = security;
+const { userRoles }     = security;
 const uploader          = require("../uploadHandlers/pdf");
 
 const router  = express.Router();
@@ -10,7 +10,7 @@ module.exports = function ( io ) {
 
     router.put(
         '/pdfpage/:pdfPageId', 
-        security.protect([  userRoles.USER, userRoles.ADMIN ]), 
+        security.protect([  userRoles.USER, userRoles.ADMIN ]), 
         uploader.single("new_pdf"), 
         function(req, res, next) 
     {
@@ -28,7 +28,7 @@ module.exports = function ( io ) {
     });
 
     router.get('/pdfpage', function(req, res, next) {
-        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
         PDFPage.find(( err, pdfPagesInDB ) => {
             if (err) return next( err );
             res.send( pdfPagesInDB.map( pdfPage => {
@@ -43,7 +43,7 @@ module.exports = function ( io ) {
 
     router.get('/pdfpage/:pdfPageId', function(req, res, next) {
         const {pdfPageId } = req.params;
-        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
+        const protocoll = process.env.PROTOCOL || "https";//req.connection.encrypted ? "https" : "http";
         PDFPage.findById( { _id: pdfPageId }, ( err, pdfPage ) => {
             if (err) return next( err );            
             if (!pdfPage)

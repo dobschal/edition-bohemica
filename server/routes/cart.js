@@ -1,7 +1,7 @@
 const express           = require('express');
 const security          = require("../services/security");
-const { userRoles }     = security;
-const { sendOrderEmailToCustomer, sendOrderEmailToProducer } = require("../services/email");
+const { userRoles }     = security;
+const { sendOrderEmailToCustomer, sendOrderEmailToProducer } = require("../services/email");
 const Order             = require("../models/Order");
 
 const router  = express.Router();

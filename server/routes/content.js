@@ -1,13 +1,13 @@
 const express           = require('express');
 const Content           = require("../models/Content");
 const security          = require("../services/security");
-const { userRoles }     = security;
+const { userRoles }     = security;
 
 const router  = express.Router();
 
 module.exports = function ( io ) {    
 
-    router.put('/content/:contentId', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
+    router.put('/content/:contentId', security.protect([  userRoles.USER, userRoles.ADMIN ]), function(req, res, next) {
         const { contentId } = req.params;
         let updatedContent = new Content(req.body);        
         Content.findOneAndUpdate( { id: contentId }, updatedContent, { new: true }, ( err, updatedContentInDB ) => {
