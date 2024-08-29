@@ -9,6 +9,6 @@ import { version } from "../../package.json";
 export default {
     BUILD_NUMBER: process.env.npm_config_buildNumber || "",
     ENVIRONMENT: process.env.NODE_ENV || "",
-    ROOT_API: "http://localhost:3000/api",
+    ROOT_API: "https://editionbohemica.de/api",
     VERSION: version
 };
