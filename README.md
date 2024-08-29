@@ -1,12 +1,13 @@
-# edition-bohemica
+# _edition bohemica_
 
 ![Hetzner Deployment](https://github.com/dobschal/edition-bohemica/actions/workflows/main.yml/badge.svg)
 
-> [Edition Bohemica](https://edition-bohemica.de)
+> App should be available here: [Edition Bohemica](https://edition-bohemica.de)
 
 ## Hosting
 
 There is a Hetzner VM running with Docker and Ubuntu.
+Domain lay at IONOS and have a DNS A record pointing to the VM.
 
 ## CI Deployment via GitHub Pipeline
 
@@ -54,44 +55,12 @@ Because the network is setup via Docker.
 
 ## Nginx
 
-???
+We are just using the Node exposed port 3000 and redirecting it via Nginx to the domain.
+There are no static files served via Nginx.
 
 ## SSL Certificates
 
-???
+We use certbot with letsencrypt to get the certificates.
+https://www.youtube.com/watch?v=ghZXFyIyK1o
 
-## CI/CD Pipeline
-
-???
-
----
-OLD stuff below...
-
-
-
-
-
-## Deployment
-
-Just log into server via SSH and fetch/pull the latest changes to `/root/NodeJS/edition-bohemica`.
-
-Run NPM install...
-
-Run the server with PM2:
-```bash
-pm2 restart edition-bohemica
-
-# or complete start
-pm2 stop all
-pm2 delete edition-bohemica
-pm2 start app.js --name edition-bohemica
-```
-
-Build client with
-```bash
-npm run build:prod
-```
-
-Everything else is setup via Nginx
-
-For the server all secrets are stored in the .env file.
+The certs are renewed automatically via a cronjob.
