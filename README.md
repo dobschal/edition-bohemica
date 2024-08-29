@@ -1,10 +1,17 @@
 # edition-bohemica
 
+![Hetzner Deployment](https://github.com/dobschal/edition-bohemica/actions/workflows/main.yml/badge.svg)
+
 > [Edition Bohemica](https://edition-bohemica.de)
 
 ## Hosting
 
 There is a Hetzner VM running with Docker and Ubuntu.
+
+## CI Deployment via GitHub Pipeline
+
+Check the workflow in the .github folder.
+It connects to the Hetzner VM via SSH, fetches the latest changes, builds the docker image and restarts the server.
 
 ## Deployment via Docker
 
