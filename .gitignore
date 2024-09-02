@@ -8,3 +8,4 @@ server/uploads/
 /client/.idea
 /server/.idea
 /client/src/.DS_Store
+.DS_Store
