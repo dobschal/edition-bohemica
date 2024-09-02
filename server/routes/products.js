@@ -92,9 +92,8 @@ module.exports = function ( io ) {
         const { productId } = req.params;
         const protocoll = process.env.PROTOCOL || "https";
         Product.findById( productId, ( err, productFromDB ) => {
-            if (err) return next( err );
-            if(productFromDB.image)
-            {
+            if (err || !productFromDB) return next( err );
+            if(productFromDB.image) {
                 productFromDB.image = protocoll + "://" + req.headers.host + "/" + productFromDB.image;
             }
             res.send( productFromDB );
