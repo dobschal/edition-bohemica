@@ -9,3 +9,5 @@ server/uploads/
 /server/.idea
 /client/src/.DS_Store
 .DS_Store
+/server/dump-old-db/.DS_Store
+/.DS_Store

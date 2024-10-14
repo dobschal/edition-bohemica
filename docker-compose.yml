@@ -10,7 +10,7 @@ services:
     networks:
       - edition-bohemica
     volumes:
-        - uploads-volume:/server/uploads
+        - uploads-volume:/usr/src/app/server/uploads
 
   mongodb:
     container_name: mongodb

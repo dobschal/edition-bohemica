@@ -22,12 +22,5 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.HOST }}
 
-      - name: Check out the source
-        run: ssh hetzner 'cd /root/deployments/edition-bohemica && git fetch && git reset --hard origin/master'
-
-      - name: Stop old server and build new image
-        run: ssh hetzner 'cd /root/deployments/edition-bohemica && docker compose down app && docker compose build app --no-cache'
-
-      - name: Start the server
-        if: ${{ always() }}
-        run: ssh hetzner 'cd /root/deployments/edition-bohemica && docker compose up -d'
+      - name: Deploy
+        run: ssh hetzner 'cd /root/deployments/edition-bohemica && ./restart.sh'      
