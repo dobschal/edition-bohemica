@@ -13,7 +13,7 @@ export default {
             sidebarToggled: false,
             isSmallScreen: false,
             title: "",
-            userAmount: 173000 + this.$store.getters.userAmount // old amount plus real one
+            userAmount: 305100 + this.$store.getters.userAmount // old amount plus real one
         };
     },
     watch: {
