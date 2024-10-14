@@ -52,6 +52,10 @@ show databases
 The URL in the server app to the mongo db needs to be changed to `mongodb://mongodb:27017/edition-bohemica`.
 Because the network is setup via Docker.
 
+### Backups
+
+Checkout the backup.sh script. It copies all relevant files into `~/backups` on the machine.
+
 
 ## Nginx
 

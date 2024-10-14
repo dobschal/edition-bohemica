@@ -1,0 +1,8 @@
+# Go to correct workfolder
+cd /root/deployments/edition-bohemica
+
+# sh into the docker container and run the standard mongo db dump method
+docker exec -i mongodb mongodump
+
+# Copy all files out of the container into a backup folder
+docker cp mongodb:/dump /root/backups/mongodb
