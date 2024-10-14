@@ -2,6 +2,7 @@
 /server/node_modules
 /client/node_modules
 server/uploads/
+/server/uploads/
 /client/build
 /client/webpack-cache
 /client/static/build-number.txt

@@ -10,7 +10,9 @@ services:
     networks:
       - edition-bohemica
     volumes:
-        - uploads-volume:/usr/src/app/server/uploads
+      - type: bind
+        source: ./server/uploads
+        target: /usr/src/app/server/uploads
 
   mongodb:
     container_name: mongodb
