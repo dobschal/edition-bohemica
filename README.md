@@ -55,7 +55,7 @@ Because the network is setup via Docker.
 ### Backups
 
 Checkout the backup.sh script. It copies all relevant files into `~/backups` on the machine.
-
+In the standard ubuntu cron job folder, a SH script exists, to make the backups.
 
 ## Nginx
 
