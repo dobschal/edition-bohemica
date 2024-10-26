@@ -6,31 +6,31 @@ const Order             = require("../models/Order");
 
 const router  = express.Router();
 
-module.exports = function ( io ) {    
+module.exports = function ( io ) {
 
     router.post('/cart/submit', function(req, res, next) {
 
         Order.count( (err, amount ) => {
             if(err) return next(err);
 
-            orderId = (new Date()).getFullYear() + "-" + (( amount || 0 ) + 1);
+            orderId = (new Date()).getFullYear() + "-" + (( amount || 0 ) + 38);
 
             //  input data
-            const { 
-                cart, 
-                totalPrice, 
-                totalPorto, 
-                country, 
-                name, 
-                city, 
-                street, 
-                houseNumber, 
-                zipCode, 
+            const {
+                cart,
+                totalPrice,
+                totalPorto,
+                country,
+                name,
+                city,
+                street,
+                houseNumber,
+                zipCode,
                 email
-            } = req.body;          
+            } = req.body;
 
             //  order model instance from input data
-            let order = new Order({                
+            let order = new Order({
                 products: cart.map( product => {
                     return {
                         hasPorto: product.hasPorto,
@@ -66,7 +66,7 @@ module.exports = function ( io ) {
                 });
             });
         });
-        
+
     });
 
     return router;
