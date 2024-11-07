@@ -23,4 +23,4 @@ jobs:
           SSH_HOST: ${{ secrets.HOST }}
 
       - name: Deploy
-        run: ssh hetzner 'cd /root/deployments/edition-bohemica && ./restart.sh'      
+        run: ssh hetzner 'cd /root/deployments/edition-bohemica && chmod +x restart.sh && ./restart.sh'
