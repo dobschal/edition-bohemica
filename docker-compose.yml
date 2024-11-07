@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mongodb
     ports:
       - "3000:3000"
     networks:
@@ -16,6 +19,7 @@ services:
 
   mongodb:
     container_name: mongodb
+    restart: always
     image: mongo:2.6.12
     ports:
       - "27017:27017"
