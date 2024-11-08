@@ -21,9 +21,6 @@ services:
     container_name: mongodb
     restart: always
     image: mongo:2.6.12
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=Caban0ss!
     ports:
       - "27017:27017"
     volumes:

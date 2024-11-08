@@ -36,7 +36,10 @@ Inside the docker compose file, there is a path to an old backup of the mongodb.
 Open a shell in the container and restore the backup:
 ```bash
 docker exec -it mongodb sh
-mongorestore --verbose --db edition-bohemica /dump
+mongorestore --verbose --db edition-bohemica /dump/edition-bohemica
+```
+
+Then start the server container:
 ```
 
 Interact with mongodb
