@@ -16,13 +16,13 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Database connection error: '));
 db.once('open', () => {
     console.log("[app.js] Successfully connected to database.");
-    var migrator = new mm.Migrator({ url: process.env.DB_Path || "mongodb://mongodb/edition-bohemica" });
+    var migrator = new mm.Migrator({ url: process.env.DB_Path || "mongodb://root:Caban0ss!@mongodb/edition-bohemica" });
     migrator.runFromDir(path.join(__dirname, "dbMigration"), (err, result) => {
         if (err) throw new Error("[app.js] Error while database migration: " + err.message);
     });
 });
 
-mongoose.connect( process.env.DB_Path || "mongodb://mongodb/edition-bohemica" );
+mongoose.connect( process.env.DB_Path || "mongodb://root:Caban0ss!@mongodb/edition-bohemica" );
 
 //  Configure express app
 var app = express();
