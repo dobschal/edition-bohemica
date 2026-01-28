@@ -208,7 +208,6 @@
     }
 
     .banner {
-        background-image: url("../../assets/banner.png");
         width: 250px;
         height: 39px;
         background-size: 350px auto;
