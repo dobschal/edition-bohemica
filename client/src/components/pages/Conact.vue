@@ -16,9 +16,15 @@
                         <label>{{ $t("general.yourMessage") }}</label>
                         <textarea class="form-control" rows="7" v-model="message"></textarea>
                     </div>
+                    <div class="honeypot-field" aria-hidden="true">
+                        <label>Website</label>
+                        <input type="text" tabindex="-1" autocomplete="off" v-model="website">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ $t("general.mathChallenge", { a: challengeA, b: challengeB }) }}</label>
+                        <input type="text" inputmode="numeric" class="form-control" v-model="challengeAnswer">
+                    </div>
                     <div class="form-group mt-4">
-                        <!-- <vue-recaptcha sitekey="6LfMimwUAAAAAFHmKMcJ3ezGvMaG9uq6kLliVhaX">                            
-                        </vue-recaptcha>                         -->
                         <button type="submit" class="btn btn-primary mt-4">
                             {{ $t("general.send") }}
                         </button>
@@ -34,33 +40,48 @@
 
 import { HTTP } from "../../util";
 import toastr from "toastr";
-import VueRecaptcha from 'vue-recaptcha';
 
 export default {
-    components: { VueRecaptcha },
     data() {
         return {
             title: "",
             message: "",
             email: "",
+            website: "",
+            challengeA: 0,
+            challengeB: 0,
+            challengeAnswer: "",
             isNotSent: true
         };
     },
+    created() {
+        this.generateChallenge();
+    },
     methods:
     {
+        generateChallenge() {
+            this.challengeA = Math.floor(Math.random() * 9) + 1;
+            this.challengeB = Math.floor(Math.random() * 9) + 1;
+            this.challengeAnswer = "";
+        },
         async send() {
             try {
                 if (!this.title || !this.email) {
                     return toastr.error(this.$t("general.error.missingInput"));
                 }
-                // if (!grecaptcha.getResponse()) {
-                //     return toastr.error(this.$t("general.captchaMessage"));
-                // }
+                const expected = this.challengeA + this.challengeB;
+                if (parseInt(this.challengeAnswer, 10) !== expected) {
+                    this.generateChallenge();
+                    return toastr.error(this.$t("general.error.mathChallenge"));
+                }
                 const response = await HTTP().post("/contact", {
                     title: this.title,
                     message: this.message,
-                    email: this.email
-                    // captcha: grecaptcha.getResponse()
+                    email: this.email,
+                    website: this.website,
+                    challengeA: this.challengeA,
+                    challengeB: this.challengeB,
+                    challengeAnswer: this.challengeAnswer
                 });
                 toastr.success(this.$t("contact.sent"));
                 this.$router.push("/");
@@ -68,6 +89,7 @@ export default {
             catch (e) {
                 console.error("[Contact] Error on sending contact email: ", e);
                 toastr.error(this.$t("contact.error.send"));
+                this.generateChallenge();
             }
 
         }
@@ -75,3 +97,13 @@ export default {
 }
 </script>
 
+<style scoped>
+.honeypot-field {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+</style>

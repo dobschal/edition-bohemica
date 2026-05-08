@@ -66,6 +66,7 @@ export default {
         general: {
             isInPreparation: "Is in preparation?",
             captchaMessage: "Please check the captcha.",
+            mathChallenge: "Anti-Spam: What is {a} + {b}?",
             contact: "Contact",
             send: "Send",
             yourMessage: "Your Message",
@@ -113,7 +114,8 @@ export default {
                 save: "Error while saving data.",
                 delete: "Error while deleting data.",
                 load: "Error while loading data!",
-                priceFormat: "Price needs to be a number"
+                priceFormat: "Price needs to be a number",
+                mathChallenge: "The result of the calculation is wrong. Please try again."
             }
         },
         navigation: {
@@ -256,6 +258,7 @@ export default {
         general: {
             isInPreparation: "Ist in Vorbereitung?",
             captchaMessage: "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
+            mathChallenge: "Spam-Schutz: Was ergibt {a} + {b}?",
             contact: "Kontakt",
             send: "Abschicken",
             yourMessage: "Ihre Nachricht",
@@ -303,7 +306,8 @@ export default {
                 save: "Beim Speichern ist ein Fehler aufgetreten.",
                 delete: "Beim Löschen ist ein Fehler aufgetreten.",
                 load: "Beim Laden der Daten ist ein Fehler aufgetreten!",
-                priceFormat: "Der Preis muss eine Zahl sein. Z.B. 19,50 oder 500"
+                priceFormat: "Der Preis muss eine Zahl sein. Z.B. 19,50 oder 500",
+                mathChallenge: "Das Ergebnis der Rechenaufgabe ist nicht korrekt. Bitte versuchen Sie es erneut."
             }
         },
         navigation: {
