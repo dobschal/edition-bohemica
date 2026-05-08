@@ -27,6 +27,15 @@
             {
                 background-color: rgba($info, 1.0);
             }
-        }            
+        }
+        &.toast-error
+        {
+            background-color: rgba($danger, 0.9);
+            color: #fff;
+            &:hover
+            {
+                background-color: rgba($danger, 1.0);
+            }
+        }
     }
 }
