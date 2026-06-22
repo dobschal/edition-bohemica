@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" href="/withdrawalForCustomer/style.css" data-inline>
+</head>
+<body>
+    <div class="container">
+        <h1>edition bohemica</h1>
+        <img src="https://editionbohemica.de/logo.jpg" class="logo">
+        <p><b>Sehr geehrte(r) <%= name %>,</b></p>
+        <p>wir bestätigen Ihnen den Eingang Ihres Widerrufs. Diese E-Mail dient als Bestätigung über den Zugang Ihrer Widerrufserklärung auf einem dauerhaften Datenträger.</p>
+
+        <h2>Ihr Widerruf</h2>
+        <div class="row">
+            <div class="col-50">Name</div>
+            <div class="col-50"><%= name %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Bestellnummer</div>
+            <div class="col-50"><%= orderId %></div>
+        </div>
+        <div class="row">
+            <div class="col-50">Ihre E-Mail</div>
+            <div class="col-50"><%= customersEmail %></div>
+        </div>
+
+        <p>Im Falle eines wirksamen Widerrufs erstatten wir Ihnen alle erhaltenen Zahlungen unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurück, an dem die Mitteilung über Ihren Widerruf bei uns eingegangen ist. Sofern Sie die Ware bereits erhalten haben, senden Sie diese bitte unverzüglich und in jedem Fall spätestens binnen vierzehn Tagen an uns zurück.</p>
+
+        <p class="footer">
+            <b>Dies ist eine automatisch erstellte E-Mail: </b><br>
+            Bei Fragen oder Änderungswünschen schicken Sie bitte eine E-Mail an info@edition-bohemica.de oder melden Sie sich telefonisch unter 0049 (0) 160 290 4288.
+            <br><br>
+        </p>
+        <p>
+            <b>Mit freundlichen Grüßen</b><br>
+            Andreas W. Petrak
+        </p>
+    </div>
+</body>

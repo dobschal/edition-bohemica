@@ -15,6 +15,21 @@ export default {
                 send: "Error while sending message!"
             }
         },
+        withdrawal:
+        {
+            title: "Withdraw from contract",
+            description: "<p>As a consumer you have the right to withdraw from this contract within 14 days without giving any reason. The withdrawal period is 14 days from the day on which you, or a third party named by you who is not the carrier, took possession of the goods.</p><p>To exercise your right of withdrawal, you must inform us (edition bohemica, Andreas W. Petrak, info@edition-bohemica.de) by means of a clear statement (e.g. a letter sent by post or an e-mail) of your decision to withdraw from this contract. You may use the form below, but it is not mandatory. To meet the withdrawal deadline, it is sufficient that you send your notice before the withdrawal period has expired.</p><p>If you withdraw from this contract, we will reimburse all payments received from you without undue delay and at the latest within 14 days. After submitting the form you will receive a confirmation of receipt by e-mail.</p>",
+            name: "Name",
+            orderId: "Order number",
+            email: "E-Mail",
+            emailInfo: "Please use the e-mail address you used for your order. You will receive a confirmation of receipt at this address.",
+            submit: "Send withdrawal",
+            sent: "Your withdrawal has been received. You will shortly receive a confirmation by e-mail.",
+            error:
+            {
+                send: "Error while sending the withdrawal. Please try again later."
+            }
+        },
         cart:
         {
             info: "After submitting the form you will get an email with the payment information.",
@@ -138,7 +153,8 @@ export default {
             trader: "Trader",
             data: "Datenschutz",
             agb: "AGB",
-            pdf: "Upload PDF"
+            pdf: "Upload PDF",
+            withdrawal: "Withdraw from contract"
         },
         comingSoon:
         {
@@ -205,6 +221,21 @@ export default {
             error:
             {
                 send: "Fehler! Nachricht konnte nicht gesendet werden!"
+            }
+        },
+        withdrawal:
+        {
+            title: "Vertrag widerrufen",
+            description: "<p>Sie haben als Verbraucher das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p><p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (edition bohemica, Andreas W. Petrak, info@edition-bohemica.de) mittels einer eindeutigen Erklärung (z.&nbsp;B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das nachfolgende Formular verwenden, das jedoch nicht vorgeschrieben ist. Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p><p>Im Falle eines wirksamen Widerrufs erstatten wir Ihnen alle erhaltenen Zahlungen unverzüglich und spätestens binnen vierzehn Tagen zurück. Nach dem Absenden des Formulars erhalten Sie eine Bestätigung über den Zugang Ihres Widerrufs per E-Mail.</p>",
+            name: "Name",
+            orderId: "Bestellnummer",
+            email: "E-Mail",
+            emailInfo: "Bitte verwenden Sie die E-Mail-Adresse, mit der Sie bestellt haben. An diese Adresse senden wir Ihnen die Eingangsbestätigung.",
+            submit: "Widerruf absenden",
+            sent: "Ihr Widerruf ist bei uns eingegangen. Sie erhalten in Kürze eine Bestätigung per E-Mail.",
+            error:
+            {
+                send: "Beim Senden des Widerrufs ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
             }
         },
         cart:
@@ -330,7 +361,8 @@ export default {
             trader: "Händler",
             data: "Datenschutz",
             agb: "AGB",
-            pdf: "PDFs hochladen"
+            pdf: "PDFs hochladen",
+            withdrawal: "Vertrag widerrufen"
         },
         comingSoon:
         {

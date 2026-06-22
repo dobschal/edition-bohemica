@@ -94,6 +94,11 @@
                     <router-link to="/contact">{{ $t("general.contact") }}
                     </router-link>
                 </li>
+                <li>
+                    <router-link to="/withdrawal">{{
+                        $t("navigation.withdrawal") }}
+                    </router-link>
+                </li>
             </ul>
         </nav>
         <div class="banner"></div>

@@ -112,4 +112,34 @@ function sendOrderEmailToCustomer( customersEmail, data )
     });
 }
 
-module.exports = { sendRegistrationEmail, sendContactEmail, sendOrderEmailToCustomer, sendOrderEmailToProducer };
+/**
+ *  Sends the withdrawal ("Widerruf") notification to the publisher and a
+ *  confirmation of receipt to the customer. The confirmation on a durable
+ *  medium (e-mail) is required by § 356 Abs. 1 BGB / Art. 11 (3) Directive 2011/83/EU.
+ *  @param {string} name - name of the customer
+ *  @param {string} orderId - order number the customer wants to withdraw
+ *  @param {string} customersEmail - e-mail address of the customer
+ *  @returns {promise} sendingMails
+ */
+function sendWithdrawalEmail( name, orderId, customersEmail )
+{
+    const sendToProducer = email.send({
+        template: 'withdrawalForProducer',
+        message: {
+            to: process.env.ADMIN_EMAIL + ";" + process.env.MODERATOR_EMAIL
+        },
+        locals: { name, orderId, customersEmail, title: `Widerruf zur Bestellung ${orderId}, edition bohemica` }
+    });
+
+    const sendToCustomer = email.send({
+        template: 'withdrawalForCustomer',
+        message: {
+            to: customersEmail + ";" + process.env.ADMIN_EMAIL
+        },
+        locals: { name, orderId, customersEmail, title: `Bestätigung Ihres Widerrufs, Bestellung ${orderId}` }
+    });
+
+    return Promise.all([ sendToProducer, sendToCustomer ]);
+}
+
+module.exports = { sendRegistrationEmail, sendContactEmail, sendOrderEmailToCustomer, sendOrderEmailToProducer, sendWithdrawalEmail };

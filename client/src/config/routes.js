@@ -17,6 +17,7 @@ import ProductPage from "../components/pages/Product/Product.vue";
 import LoginPage from "../components/pages/Login.vue";
 import SimpleContentPage from "../components/pages/SimpleContent.vue";
 import ContactPage from "../components/pages/Conact.vue";
+import WithdrawalPage from "../components/pages/Withdrawal.vue";
 
 import NotFoundPage from "../components/pages/NotFound.vue";
 
@@ -31,10 +32,15 @@ import BackendPdfPage from "../components/pages/Backend/PDFPage.vue";
 // Partials
 
 export default [
-    { 
-        path: "/contact", 
-        component: MainLayout,  
-        children: [{ path: "", components: { default: ContactPage } }]        
+    {
+        path: "/contact",
+        component: MainLayout,
+        children: [{ path: "", components: { default: ContactPage } }]
+    },
+    {
+        path: "/withdrawal",
+        component: MainLayout,
+        children: [{ path: "", components: { default: WithdrawalPage } }]
     },
     { 
         path: "/cart", 
