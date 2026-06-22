@@ -1,10 +1,6 @@
 <template>
     <div class="page-wrapper">
         <div class="row" v-if="!submitted">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <h2 class="withdrawal-title">{{ $t("withdrawal.title") }}</h2>
-                <div class="withdrawal-description" v-html="$t('withdrawal.description')"></div>
                 <form @submit.prevent="send">
                     <div class="form-group">
                         <label>{{ $t("withdrawal.name") }}</label>
@@ -33,8 +29,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
-            <div class="col-2"></div>
+              <div class="withdrawal-description" v-html="$t('withdrawal.description')"></div>
         </div>
         <div class="row" v-if="submitted">
             <div class="col-2"></div>
@@ -115,6 +110,7 @@ export default {
 }
 .withdrawal-description {
     margin-bottom: 32px;
+  font-size: 14px;
 }
 .honeypot-field {
     position: absolute;
